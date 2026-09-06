@@ -996,9 +996,10 @@ Variáveis categóricas           │
 Variáveis binárias 0/1          │
         │                       │
         └── Passthrough ────────┤
-                                │
-                                ▼
+                                |
+                                V
                     Dados pré-processados
+```
 
 O pré-processador é ajustado (fit) somente sobre X_train. Depois de
 aprendidos os parâmetros necessários, o mesmo objeto é utilizado para
