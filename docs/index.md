@@ -33,12 +33,7 @@ Para isso, as manipulações e testes realizados foram feitos em um notebook do 
 ---
 
 # 1. Carregamento e inspeção inicial dos dados:
-    - Explicar cada feature do dataset.
-    - Verificar o número de instâncias e features.
-    - Identificar tipos de dados (numéricos, categóricos).
-    - Detectar valores ausentes e inconsistências.
-    - Verificar se há desbalanceamento de classes.
-    - Realizar a separação dos dados em conjuntos de treino e teste, quando necessário.
+
 
 ## 1.1 Sobre o dataset
 
@@ -230,10 +225,6 @@ A partir deste ponto, as análises exploratórias mais aprofundadas serão reali
 
 
 # 2. Análise univariada:
-
-    - Calcular estatísticas descritivas (média, mediana, desvio padrão) de todas as variáveis numéricas.
-    - Criar histogramas, boxplots e/ou violinos para variáveis numéricas (máximo 3).
-    - Para variáveis categóricas: calcular frequências e criar gráficos de barras (máximo 3).
 
 ## 2.1 Análise univariada
 

@@ -1,0 +1,5 @@
+# MkDocs build directory
+site/
+
+# MkDocs local development / state files
+.mkdocs/
