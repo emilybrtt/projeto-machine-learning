@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/solid.min.css" rel="stylesheet">
+        <link href="css/v4-font-face.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#projeto-de-machine-learning" class="nav-link">Projeto de Machine Learning</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#informacoes-gerais" class="nav-link">Informações gerais</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#objetivo" class="nav-link">Objetivo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#1-carregamento-e-inspecao-inicial-dos-dados" class="nav-link">1. Carregamento e inspeção inicial dos dados:</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#11-sobre-o-dataset" class="nav-link">1.1 Sobre o dataset</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#12-sobre-as-features-do-dataset" class="nav-link">1.2 Sobre as features do dataset</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#13-tipos-das-variaveis" class="nav-link">1.3 Tipos das variáveis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#14-valores-ausentes-e-inconsistencias" class="nav-link">1.4 Valores ausentes e inconsistências</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#15-verificacao-de-inconsistencias" class="nav-link">1.5 Verificação de inconsistências</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#16-distribuicao-da-variavel-alvo" class="nav-link">1.6 Distribuição da variável-alvo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#16-distribuicao-da-variavel-alvo_1" class="nav-link">1.6 Distribuição da variável-alvo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#17-separacao-entre-treino-e-teste" class="nav-link">1.7 Separação entre treino e teste</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#2-analise-univariada" class="nav-link">2. Análise univariada:</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#21-analise-univariada" class="nav-link">2.1 Análise univariada</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#21-estatisticas-descritivas-das-variaveis-numericas" class="nav-link">2.1 Estatísticas descritivas das variáveis numéricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#22-distribuicao-das-variaveis-numericas" class="nav-link">2.2 Distribuição das variáveis numéricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#23-investigacao-dos-potenciais-outliers" class="nav-link">2.3 Investigação dos potenciais outliers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#24-analise-das-variaveis-categoricas" class="nav-link">2.4 Análise das variáveis categóricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#25-visualizacao-das-variaveis-categoricas" class="nav-link">2.5 Visualização das variáveis categóricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#3-analise-bivariada-e-multivariada" class="nav-link">3. Análise bivariada e multivariada</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#31-correlacao-entre-variaveis-numericas" class="nav-link">3.1 Correlação entre variáveis numéricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#32-relacoes-entre-variaveis-numericas" class="nav-link">3.2 Relações entre variáveis numéricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc" class="nav-link">3.3 Relação entre variáveis categóricas e ocorrência de AVC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc" class="nav-link">3.4 Relação entre variáveis numéricas e ocorrência de AVC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#4-pre-processamento-para-modelagem" class="nav-link">4. Pré-processamento para modelagem</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#41-organizacao-das-features" class="nav-link">4.1 Organização das features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#42-tratamento-dos-valores-ausentes" class="nav-link">4.2 Tratamento dos valores ausentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#43-tratamento-de-outliers" class="nav-link">4.3 Tratamento de outliers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#44-encoding-das-variaveis-categoricas" class="nav-link">4.4 Encoding das variáveis categóricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#45-padronizacao-das-variaveis-numericas" class="nav-link">4.5 Padronização das variáveis numéricas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#46-pipeline-de-pre-processamento" class="nav-link">4.6 Pipeline de pré-processamento</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#5-documentacao-e-apresentacao" class="nav-link">5. Documentação e apresentação:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="projeto-de-machine-learning">Projeto de Machine Learning</h1>
+<h2 id="informacoes-gerais">Informações gerais</h2>
+<p><strong>Docente:</strong> Humberto Sandman</p>
+<p><strong>Integrantes:</strong>  </p>
+<ul>
+<li>
+<p>Emily Britto -- emilybg@al.insper.edu.br</p>
+</li>
+<li>
+<p>Gabriel Aguiar -- gabrielca5@al.insper.edu.br</p>
+</li>
+</ul>
+<p><strong>Data da entrega:</strong> 14/09/2026</p>
+<p><strong>Dataset escolhido:</strong> Stroke Prediction Dataset</p>
+<p><strong>Tipo de problema:</strong> Classificação</p>
+<hr />
+<h2 id="objetivo">Objetivo</h2>
+<p>Esta APS tem como objetivo desenvolver uma EDA (análise exploratória de dados) do Stroke Prediction Dataset a fim de entender a estrutura, qualidade, distribuições, relações entre variáveis (numéricas e categóricas) e desafios, como missing values e vieses, preparando para a modelagem nas fases subsequentes.</p>
+<p>Para isso, as manipulações e testes realizados foram feitos em um notebook do Google Colab (cujo link será referenciado ainda nessa seção), e, para melhor explicação das tarefas, produzimos este material complementar (e isso foi 100% por iniciativa própria e com certeza não foi porque era um requisito pra tirar ´+´... rs)</p>
+<p><a href="https://colab.research.google.com/drive/1MHs2PKBQe6oGy44FMrf2f06dGMeOZdlX?usp=sharing">Notebook no Google Colab</a></p>
+<p><a href="https://github.com/emilybrtt/projeto-machine-learning">Repositório no GitHub</a></p>
+<hr />
+<h1 id="1-carregamento-e-inspecao-inicial-dos-dados">1. Carregamento e inspeção inicial dos dados:</h1>
+<pre><code>- Explicar cada feature do dataset.
+- Verificar o número de instâncias e features.
+- Identificar tipos de dados (numéricos, categóricos).
+- Detectar valores ausentes e inconsistências.
+- Verificar se há desbalanceamento de classes.
+- Realizar a separação dos dados em conjuntos de treino e teste, quando necessário.
+</code></pre>
+<h2 id="11-sobre-o-dataset">1.1 Sobre o dataset</h2>
+<p>O dataset utilizado neste projeto foi obtido no Kaggle. Ele contém informações sobre pacientes e é usado para prever se um paciente é mais sucetível a ter um AVC (Acidente Vascular Cerebral) com base em características como gênero, idade, doenças cardíacas pré-existentes, etc.</p>
+<ul>
+<li><strong>Fonte:</strong> <a href="https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset">Kaggle</a></li>
+<li><strong>Número de linhas:</strong> 5110</li>
+<li><strong>Número de features (colunas):</strong> 12</li>
+<li><strong>Variável-alvo:</strong> <code>stroke</code></li>
+<li><strong>Tipo de problema:</strong> Classificação</li>
+</ul>
+<h2 id="12-sobre-as-features-do-dataset">1.2 Sobre as features do dataset</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Identificador</td>
+<td>Identificador único do paciente</td>
+</tr>
+<tr>
+<td><code>gender</code></td>
+<td>Categórica nominal</td>
+<td>Gênero do paciente (<code>Male</code>, <code>Female</code> ou <code>Other</code>)</td>
+</tr>
+<tr>
+<td><code>age</code></td>
+<td>Numérica contínua</td>
+<td>Idade do paciente</td>
+</tr>
+<tr>
+<td><code>hypertension</code></td>
+<td>Categórica binária</td>
+<td>Indica presença de hipertensão: <code>1</code> para sim e <code>0</code> para não</td>
+</tr>
+<tr>
+<td><code>heart_disease</code></td>
+<td>Categórica binária</td>
+<td>Indica presença de doença cardíaca: <code>1</code> para sim e <code>0</code> para não</td>
+</tr>
+<tr>
+<td><code>ever_married</code></td>
+<td>Categórica binária</td>
+<td>Indica se o paciente já foi casado (<code>Yes</code> ou <code>No</code>)</td>
+</tr>
+<tr>
+<td><code>work_type</code></td>
+<td>Categórica nominal</td>
+<td>Tipo de ocupação (<code>children</code>, <code>Govt_job</code>, <code>Never_worked</code>, <code>Private</code> ou <code>Self-employed</code>)</td>
+</tr>
+<tr>
+<td><code>Residence_type</code></td>
+<td>Categórica binária</td>
+<td>Tipo de área de residência (<code>Rural</code> ou <code>Urban</code>)</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code></td>
+<td>Numérica contínua</td>
+<td>Nível médio de glicose no sangue</td>
+</tr>
+<tr>
+<td><code>bmi</code></td>
+<td>Numérica contínua</td>
+<td>Índice de Massa Corporal (IMC) do paciente</td>
+</tr>
+<tr>
+<td><code>smoking_status</code></td>
+<td>Categórica nominal</td>
+<td>Situação em relação ao tabagismo (<code>formerly smoked</code>, <code>never smoked</code>, <code>smokes</code> ou <code>Unknown</code>)</td>
+</tr>
+<tr>
+<td><code>stroke</code></td>
+<td>Target binário</td>
+<td>Indica ocorrência de AVC: <code>1</code> para sim e <code>0</code> para não</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-tipos-das-variaveis">1.3 Tipos das variáveis</h2>
+<h3 id="variaveis-numericas">Variáveis numéricas</h3>
+<ul>
+<li><code>age</code></li>
+<li><code>avg_glucose_level</code></li>
+<li><code>bmi</code></li>
+</ul>
+<p>Ou seja, são 3 variáveis numéricas. </p>
+<div class="admonition note">
+<p class="admonition-title">Sobre a variável <code>id</code></p>
+<p>Embora <code>id</code> seja armazenada numericamente no dataset, ela não representa uma grandeza quantitativa, mas apenas um identificador único de cada paciente. Por esse motivo, ela não será considerada uma feature numérica nas análises estatísticas nem utilizada posteriormente como variável preditora.</p>
+</div>
+<h3 id="variaveis-categoricas">Variáveis categóricas</h3>
+<ul>
+<li><code>gender</code></li>
+<li><code>hypertension</code></li>
+<li><code>heart_disease</code></li>
+<li><code>ever_married</code></li>
+<li><code>work_type</code></li>
+<li><code>Residence_type</code></li>
+<li><code>smoking_status</code></li>
+</ul>
+<p>Já aqui, são 7 variáveis categóricas.</p>
+<div class="admonition note">
+<p class="admonition-title">Sobre a variável <code>stroke</code></p>
+<p>A variável <code>stroke</code> também é categórica binária, porém é tratada separadamente por ser a variável-alvo do problema.</p>
+</div>
+<h3 id="observacoes">Observações</h3>
+<p>De início, já percebemos que existem bem mais variáveis categóricas e que elas exigirão diferentes manipulações, que traremos mais à frente.</p>
+<h2 id="14-valores-ausentes-e-inconsistencias">1.4 Valores ausentes e inconsistências</h2>
+<p>A inspeção inicial revelou dois tipos diferentes de ausência de informação no dataset: valores ausentes explícitos e valores ausentes representados por uma categoria textual.</p>
+<h3 id="valores-ausentes-explicitos">Valores ausentes explícitos</h3>
+<p>A análise utilizando os valores nulos reconhecidos pelo Pandas identificou ausência apenas na variável <code>bmi</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: right;">Valores ausentes</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bmi</code></td>
+<td style="text-align: right;">201</td>
+<td style="text-align: right;">3,93%</td>
+</tr>
+</tbody>
+</table>
+<p>Portanto, aproximadamente 3,93% dos pacientes não possuem informação registrada para o Índice de Massa Corporal.</p>
+<p>A estratégia utilizada para tratar esses valores será definida mais a frente, no pré-processamento.</p>
+<h3 id="ausencia-de-informacao-em-smoking_status">Ausência de informação em <code>smoking_status</code></h3>
+<p>Além dos valores <code>NaN</code>, foi identificada uma situação particular na variável <code>smoking_status</code>:</p>
+<p>Segundo a <a href="https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset/data">documentação</a> do dataset, a categoria <code>Unknown</code> significa que a informação sobre o status de tabagismo não está disponível para aquele paciente.</p>
+<p>Foram encontrados:</p>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th style="text-align: right;">Quantidade</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>smoking_status = "Unknown"</code></td>
+<td style="text-align: right;">1.544</td>
+<td style="text-align: right;">30,22%</td>
+</tr>
+</tbody>
+</table>
+<p>Assim, apesar de <code>Unknown</code> não ser reconhecido como um valor nulo, ele representa ausência de informação.</p>
+<p>~30% dos pacientes tem <code>smoking_status</code> desconhecido. Substituir esses registros pela categoria mais frequente, por exemplo, seria atribuir um comportamento de tabagismo a uma parcela relativamente grande dos pacientes. Assim, nessa etapa optamos por preservar <code>Unknown</code>, em vez de realizar uma imputação.</p>
+<hr />
+<h2 id="15-verificacao-de-inconsistencias">1.5 Verificação de inconsistências</h2>
+<h3 id="registros-duplicados">Registros duplicados</h3>
+<p>Não foram identificadas linhas completamente duplicadas no dataset. Também foi verificada a coluna <code>id</code>, utilizada como identificador dos pacientes, para detectar possíveis identificadores repetidos.</p>
+<h3 id="categorias-das-variaveis">Categorias das variáveis</h3>
+<p>Os valores únicos das variáveis categóricas foram inspecionados individualmente para identificar problemas de capitalização, erros de escrita ou categorias inesperadas.</p>
+<p>As categorias encontradas são consistentes com a documentação do dataset.</p>
+<p>Um caso que merece atenção é a categoria <code>Other</code> da variável <code>gender</code>, que apresenta frequência muito baixa. Apesar disso, ela não foi considerada uma inconsistência, pois é prevista na descrição do dataset.</p>
+<h3 id="variaveis-numericas_1">Variáveis numéricas</h3>
+<p>As variáveis <code>age</code>, <code>avg_glucose_level</code> e <code>bmi</code> também foram inspecionadas por meio de estatísticas descritivas para identificar valores potencialmente impossíveis ou suspeitos.</p>
+<p>Neste momento, valores extremos não foram automaticamente classificados como erros nem removidos. A existência e o impacto de possíveis <em>outliers</em> serão investigados em maior profundidade durante a análise univariada.</p>
+<h2 id="16-distribuicao-da-variavel-alvo">1.6 Distribuição da variável-alvo</h2>
+<h2 id="16-distribuicao-da-variavel-alvo_1">1.6 Distribuição da variável-alvo</h2>
+<p>A variável-alvo deste projeto é <code>stroke</code>, uma variável binária que indica
+se o paciente teve (<code>1</code>) ou não teve (<code>0</code>) um AVC.</p>
+<p>A análise de sua distribuição revelou uma diferença expressiva entre as
+duas classes.</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th style="text-align: right;">Quantidade</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sem AVC (<code>0</code>)</td>
+<td style="text-align: right;">4.861</td>
+<td style="text-align: right;">95,13%</td>
+</tr>
+<tr>
+<td>Com AVC (<code>1</code>)</td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">4,87%</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Distribuição da variável-alvo" src="assets/images/distribuicao_target.png" /></p>
+<h3 id="interpretacao">Interpretação</h3>
+<p>A variável-alvo apresenta forte desbalanceamento de classes. Aproximadamente
+95% dos pacientes pertencem à classe sem ocorrência de AVC, enquanto menos
+de 5% pertencem à com ocorrência.</p>
+<p>Esse desbalanceamento é relevante tanto para a separação dos dados quanto para
+a futura avaliação dos modelos. Uma divisão aleatória que não preserve a proporção
+das classes poderia gerar conjuntos de treino e teste pouco representativos.</p>
+<p>Por esse motivo, a separação dos dados será realizada utilizando <a href="https://datasciencediagnostics.com/diagnostics/procedure/background/stratify-label/">estratificação pela variável-alvo</a>.</p>
+<p>O desbalanceamento também deverá ser considerado na etapa de modelagem, uma
+vez que a acurácia isoladamente pode fornecer uma visão inadequada do desempenho
+do classificador. Um modelo que privilegie excessivamente a classe majoritária
+poderia apresentar alta acurácia mesmo com baixa capacidade de identificar
+pacientes pertencentes à classe minoritária.</p>
+<hr />
+<h2 id="17-separacao-entre-treino-e-teste">1.7 Separação entre treino e teste</h2>
+<p>Após a inspeção inicial dos dados, o dataset foi separado em conjuntos de
+treino e teste.</p>
+<p>Foram utilizadas as seguintes proporções:</p>
+<ul>
+<li><strong>Treino:</strong> 80%</li>
+<li><strong>Teste:</strong> 20%</li>
+<li><strong>Random state:</strong> <code>42</code></li>
+<li><strong>Estratificação:</strong> variável-alvo <code>stroke</code></li>
+</ul>
+<p>Antes da separação, a coluna <code>id</code> foi removida das features. </p>
+<p>A variável-alvo foi separada das demais features da seguinte forma:</p>
+<ul>
+<li><code>X</code>: características utilizadas como entrada;</li>
+<li><code>y</code>: variável-alvo <code>stroke</code>.</li>
+</ul>
+<p>Como foi identificado um forte desbalanceamento entre as classes, utilizamos <code>stratify=y</code> durante a divisão. Dessa forma, as proporções de pacientes com e sem AVC são preservadas aproximadamente nos conjuntos de treino e teste.</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th style="text-align: right;">Dataset completo</th>
+<th style="text-align: right;">Treino</th>
+<th style="text-align: right;">Teste</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sem AVC (<code>0</code>)</td>
+<td style="text-align: right;">95.13%</td>
+<td style="text-align: right;">95.13%</td>
+<td style="text-align: right;">95.11%</td>
+</tr>
+<tr>
+<td>Com AVC (<code>1</code>)</td>
+<td style="text-align: right;">4.87%</td>
+<td style="text-align: right;">4.87%</td>
+<td style="text-align: right;">4.89%</td>
+</tr>
+</tbody>
+</table>
+<p>A separação foi realizada antes das etapas de pré-processamento que aprendem parâmetros a partir dos dados, como imputação e padronização. Essas transformações serão ajustadas exclusivamente sobre o conjunto de treino e posteriormente aplicadas ao conjunto de teste, reduzindo o risco de <em>data leakage</em>.</p>
+<p>A partir deste ponto, as análises exploratórias mais aprofundadas serão realizadas sobre o <strong>conjunto de treino</strong>. O conjunto de teste permanecerá reservado para a avaliação das etapas posteriores do projeto.</p>
+<h1 id="2-analise-univariada">2. Análise univariada:</h1>
+<pre><code>- Calcular estatísticas descritivas (média, mediana, desvio padrão) de todas as variáveis numéricas.
+- Criar histogramas, boxplots e/ou violinos para variáveis numéricas (máximo 3).
+- Para variáveis categóricas: calcular frequências e criar gráficos de barras (máximo 3).
+</code></pre>
+<h2 id="21-analise-univariada">2.1 Análise univariada</h2>
+<p>Após a separação dos dados, realizamos a análise univariada utilizando o
+conjunto de treino.</p>
+<p>O objetivo desta etapa é compreender individualmente a distribuição de cada
+variável, observando medidas de tendência central e dispersão, assimetrias,
+categorias predominantes, valores ausentes e possíveis valores extremos.</p>
+<p>As variáveis numéricas analisadas foram:</p>
+<ul>
+<li><code>age</code>;</li>
+<li><code>avg_glucose_level</code>;</li>
+<li><code>bmi</code>.</li>
+</ul>
+<p>Para as variáveis categóricas, foram selecionadas três features para
+visualização, respeitando o limite estabelecido na proposta:</p>
+<ul>
+<li><code>smoking_status</code>;</li>
+<li><code>work_type</code>;</li>
+<li><code>gender</code>.</li>
+</ul>
+<p>As demais variáveis categóricas continuam sendo consideradas no projeto e
+serão especialmente relevantes nas análises de associação com a variável-alvo.</p>
+<h2 id="21-estatisticas-descritivas-das-variaveis-numericas">2.1 Estatísticas descritivas das variáveis numéricas</h2>
+<p>As principais estatísticas descritivas das variáveis numéricas no conjunto
+de treino são apresentadas abaixo.</p>
+<table>
+<thead>
+<tr>
+<th>Variável</th>
+<th style="text-align: right;">Média</th>
+<th style="text-align: right;">Mediana</th>
+<th style="text-align: right;">Desvio padrão</th>
+<th style="text-align: right;">Mínimo</th>
+<th style="text-align: right;">Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>age</code></td>
+<td style="text-align: right;">43,35</td>
+<td style="text-align: right;">45,00</td>
+<td style="text-align: right;">22,60</td>
+<td style="text-align: right;">0,08</td>
+<td style="text-align: right;">82,00</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code></td>
+<td style="text-align: right;">106,32</td>
+<td style="text-align: right;">91,94</td>
+<td style="text-align: right;">45,26</td>
+<td style="text-align: right;">55,12</td>
+<td style="text-align: right;">271,74</td>
+</tr>
+<tr>
+<td><code>bmi</code></td>
+<td style="text-align: right;">28,92</td>
+<td style="text-align: right;">28,00</td>
+<td style="text-align: right;">7,93</td>
+<td style="text-align: right;">10,30</td>
+<td style="text-align: right;">97,60</td>
+</tr>
+</tbody>
+</table>
+<p>As estatísticas já sugerem comportamentos distintos entre as três variáveis.</p>
+<p>Em <code>age</code>, média e mediana apresentam valores próximos. Em
+<code>avg_glucose_level</code>, entretanto, a média é consideravelmente superior à
+mediana, indicando possível assimetria à direita. <code>bmi</code> também apresenta
+valor máximo bastante distante de sua média e mediana.</p>
+<p>Esses padrões são investigados visualmente nas seções seguintes.</p>
+<h2 id="22-distribuicao-das-variaveis-numericas">2.2 Distribuição das variáveis numéricas</h2>
+<p>Para complementar as estatísticas descritivas, foram utilizados histogramas
+e boxplots para analisar a forma das distribuições e identificar possíveis
+valores extremos.</p>
+<p><img alt="Distribuições das variáveis numéricas" src="assets/images/distribuicoes_numericas.png" /></p>
+<h3 id="idade">Idade</h3>
+<p>A variável <code>age</code> apresenta ampla dispersão, variando de 0,08 a 82 anos,
+com média de 43,35 e mediana de 45 anos.</p>
+<p>A proximidade entre média e mediana não indica assimetria acentuada, e o
+boxplot não identifica observações como outliers pelo critério padrão do
+intervalo interquartil.</p>
+<p>Embora existam idades muito baixas, elas não foram classificadas
+automaticamente como inconsistências, uma vez que o dataset contém pacientes
+de diferentes faixas etárias.</p>
+<h3 id="nivel-medio-de-glicose">Nível médio de glicose</h3>
+<p>A variável <code>avg_glucose_level</code> apresenta clara assimetria à direita. A maior
+parte das observações está concentrada em valores mais baixos, enquanto existe
+uma cauda que se estende até valores superiores a 250.</p>
+<p>Esse comportamento também é refletido pela diferença entre a média (106,32)
+e a mediana (91,94).</p>
+<p>O boxplot identifica diversos valores elevados como potenciais outliers.
+Entretanto, sua classificação estatística como valores extremos não significa
+necessariamente que sejam erros, motivo pelo qual essas observações foram
+investigadas posteriormente antes de qualquer decisão de tratamento.</p>
+<h3 id="imc">IMC</h3>
+<p>A variável <code>bmi</code> apresenta maior concentração aproximadamente na região
+entre 20 e 35, com média de 28,92 e mediana de 28,00.</p>
+<p>Apesar da proximidade entre essas medidas, observa-se uma cauda à direita e
+diversos valores elevados classificados como potenciais outliers pelo boxplot.
+O maior IMC observado no conjunto de treino é 97,60.</p>
+<p>Além disso, <code>bmi</code> possui valores ausentes, que permanecem sem imputação nesta
+etapa da análise exploratória. A estratégia para tratá-los será definida na
+etapa de pré-processamento.</p>
+<h2 id="23-investigacao-dos-potenciais-outliers">2.3 Investigação dos potenciais outliers</h2>
+<p>Para complementar a inspeção visual, utilizamos o critério de 1,5 vezes o
+intervalo interquartil (IQR) para quantificar observações estatisticamente
+extremas.</p>
+<table>
+<thead>
+<tr>
+<th>Variável</th>
+<th style="text-align: right;">Limite inferior</th>
+<th style="text-align: right;">Limite superior</th>
+<th style="text-align: right;">Outliers</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>age</code></td>
+<td style="text-align: right;">-26,50</td>
+<td style="text-align: right;">113,50</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0,00%</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code></td>
+<td style="text-align: right;">21,98</td>
+<td style="text-align: right;">169,52</td>
+<td style="text-align: right;">503</td>
+<td style="text-align: right;">12,30%</td>
+</tr>
+<tr>
+<td><code>bmi</code></td>
+<td style="text-align: right;">9,35</td>
+<td style="text-align: right;">47,35</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">2,30%</td>
+</tr>
+</tbody>
+</table>
+<p>O critério não identificou outliers em <code>age</code>. Em contrapartida,
+<code>avg_glucose_level</code> apresentou 503 observações classificadas como extremas,
+correspondentes a 12,3% dos valores, enquanto <code>bmi</code> apresentou 90
+observações, ou 2,3%.</p>
+<p>Como a identificação estatística de um outlier não implica necessariamente
+erro de medição ou registro, optamos por investigar essas observações antes
+de decidir por sua remoção.</p>
+<p>A decisão sobre o tratamento dessas observações não foi tomada apenas a
+partir do critério do IQR. Como valores extremos podem representar
+observações legítimas e potencialmente informativas, sua relação com a
+variável-alvo será investigada na análise bivariada antes da definição da
+estratégia final de pré-processamento.</p>
+<h2 id="24-analise-das-variaveis-categoricas">2.4 Análise das variáveis categóricas</h2>
+<p>Para a análise univariada das variáveis categóricas, foram selecionadas
+<code>smoking_status</code>, <code>work_type</code> e <code>gender</code>, respeitando o limite de três
+visualizações estabelecido na proposta.</p>
+<h3 id="frequencias">Frequências</h3>
+<h4 id="status-de-tabagismo">Status de tabagismo</h4>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th style="text-align: right;">Quantidade</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>never smoked</code></td>
+<td style="text-align: right;">1.501</td>
+<td style="text-align: right;">36,72%</td>
+</tr>
+<tr>
+<td><code>Unknown</code></td>
+<td style="text-align: right;">1.247</td>
+<td style="text-align: right;">30,50%</td>
+</tr>
+<tr>
+<td><code>formerly smoked</code></td>
+<td style="text-align: right;">714</td>
+<td style="text-align: right;">17,47%</td>
+</tr>
+<tr>
+<td><code>smokes</code></td>
+<td style="text-align: right;">626</td>
+<td style="text-align: right;">15,31%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tipo-de-trabalho">Tipo de trabalho</h4>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th style="text-align: right;">Quantidade</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Private</code></td>
+<td style="text-align: right;">2.332</td>
+<td style="text-align: right;">57,05%</td>
+</tr>
+<tr>
+<td><code>Self-employed</code></td>
+<td style="text-align: right;">667</td>
+<td style="text-align: right;">16,32%</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td style="text-align: right;">554</td>
+<td style="text-align: right;">13,55%</td>
+</tr>
+<tr>
+<td><code>Govt_job</code></td>
+<td style="text-align: right;">522</td>
+<td style="text-align: right;">12,77%</td>
+</tr>
+<tr>
+<td><code>Never_worked</code></td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0,32%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="genero">Gênero</h4>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th style="text-align: right;">Quantidade</th>
+<th style="text-align: right;">Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Female</code></td>
+<td style="text-align: right;">2.395</td>
+<td style="text-align: right;">58,59%</td>
+</tr>
+<tr>
+<td><code>Male</code></td>
+<td style="text-align: right;">1.692</td>
+<td style="text-align: right;">41,39%</td>
+</tr>
+<tr>
+<td><code>Other</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,02%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visualizacao">Visualização</h3>
+<p><img alt="Distribuições das variáveis categóricas" src="assets/images/distribuicoes_categoricas.png" /></p>
+<h3 id="interpretacao_1">Interpretação</h3>
+<p>A variável <code>smoking_status</code> apresenta <code>never smoked</code> como categoria mais
+frequente (36,72%). Entretanto, destaca-se a elevada frequência da categoria
+<code>Unknown</code>, correspondente a 30,50% dos pacientes do conjunto de treino.
+Segundo a documentação do dataset, essa categoria representa indisponibilidade
+da informação sobre tabagismo e, portanto, pode ser interpretada como uma
+ausência semântica.</p>
+<p>A elevada proporção de valores <code>Unknown</code> reforça a decisão de não realizar
+imputação pela moda. Caso esses registros fossem substituídos por
+<code>never smoked</code>, por exemplo, estaríamos atribuindo artificialmente um
+comportamento de tabagismo a uma parcela significativa dos pacientes.
+Por esse motivo, <code>Unknown</code> será preservado como uma categoria explícita
+durante o encoding.</p>
+<p>Em <code>work_type</code>, observa-se predominância da categoria <code>Private</code>, que representa
+57,05% das observações. Em contraste, <code>Never_worked</code> contém apenas 13 pacientes
+(0,32%), sendo uma categoria bastante rara. Ela será preservada, mas sua baixa
+frequência deve ser considerada ao interpretar análises envolvendo essa categoria.</p>
+<p>Por fim, <code>gender</code> apresenta maior frequência de pacientes classificados como
+<code>Female</code> (58,59%), seguidos por <code>Male</code> (41,39%). A categoria <code>Other</code> aparece em
+apenas uma observação do conjunto de treino (0,02%). Como essa categoria está
+prevista na documentação original do dataset, ela não foi considerada uma
+inconsistência, embora sua frequência seja insuficiente para sustentar conclusões
+estatísticas específicas sobre esse grupo.</p>
+<h2 id="25-visualizacao-das-variaveis-categoricas">2.5 Visualização das variáveis categóricas</h2>
+<p>As frequências das três variáveis categóricas selecionadas também foram
+representadas graficamente.</p>
+<p><img alt="Distribuições das variáveis categóricas" src="assets/images/distribuicoes_categoricas.png" /></p>
+<p>Os gráficos evidenciam visualmente alguns dos principais desequilíbrios
+identificados nas tabelas de frequência, especialmente a elevada presença
+de <code>Unknown</code> em <code>smoking_status</code>, a predominância de <code>Private</code> em
+<code>work_type</code> e a ocorrência extremamente rara da categoria <code>Other</code> em
+<code>gender</code>.</p>
+<h1 id="3-analise-bivariada-e-multivariada">3. Análise bivariada e multivariada</h1>
+<p>Após analisar individualmente as principais variáveis do conjunto de treino,
+passamos a investigar as relações entre elas e, especialmente, suas associações
+com a variável-alvo <code>stroke</code>.</p>
+<p>Esta etapa busca identificar padrões que não são necessariamente visíveis na
+análise univariada, além de fornecer evidências para as decisões que serão
+tomadas posteriormente durante o pré-processamento e a modelagem.</p>
+<p>Foram analisadas:</p>
+<ul>
+<li>correlações entre as variáveis numéricas;</li>
+<li>relações entre pares de variáveis numéricas;</li>
+<li>relações entre variáveis categóricas e <code>stroke</code>;</li>
+<li>relações entre variáveis numéricas e <code>stroke</code>.</li>
+</ul>
+<hr />
+<h2 id="31-correlacao-entre-variaveis-numericas">3.1 Correlação entre variáveis numéricas</h2>
+<p>Inicialmente, calculamos o coeficiente de correlação de Pearson entre as três
+features numéricas utilizadas no projeto: <code>age</code>, <code>avg_glucose_level</code> e <code>bmi</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Variáveis</th>
+<th style="text-align: right;">Correlação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>age</code> × <code>bmi</code></td>
+<td style="text-align: right;">0,34</td>
+</tr>
+<tr>
+<td><code>age</code> × <code>avg_glucose_level</code></td>
+<td style="text-align: right;">0,23</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code> × <code>bmi</code></td>
+<td style="text-align: right;">0,17</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Matriz de correlação entre variáveis numéricas" src="assets/images/matriz_correlacao.png" /></p>
+<h3 id="interpretacao_2">Interpretação</h3>
+<p>Não foram observadas correlações lineares fortes entre as variáveis numéricas.</p>
+<p>A maior correlação foi encontrada entre <code>age</code> e <code>bmi</code> (<strong>r = 0,34</strong>),
+indicando uma associação linear positiva de baixa a moderada intensidade.
+A relação entre <code>age</code> e <code>avg_glucose_level</code> também foi positiva, porém mais
+fraca (<strong>r = 0,23</strong>). Por fim, <code>avg_glucose_level</code> e <code>bmi</code> apresentaram a
+menor correlação entre os pares analisados (<strong>r = 0,17</strong>).</p>
+<p>Os resultados indicam que não existe forte redundância linear entre essas
+features. Entretanto, um coeficiente de correlação baixo não implica
+necessariamente ausência de relação entre duas variáveis, uma vez que a
+correlação de Pearson mede especificamente associações lineares.</p>
+<hr />
+<h2 id="32-relacoes-entre-variaveis-numericas">3.2 Relações entre variáveis numéricas</h2>
+<p>A partir da matriz de correlação, foram selecionadas duas relações para
+investigação por meio de gráficos de dispersão.</p>
+<p>Optamos por analisar <code>age</code> × <code>bmi</code>, que apresentou a maior correlação entre
+as features numéricas, e <code>age</code> × <code>avg_glucose_level</code>, incorporando também
+a variável-alvo <code>stroke</code> para permitir uma análise multivariada.</p>
+<h3 id="321-idade-imc">3.2.1 Idade × IMC</h3>
+<p><img alt="Relação entre idade e IMC" src="assets/images/idade_bmi.png" /></p>
+<p>A relação entre <code>age</code> e <code>bmi</code> apresentou a maior correlação linear entre as
+variáveis numéricas analisadas (<strong>r = 0,34</strong>).</p>
+<p>O gráfico de dispersão mostra uma tendência de aumento do IMC principalmente
+entre as menores idades e a vida adulta. Entretanto, os pontos apresentam
+considerável dispersão, e o padrão observado não parece estritamente linear
+ao longo de toda a faixa etária.</p>
+<p>Também são visíveis algumas observações com valores elevados de IMC,
+anteriormente identificadas durante a investigação dos potenciais outliers.</p>
+<h3 id="322-idade-nivel-medio-de-glicose-ocorrencia-de-avc">3.2.2 Idade × nível médio de glicose × ocorrência de AVC</h3>
+<p>Para aprofundar a análise, relacionamos simultaneamente <code>age</code>,
+<code>avg_glucose_level</code> e <code>stroke</code>. Nesse gráfico, idade e glicose são
+representadas pelos eixos, enquanto a ocorrência de AVC é diferenciada
+visualmente entre os pacientes.</p>
+<p><img alt="Idade e glicose por ocorrência de AVC" src="assets/images/idade_glicose_stroke.png" /></p>
+<p>Embora a correlação linear entre <code>age</code> e <code>avg_glucose_level</code> seja relativamente
+baixa (<strong>r = 0,23</strong>), o gráfico permite observar padrões que não são resumidos
+por esse coeficiente.</p>
+<p>Visualmente, os casos de AVC aparecem principalmente entre pacientes de
+idades mais elevadas. Também são encontrados casos da classe positiva tanto
+entre níveis mais baixos quanto entre níveis elevados de glicose.</p>
+<p>Como a variável-alvo apresenta forte desbalanceamento, a quantidade absoluta
+de pontos de cada classe não deve ser utilizada isoladamente para comparar os
+grupos. Por esse motivo, a relação observada entre idade e AVC foi investigada
+quantitativamente.</p>
+<h4 id="idade-segundo-a-ocorrencia-de-avc">Idade segundo a ocorrência de AVC</h4>
+<table>
+<thead>
+<tr>
+<th>Ocorrência de AVC</th>
+<th style="text-align: right;">Média</th>
+<th style="text-align: right;">Mediana</th>
+<th style="text-align: right;">Desvio padrão</th>
+<th style="text-align: right;">Mínimo</th>
+<th style="text-align: right;">Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sem AVC</td>
+<td style="text-align: right;">42,11</td>
+<td style="text-align: right;">44,00</td>
+<td style="text-align: right;">22,31</td>
+<td style="text-align: right;">0,08</td>
+<td style="text-align: right;">82,00</td>
+</tr>
+<tr>
+<td>Com AVC</td>
+<td style="text-align: right;">67,66</td>
+<td style="text-align: right;">70,00</td>
+<td style="text-align: right;">11,88</td>
+<td style="text-align: right;">1,32</td>
+<td style="text-align: right;">82,00</td>
+</tr>
+</tbody>
+</table>
+<p>Pacientes sem ocorrência de AVC apresentaram idade média de <strong>42,11 anos</strong>
+e mediana de <strong>44 anos</strong>, enquanto pacientes com AVC apresentaram idade
+média de <strong>67,66 anos</strong> e mediana de <strong>70 anos</strong>.</p>
+<p>A diferença observada motivou uma análise complementar por faixas etárias.</p>
+<table>
+<thead>
+<tr>
+<th>Faixa etária</th>
+<th style="text-align: right;">Pacientes</th>
+<th style="text-align: right;">Casos de AVC</th>
+<th style="text-align: right;">Taxa de AVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–18</td>
+<td style="text-align: right;">725</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,14%</td>
+</tr>
+<tr>
+<td>19–40</td>
+<td style="text-align: right;">1.055</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0,19%</td>
+</tr>
+<tr>
+<td>41–60</td>
+<td style="text-align: right;">1.264</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">4,51%</td>
+</tr>
+<tr>
+<td>60+</td>
+<td style="text-align: right;">1.044</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">13,31%</td>
+</tr>
+</tbody>
+</table>
+<p>A taxa observada de AVC aumenta substancialmente nas faixas etárias mais
+elevadas. Entre pacientes com mais de 60 anos, <strong>13,31%</strong> apresentaram AVC,
+enquanto essa proporção foi inferior a 0,2% nas duas faixas abaixo dos
+40 anos.</p>
+<p>Esses resultados indicam uma forte <strong>associação entre idade e ocorrência de
+AVC neste conjunto de dados</strong>. As faixas etárias foram criadas exclusivamente
+como recurso de análise exploratória e não correspondem, neste momento, a
+uma nova feature destinada à modelagem.</p>
+<p>É importante destacar que essa análise identifica associação, e não uma
+relação causal.</p>
+<hr />
+<h2 id="33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc">3.3 Relação entre variáveis categóricas e ocorrência de AVC</h2>
+<p>Para as variáveis categóricas, foi calculada a proporção de pacientes com
+AVC dentro de cada categoria.</p>
+<p>A utilização de proporções, em vez apenas do número absoluto de casos, é
+especialmente importante neste dataset, pois tanto a variável-alvo quanto
+algumas features categóricas apresentam distribuições desbalanceadas.</p>
+<p>As três variáveis selecionadas para visualização foram <code>hypertension</code>,
+<code>heart_disease</code> e <code>smoking_status</code>.</p>
+<p><img alt="Taxa de AVC por variáveis categóricas" src="assets/images/categoricas_stroke.png" /></p>
+<h3 id="331-hipertensao">3.3.1 Hipertensão</h3>
+<table>
+<thead>
+<tr>
+<th>Hipertensão</th>
+<th style="text-align: right;">Pacientes</th>
+<th style="text-align: right;">Casos de AVC</th>
+<th style="text-align: right;">Taxa de AVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Não</td>
+<td style="text-align: right;">3.691</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">3,93%</td>
+</tr>
+<tr>
+<td>Sim</td>
+<td style="text-align: right;">397</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">13,60%</td>
+</tr>
+</tbody>
+</table>
+<p>Entre pacientes sem hipertensão, a taxa observada de AVC foi de <strong>3,93%</strong>.
+Entre pacientes com hipertensão, essa proporção aumentou para <strong>13,60%</strong>.</p>
+<p>Portanto, neste conjunto de treino, a presença de hipertensão apresenta
+uma associação relevante com a ocorrência de AVC.</p>
+<h3 id="332-doenca-cardiaca">3.3.2 Doença cardíaca</h3>
+<table>
+<thead>
+<tr>
+<th>Doença cardíaca</th>
+<th style="text-align: right;">Pacientes</th>
+<th style="text-align: right;">Casos de AVC</th>
+<th style="text-align: right;">Taxa de AVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Não</td>
+<td style="text-align: right;">3.867</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">4,22%</td>
+</tr>
+<tr>
+<td>Sim</td>
+<td style="text-align: right;">221</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">16,29%</td>
+</tr>
+</tbody>
+</table>
+<p>A diferença é ainda mais pronunciada para <code>heart_disease</code>. Pacientes sem
+doença cardíaca apresentaram taxa de AVC de <strong>4,22%</strong>, enquanto entre
+pacientes com doença cardíaca a taxa observada foi de <strong>16,29%</strong>.</p>
+<p>Assim como no caso da hipertensão, o resultado sugere que essa feature
+pode conter informação relevante para a futura tarefa de classificação.</p>
+<h3 id="333-status-de-tabagismo">3.3.3 Status de tabagismo</h3>
+<table>
+<thead>
+<tr>
+<th>Status de tabagismo</th>
+<th style="text-align: right;">Pacientes</th>
+<th style="text-align: right;">Casos de AVC</th>
+<th style="text-align: right;">Taxa de AVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>formerly smoked</code></td>
+<td style="text-align: right;">714</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">7,84%</td>
+</tr>
+<tr>
+<td><code>smokes</code></td>
+<td style="text-align: right;">626</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">5,43%</td>
+</tr>
+<tr>
+<td><code>never smoked</code></td>
+<td style="text-align: right;">1.501</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">4,73%</td>
+</tr>
+<tr>
+<td><code>Unknown</code></td>
+<td style="text-align: right;">1.247</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">3,05%</td>
+</tr>
+</tbody>
+</table>
+<p>A maior taxa observada ocorreu entre pacientes classificados como
+<code>formerly smoked</code>, com <strong>7,84%</strong>, seguida por <code>smokes</code> (5,43%),
+<code>never smoked</code> (4,73%) e <code>Unknown</code> (3,05%).</p>
+<p>Essas diferenças devem ser interpretadas com cautela. A análise é bivariada
+e não controla outras características dos pacientes. Por exemplo, diferenças
+na distribuição de idade entre as categorias de tabagismo podem contribuir
+para as diferenças observadas nas taxas de AVC.</p>
+<p>Além disso, <code>Unknown</code> representa ausência da informação sobre tabagismo e
+não um comportamento específico. Portanto, sua taxa não deve ser interpretada
+como equivalente à de uma categoria clínica de tabagismo.</p>
+<hr />
+<h3 id="analise-complementar-das-demais-variaveis-categoricas">Análise complementar das demais variáveis categóricas</h3>
+<p>Embora apenas três variáveis tenham sido selecionadas para visualização,
+também foram calculadas as taxas de AVC para as demais features categóricas.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Categoria com maior taxa observada de AVC</th>
+<th style="text-align: right;">Taxa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gender</code></td>
+<td><code>Male</code></td>
+<td style="text-align: right;">5,14%</td>
+</tr>
+<tr>
+<td><code>hypertension</code></td>
+<td>Sim</td>
+<td style="text-align: right;">13,60%</td>
+</tr>
+<tr>
+<td><code>heart_disease</code></td>
+<td>Sim</td>
+<td style="text-align: right;">16,29%</td>
+</tr>
+<tr>
+<td><code>ever_married</code></td>
+<td><code>Yes</code></td>
+<td style="text-align: right;">6,52%</td>
+</tr>
+<tr>
+<td><code>work_type</code></td>
+<td><code>Self-employed</code></td>
+<td style="text-align: right;">8,25%</td>
+</tr>
+<tr>
+<td><code>Residence_type</code></td>
+<td><code>Urban</code></td>
+<td style="text-align: right;">5,22%</td>
+</tr>
+<tr>
+<td><code>smoking_status</code></td>
+<td><code>formerly smoked</code></td>
+<td style="text-align: right;">7,84%</td>
+</tr>
+</tbody>
+</table>
+<p>Algumas dessas associações exigem atenção especial na interpretação.</p>
+<p>Por exemplo, pacientes que já foram casados (<code>ever_married = Yes</code>)
+apresentaram taxa de AVC de 6,52%, contra 1,66% entre aqueles que nunca
+foram casados. Da mesma forma, <code>Self-employed</code> apresentou a maior taxa
+entre os tipos de trabalho, enquanto <code>children</code> apresentou apenas 0,18%.</p>
+<p>Esses resultados não permitem concluir que casamento ou tipo de trabalho
+tenham, isoladamente, uma relação direta com a ocorrência de AVC. Como a
+análise anterior revelou uma forte associação entre idade e <code>stroke</code>, parte
+dessas diferenças pode estar relacionada à composição etária das categorias.</p>
+<p>Por exemplo, a categoria <code>children</code> é, por definição, composta por pacientes
+mais jovens, enquanto outras categorias de trabalho e estado civil podem
+concentrar pacientes de maior idade.</p>
+<p>Esse resultado evidencia uma limitação das análises bivariadas: uma associação
+observada entre duas variáveis pode ser influenciada por uma terceira variável.
+Por esse motivo, os padrões encontrados nesta etapa serão interpretados em
+conjunto e posteriormente avaliados pelos modelos de classificação.</p>
+<h2 id="34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc">3.4 Relação entre variáveis numéricas e ocorrência de AVC</h2>
+<p>Para investigar como as distribuições das variáveis numéricas diferem entre
+pacientes com e sem AVC, foram construídos boxplots de <code>age</code>,
+<code>avg_glucose_level</code> e <code>bmi</code> em função da variável-alvo <code>stroke</code>.</p>
+<p><img alt="Variáveis numéricas por ocorrência de AVC" src="assets/images/numericas_stroke.png" /></p>
+<p>As principais medidas de tendência central observadas em cada classe são
+apresentadas abaixo.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: right;">Média sem AVC</th>
+<th style="text-align: right;">Mediana sem AVC</th>
+<th style="text-align: right;">Desvio padrão sem AVC</th>
+<th style="text-align: right;">Média com AVC</th>
+<th style="text-align: right;">Mediana com AVC</th>
+<th style="text-align: right;">Desvio padrão com AVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>age</code></td>
+<td style="text-align: right;">42,11</td>
+<td style="text-align: right;">44,00</td>
+<td style="text-align: right;">22,31</td>
+<td style="text-align: right;">67,66</td>
+<td style="text-align: right;">70,00</td>
+<td style="text-align: right;">11,88</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code></td>
+<td style="text-align: right;">105,03</td>
+<td style="text-align: right;">91,65</td>
+<td style="text-align: right;">43,85</td>
+<td style="text-align: right;">131,39</td>
+<td style="text-align: right;">104,86</td>
+<td style="text-align: right;">62,13</td>
+</tr>
+<tr>
+<td><code>bmi</code></td>
+<td style="text-align: right;">28,85</td>
+<td style="text-align: right;">27,95</td>
+<td style="text-align: right;">7,98</td>
+<td style="text-align: right;">30,59</td>
+<td style="text-align: right;">29,90</td>
+<td style="text-align: right;">6,40</td>
+</tr>
+</tbody>
+</table>
+<h3 id="idade_1">Idade</h3>
+<p>A diferença mais expressiva é observada em <code>age</code>. Pacientes sem AVC
+apresentaram idade média de <strong>42,11 anos</strong> e mediana de <strong>44 anos</strong>,
+enquanto pacientes com AVC apresentaram média de <strong>67,66 anos</strong> e mediana
+de <strong>70 anos</strong>.</p>
+<p>O deslocamento da distribuição é consistente com a análise anterior por
+faixas etárias e reforça a existência de uma forte associação entre idade
+e ocorrência de AVC neste conjunto de treino.</p>
+<h3 id="nivel-medio-de-glicose_1">Nível médio de glicose</h3>
+<p>Também são observadas diferenças em <code>avg_glucose_level</code>. Pacientes sem AVC
+apresentaram média de <strong>105,03</strong> e mediana de <strong>91,65</strong>, enquanto pacientes
+com AVC apresentaram média de <strong>131,39</strong> e mediana de <strong>104,86</strong>.</p>
+<p>Além da diferença nas medidas centrais, o grupo com AVC apresenta elevada
+dispersão nos níveis de glicose.</p>
+<p>A análise univariada havia identificado <strong>503 valores de glicose (12,3%)</strong>
+como potenciais outliers pelo critério de 1,5 vezes o IQR. Para investigar
+se essas observações deveriam ser removidas, analisamos também sua relação
+com a variável-alvo.</p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th style="text-align: right;">Pacientes</th>
+<th style="text-align: right;">Casos de AVC</th>
+<th style="text-align: right;">Taxa de AVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glicose dentro dos limites do IQR</td>
+<td style="text-align: right;">3.585</td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">3,71%</td>
+</tr>
+<tr>
+<td>Glicose classificada como outlier</td>
+<td style="text-align: right;">503</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">13,12%</td>
+</tr>
+</tbody>
+</table>
+<p>Entre os pacientes classificados como outliers de glicose, <strong>13,12%</strong>
+apresentaram AVC, comparados a <strong>3,71%</strong> entre os demais pacientes.</p>
+<p>Esse resultado não demonstra uma relação causal entre níveis elevados de
+glicose e AVC. Entretanto, indica que essas observações extremas não devem
+ser tratadas automaticamente como erros ou ruído. Pelo contrário, elas
+podem conter informação relevante para a tarefa de classificação.</p>
+<p>Por esse motivo, optamos por <strong>preservar os valores extremos de
+<code>avg_glucose_level</code></strong> no pré-processamento.</p>
+<h3 id="imc_1">IMC</h3>
+<p>A variável <code>bmi</code> também apresenta valores centrais ligeiramente superiores
+entre pacientes com AVC. A média passa de <strong>28,85</strong> para <strong>30,59</strong>, enquanto
+a mediana passa de <strong>27,95</strong> para <strong>29,90</strong>.</p>
+<p>Entretanto, observa-se considerável sobreposição entre as distribuições dos
+dois grupos.</p>
+<p>Na análise dos potenciais outliers de IMC, foram identificadas 90
+observações (2,3%). A taxa de AVC entre esses pacientes foi de <strong>3,33%</strong>,
+comparada a <strong>4,90%</strong> entre os demais.</p>
+<p>Não foram encontradas evidências de que esses valores extremos correspondam
+a erros de registro. Dessa forma, eles também serão preservados durante o
+pré-processamento.</p>
+<h3 id="sintese">Síntese</h3>
+<p>Entre as três variáveis numéricas, <code>age</code> apresentou a diferença mais
+pronunciada entre pacientes com e sem AVC. <code>avg_glucose_level</code> também
+apresentou diferenças relevantes entre as classes, enquanto <code>bmi</code> mostrou
+um deslocamento menor e maior sobreposição das distribuições.</p>
+<p>Os resultados também demonstram por que potenciais outliers não devem ser
+removidos exclusivamente com base em um critério estatístico: no caso da
+glicose, justamente as observações classificadas como extremas apresentaram
+uma proporção elevada de casos de AVC.</p>
+<p>Todas essas análises representam associações observadas no conjunto de treino
+e não permitem estabelecer relações causais. Além disso, as comparações devem
+ser interpretadas considerando o forte desbalanceamento da variável-alvo.</p>
+<h1 id="4-pre-processamento-para-modelagem">4. Pré-processamento para modelagem</h1>
+<p>A partir dos resultados obtidos durante a análise exploratória, foram definidas
+as estratégias de pré-processamento que serão utilizadas nas etapas posteriores
+de modelagem.</p>
+<p>O objetivo desta etapa é transformar os dados para uma representação adequada
+aos algoritmos de Machine Learning, preservando as informações consideradas
+relevantes durante a EDA e evitando vazamento de informações (<em>data leakage</em>)
+entre os conjuntos de treino e teste.</p>
+<p>As transformações foram organizadas utilizando <code>Pipeline</code> e
+<code>ColumnTransformer</code> do Scikit-learn. Essa abordagem permite aplicar diferentes
+tratamentos a diferentes grupos de features e garante que o mesmo
+pré-processamento possa ser reproduzido posteriormente sobre dados de teste
+ou novas observações.</p>
+<hr />
+<h2 id="41-organizacao-das-features">4.1 Organização das features</h2>
+<p>As features foram separadas de acordo com sua natureza e com o tipo de
+transformação necessária.</p>
+<h3 id="variaveis-numericas_2">Variáveis numéricas</h3>
+<ul>
+<li><code>age</code></li>
+<li><code>avg_glucose_level</code></li>
+<li><code>bmi</code></li>
+</ul>
+<p>Essas variáveis serão submetidas à imputação de valores ausentes, quando
+necessário, e posteriormente à padronização.</p>
+<h3 id="variaveis-categoricas-nominais">Variáveis categóricas nominais</h3>
+<ul>
+<li><code>gender</code></li>
+<li><code>ever_married</code></li>
+<li><code>work_type</code></li>
+<li><code>Residence_type</code></li>
+<li><code>smoking_status</code></li>
+</ul>
+<p>Apesar de algumas dessas variáveis possuírem apenas duas categorias, elas não
+representam grandezas com uma ordem quantitativa natural. Por esse motivo,
+serão tratadas utilizando One-Hot Encoding.</p>
+<h3 id="variaveis-binarias-ja-representadas-numericamente">Variáveis binárias já representadas numericamente</h3>
+<ul>
+<li><code>hypertension</code></li>
+<li><code>heart_disease</code></li>
+</ul>
+<p>Essas features já estão representadas como <code>0</code> para ausência e <code>1</code> para
+presença da respectiva condição. Dessa forma, não é necessário realizar um
+novo processo de encoding e seus valores serão preservados no
+pré-processamento.</p>
+<p>A coluna <code>id</code> não participa do pipeline, pois funciona apenas como
+identificador do paciente e foi removida das features antes da separação
+entre treino e teste.</p>
+<hr />
+<h2 id="42-tratamento-dos-valores-ausentes">4.2 Tratamento dos valores ausentes</h2>
+<p>A EDA identificou dois casos distintos relacionados à ausência de informação:
+valores explicitamente ausentes em <code>bmi</code> e a categoria <code>Unknown</code> em
+<code>smoking_status</code>.</p>
+<h3 id="valores-ausentes-em-bmi">Valores ausentes em <code>bmi</code></h3>
+<p>A variável <code>bmi</code> contém valores ausentes representados por <code>NaN</code>. Optamos por
+realizar a imputação utilizando a <strong>mediana calculada sobre o conjunto de
+treino</strong>.</p>
+<p>A escolha da mediana foi motivada pelos resultados da análise exploratória.
+A distribuição de <code>bmi</code> apresenta assimetria à direita e valores extremos,
+chegando a um máximo de 97,60. Como a mediana é menos sensível a valores
+extremos do que a média, ela fornece uma medida de tendência central mais
+robusta para essa imputação.</p>
+<p>A imputação é realizada dentro do pipeline por meio do
+<code>SimpleImputer(strategy="median")</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Prevenção de data leakage</p>
+<p>A mediana utilizada na imputação não é calculada utilizando o dataset
+completo. O <code>SimpleImputer</code> é ajustado exclusivamente sobre o conjunto
+de treino e o valor aprendido é posteriormente utilizado para transformar
+o conjunto de teste.</p>
+</div>
+<h3 id="unknown-em-smoking_status"><code>Unknown</code> em <code>smoking_status</code></h3>
+<p>A categoria <code>Unknown</code> requer um tratamento diferente. Segundo a documentação
+do dataset, ela indica que a informação sobre tabagismo não está disponível
+para aquele paciente.</p>
+<p>Na análise univariada, <code>Unknown</code> correspondeu a <strong>30,50% do conjunto de
+treino</strong>, representando uma parcela significativa das observações.</p>
+<p>Optamos por <strong>preservar <code>Unknown</code> como uma categoria explícita</strong>, em vez de
+substituí-la pela moda.</p>
+<p>Uma imputação utilizando a categoria mais frequente, <code>never smoked</code>, por
+exemplo, atribuiria artificialmente um comportamento de tabagismo a pacientes
+para os quais essa informação não foi observada.</p>
+<p>A preservação de <code>Unknown</code> permite que essa ausência de informação seja
+representada explicitamente após o One-Hot Encoding.</p>
+<hr />
+<h2 id="43-tratamento-de-outliers">4.3 Tratamento de outliers</h2>
+<p>Os potenciais outliers das variáveis numéricas foram investigados utilizando
+boxplots e o critério de 1,5 vezes o intervalo interquartil (IQR).</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: right;">Outliers identificados</th>
+<th style="text-align: right;">Percentual</th>
+<th>Estratégia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>age</code></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0,00%</td>
+<td>Nenhum tratamento</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code></td>
+<td style="text-align: right;">503</td>
+<td style="text-align: right;">12,30%</td>
+<td>Manter</td>
+</tr>
+<tr>
+<td><code>bmi</code></td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">2,30%</td>
+<td>Manter</td>
+</tr>
+</tbody>
+</table>
+<p>A estratégia escolhida foi <strong>não remover nem limitar automaticamente os
+valores extremos</strong>.</p>
+<p>Essa decisão é especialmente importante para <code>avg_glucose_level</code>. A análise
+bivariada revelou que pacientes classificados como outliers de glicose pelo
+critério do IQR apresentaram uma taxa observada de AVC de <strong>13,12%</strong>, enquanto
+a taxa entre os demais pacientes foi de <strong>3,71%</strong>.</p>
+<p>Dessa forma, os valores elevados de glicose não parecem representar
+simplesmente ruído ou erros de registro. Pelo contrário, podem conter
+informação relevante para distinguir as classes. Sua remoção automática
+poderia, portanto, eliminar observações potencialmente importantes para o
+modelo.</p>
+<p>Para <code>bmi</code>, os outliers apresentaram taxa de AVC de 3,33%, comparada a 4,90%
+entre as demais observações. Apesar de não ter sido identificada a mesma
+associação encontrada para glicose, também não foram encontradas evidências
+de que esses valores correspondam a erros de registro.</p>
+<p>Assim, optamos por preservar os valores extremos das variáveis numéricas e
+permitir que os modelos posteriores utilizem essas observações.</p>
+<hr />
+<h2 id="44-encoding-das-variaveis-categoricas">4.4 Encoding das variáveis categóricas</h2>
+<p>As variáveis categóricas serão transformadas utilizando
+<strong>One-Hot Encoding</strong>, por meio do <code>OneHotEncoder</code> do Scikit-learn.</p>
+<p>O método cria uma variável binária para cada categoria observada, evitando
+atribuir artificialmente uma relação de ordem entre categorias que não
+possuem hierarquia natural.</p>
+<p>Essa escolha é adequada, por exemplo, para variáveis como:</p>
+<ul>
+<li><code>Residence_type</code>, pois <code>Urban</code> e <code>Rural</code> não possuem relação de ordem;</li>
+<li><code>ever_married</code>, pois <code>Yes</code> e <code>No</code> representam categorias distintas, e não
+  níveis de uma escala;</li>
+<li><code>work_type</code>, cujas categorias representam diferentes tipos de ocupação;</li>
+<li><code>gender</code>;</li>
+<li><code>smoking_status</code>.</li>
+</ul>
+<p>Para <code>smoking_status</code>, o processo também produzirá uma representação
+específica para <code>Unknown</code>, preservando a informação de que o status de
+tabagismo daquele paciente é desconhecido.</p>
+<p>O encoder é configurado com <code>handle_unknown="ignore"</code>. Dessa forma, caso uma
+categoria não observada durante o ajuste do pipeline apareça posteriormente
+no conjunto de teste ou em novos dados, a transformação poderá ser realizada
+sem gerar erro.</p>
+<p>As features <code>hypertension</code> e <code>heart_disease</code> não passam pelo encoder, pois já
+possuem uma representação binária adequada (<code>0</code> ou <code>1</code>).</p>
+<hr />
+<h2 id="45-padronizacao-das-variaveis-numericas">4.5 Padronização das variáveis numéricas</h2>
+<p>As três variáveis numéricas (<code>age</code>, <code>avg_glucose_level</code> e <code>bmi</code>) são
+padronizadas utilizando <code>StandardScaler</code>.</p>
+<p>A padronização transforma cada feature considerando sua média e seu desvio
+padrão, produzindo variáveis com média aproximadamente igual a zero e
+variância unitária.</p>
+<p>Essa transformação é relevante porque as variáveis possuem escalas bastante
+diferentes. No conjunto de treino, por exemplo, <code>age</code> varia de 0,08 a 82,
+enquanto <code>avg_glucose_level</code> chega a valores superiores a 270 e <code>bmi</code>
+apresenta outra escala.</p>
+<p>Além disso, a padronização é particularmente importante para a aplicação
+posterior de PCA, uma vez que a técnica é sensível à escala das features.
+Sem esse tratamento, variáveis com maior variância numérica poderiam exercer
+influência desproporcional sobre os componentes principais.</p>
+<p>Assim como na imputação, os parâmetros do <code>StandardScaler</code> são aprendidos
+exclusivamente a partir do conjunto de treino.</p>
+<hr />
+<h2 id="46-pipeline-de-pre-processamento">4.6 Pipeline de pré-processamento</h2>
+<p>Para tornar todas as transformações reproduzíveis e reduzir o risco de
+inconsistências entre treino e teste, o pré-processamento foi organizado em
+pipelines.</p>
+<p>O pipeline numérico realiza, nesta ordem:</p>
+<ol>
+<li>imputação pela mediana;</li>
+<li>padronização com <code>StandardScaler</code>.</li>
+</ol>
+<p>O pipeline categórico realiza:</p>
+<ol>
+<li>One-Hot Encoding das categorias.</li>
+</ol>
+<p>Por fim, um <code>ColumnTransformer</code> aplica cada pipeline às features
+correspondentes e mantém <code>hypertension</code> e <code>heart_disease</code> sem transformação.</p>
+<p>O fluxo de pré-processamento pode ser resumido da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code>Variáveis numéricas
+(age, avg_glucose_level, bmi)
+        │
+        ├── Imputação pela mediana
+        │
+        └── StandardScaler
+                 │
+                 ├──────────────┐
+                                │
+Variáveis categóricas           │
+        │                       │
+        └── OneHotEncoder ──────┤
+                                │
+Variáveis binárias 0/1          │
+        │                       │
+        └── Passthrough ────────┤
+                                |
+                                V
+                    Dados pré-processados
+</code></pre></div>
+<p>O pré-processador é ajustado (fit) somente sobre X_train. Depois de
+aprendidos os parâmetros necessários, o mesmo objeto é utilizado para
+transformar tanto o conjunto de treino quanto o conjunto de teste.</p>
+<p>Essa separação garante que informações do conjunto de teste não sejam
+utilizadas para definir medianas, médias, desvios padrão ou categorias
+durante o treinamento.</p>
+<p>Após a transformação, foi verificado que não restaram valores NaN nas
+features pré-processadas.</p>
+<div class="admonition note">
+<p class="admonition-title">Pipeline e reprodutibilidade</p>
+<p>Além de evitar vazamento de informações, a utilização de Pipeline e ColumnTransformer garante que exatamente as mesmas transformações possam ser aplicadas posteriormente durante a etapa de modelagem e sobre novas observações.</p>
+</div>
+<h3 id="_1"></h3>
+<h1 id="5-documentacao-e-apresentacao">5. Documentação e apresentação:</h1>
+<pre><code>- Todos os requisitos do projeto explicitados em cada ponto acima, assim como todas as figuras produzidas e decisões tomadas, devem ser justificados de maneira objetiva.
+- As visualizações produzidas devem ser claras e informativas com títulos, rótulos e legendas adequados.
+- Preparar um relatório que resuma os principais achados e as estratégias propostas para a modelagem.
+- O código deve ser bem organizado, com comentários explicativos para cada etapa.
+- O grupo deve justificar todas as escolhas de pré-processamento com base nos achados da EDA, garantindo que as estratégias propostas sejam adequadas para os desafios identificados no dataset.
+- Python obrigatório, utilizando as bibliotecas  Pandas, NumPy, Matplotlib, Seaborn e Scikit-learn.
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-09-06 20:29:44.967275+00:00
+-->
