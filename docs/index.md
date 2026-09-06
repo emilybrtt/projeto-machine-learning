@@ -1013,12 +1013,9 @@ Após a transformação, foi verificado que não restaram valores NaN nas
 features pré-processadas.
 
 !!! note "Pipeline e reprodutibilidade"
-Além de evitar vazamento de informações, a utilização de Pipeline e
-ColumnTransformer garante que exatamente as mesmas transformações
-possam ser aplicadas posteriormente durante a etapa de modelagem e sobre
-novas observações.
+    Além de evitar vazamento de informações, a utilização de Pipeline e ColumnTransformer garante que exatamente as mesmas transformações possam ser aplicadas posteriormente durante a etapa de modelagem e sobre novas observações.
 
-
+### 
 # 5. Documentação e apresentação:
 
     - Todos os requisitos do projeto explicitados em cada ponto acima, assim como todas as figuras produzidas e decisões tomadas, devem ser justificados de maneira objetiva.
