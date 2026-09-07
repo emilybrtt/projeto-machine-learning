@@ -486,6 +486,7 @@ Optamos por analisar `age` × `bmi`, que apresentou a maior correlação entre
 as features numéricas, e `age` × `avg_glucose_level`, incorporando também
 a variável-alvo `stroke` para permitir uma análise multivariada.
 
+
 ### 3.2.1 Idade × IMC
 
 ![Relação entre idade e IMC](assets/images/idade_bmi.png)
@@ -950,7 +951,15 @@ exclusivamente a partir do conjunto de treino.
 
 ---
 
-## 4.6 Pipeline de pré-processamento
+### 4.6 Redução de Dimensionalidade (PCA) 
+![PCA Variáveis Numéricas](assets/images/pca.png)
+
+Foi aplicado PCA nas variáveis numéricas para visualizar a estrutura dos dados. O gráfico de variância explicada mostra que a informação é distribuída entre os componentes, sendo necessários cerca de 9 a 10 dos 11 componentes para explicar 90% da variância, o que indica baixa redundância entre as variáveis.
+
+Na projeção dos dois primeiros componentes (PC1 x PC2), os pacientes com stroke (vermelho) aparecem misturados aos sem stroke (azul), sem formar um grupo separado. Isso mostra que, nessas duas dimensões, não há uma separação clara entre as classes, além de evidenciar o desbalanceamento entre elas.
+
+---
+## 4.7 Pipeline de pré-processamento
 
 Para tornar todas as transformações reproduzíveis e reduzir o risco de
 inconsistências entre treino e teste, o pré-processamento foi organizado em
