@@ -1014,13 +1014,3 @@ features pré-processadas.
 
 !!! note "Pipeline e reprodutibilidade"
     Além de evitar vazamento de informações, a utilização de Pipeline e ColumnTransformer garante que exatamente as mesmas transformações possam ser aplicadas posteriormente durante a etapa de modelagem e sobre novas observações.
-
-### 
-# 5. Documentação e apresentação:
-
-    - Todos os requisitos do projeto explicitados em cada ponto acima, assim como todas as figuras produzidas e decisões tomadas, devem ser justificados de maneira objetiva.
-    - As visualizações produzidas devem ser claras e informativas com títulos, rótulos e legendas adequados.
-    - Preparar um relatório que resuma os principais achados e as estratégias propostas para a modelagem.
-    - O código deve ser bem organizado, com comentários explicativos para cada etapa.
-    - O grupo deve justificar todas as escolhas de pré-processamento com base nos achados da EDA, garantindo que as estratégias propostas sejam adequadas para os desafios identificados no dataset.
-    - Python obrigatório, utilizando as bibliotecas  Pandas, NumPy, Matplotlib, Seaborn e Scikit-learn.
