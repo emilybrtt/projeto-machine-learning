@@ -32,10 +32,10 @@ Para isso, as manipulações e testes realizados foram feitos em um notebook do 
 
 ---
 
-# 1. Carregamento e inspeção inicial dos dados:
+## 1. Carregamento e inspeção inicial dos dados:
 
 
-## 1.1 Sobre o dataset
+### 1.1 Sobre o dataset
 
 O dataset utilizado neste projeto foi obtido no Kaggle. Ele contém informações sobre pacientes e é usado para prever se um paciente é mais sucetível a ter um AVC (Acidente Vascular Cerebral) com base em características como gênero, idade, doenças cardíacas pré-existentes, etc.
 
@@ -45,7 +45,7 @@ O dataset utilizado neste projeto foi obtido no Kaggle. Ele contém informaçõe
 - **Variável-alvo:** `stroke`
 - **Tipo de problema:** Classificação
 
-## 1.2 Sobre as features do dataset
+### 1.2 Sobre as features do dataset
 
 | Feature | Tipo | Descrição |
 |---|---|---|
@@ -63,8 +63,8 @@ O dataset utilizado neste projeto foi obtido no Kaggle. Ele contém informaçõe
 | `stroke` | Target binário | Indica ocorrência de AVC: `1` para sim e `0` para não |
 
 
-## 1.3 Tipos das variáveis
-### Variáveis numéricas
+### 1.3 Tipos das variáveis
+#### Variáveis numéricas
 
 - `age`
 - `avg_glucose_level`
@@ -76,7 +76,7 @@ Ou seja, são 3 variáveis numéricas.
     Embora `id` seja armazenada numericamente no dataset, ela não representa uma grandeza quantitativa, mas apenas um identificador único de cada paciente. Por esse motivo, ela não será considerada uma feature numérica nas análises estatísticas nem utilizada posteriormente como variável preditora.
 
 
-### Variáveis categóricas
+#### Variáveis categóricas
 
 - `gender`
 - `hypertension`
@@ -93,17 +93,17 @@ Já aqui, são 7 variáveis categóricas.
     A variável `stroke` também é categórica binária, porém é tratada separadamente por ser a variável-alvo do problema.
 
 
-### Observações
+#### Observações
 
 De início, já percebemos que existem bem mais variáveis categóricas e que elas exigirão diferentes manipulações, que traremos mais à frente.
 
 
-## 1.4 Valores ausentes e inconsistências
+### 1.4 Valores ausentes e inconsistências
 
 A inspeção inicial revelou dois tipos diferentes de ausência de informação no dataset: valores ausentes explícitos e valores ausentes representados por uma categoria textual.
 
 
-### Valores ausentes explícitos
+#### Valores ausentes explícitos
 
 A análise utilizando os valores nulos reconhecidos pelo Pandas identificou ausência apenas na variável `bmi`.
 
@@ -115,7 +115,7 @@ Portanto, aproximadamente 3,93% dos pacientes não possuem informação registra
 
 A estratégia utilizada para tratar esses valores será definida mais a frente, no pré-processamento.
 
-### Ausência de informação em `smoking_status`
+#### Ausência de informação em `smoking_status`
 
 Além dos valores `NaN`, foi identificada uma situação particular na variável `smoking_status`:
 
@@ -135,12 +135,12 @@ Assim, apesar de `Unknown` não ser reconhecido como um valor nulo, ele represen
 ---
 
 
-## 1.5 Verificação de inconsistências
-### Registros duplicados
+### 1.5 Verificação de inconsistências
+#### Registros duplicados
 
 Não foram identificadas linhas completamente duplicadas no dataset. Também foi verificada a coluna `id`, utilizada como identificador dos pacientes, para detectar possíveis identificadores repetidos.
 
-### Categorias das variáveis
+#### Categorias das variáveis
 
 Os valores únicos das variáveis categóricas foram inspecionados individualmente para identificar problemas de capitalização, erros de escrita ou categorias inesperadas.
 
@@ -148,16 +148,16 @@ As categorias encontradas são consistentes com a documentação do dataset.
 
 Um caso que merece atenção é a categoria `Other` da variável `gender`, que apresenta frequência muito baixa. Apesar disso, ela não foi considerada uma inconsistência, pois é prevista na descrição do dataset.
 
-### Variáveis numéricas
+#### Variáveis numéricas
 
 As variáveis `age`, `avg_glucose_level` e `bmi` também foram inspecionadas por meio de estatísticas descritivas para identificar valores potencialmente impossíveis ou suspeitos.
 
 Neste momento, valores extremos não foram automaticamente classificados como erros nem removidos. A existência e o impacto de possíveis *outliers* serão investigados em maior profundidade durante a análise univariada.
 
 
-## 1.6 Distribuição da variável-alvo
+### 1.6 Distribuição da variável-alvo
 
-## 1.6 Distribuição da variável-alvo
+### 1.6 Distribuição da variável-alvo
 
 A variável-alvo deste projeto é `stroke`, uma variável binária que indica
 se o paciente teve (`1`) ou não teve (`0`) um AVC.
@@ -172,7 +172,7 @@ duas classes.
 
 ![Distribuição da variável-alvo](assets/images/distribuicao_target.png)
 
-### Interpretação
+#### Interpretação
 
 A variável-alvo apresenta forte desbalanceamento de classes. Aproximadamente
 95% dos pacientes pertencem à classe sem ocorrência de AVC, enquanto menos
@@ -193,7 +193,7 @@ pacientes pertencentes à classe minoritária.
 
 ---
 
-## 1.7 Separação entre treino e teste
+### 1.7 Separação entre treino e teste
 
 Após a inspeção inicial dos dados, o dataset foi separado em conjuntos de
 treino e teste.
@@ -224,9 +224,9 @@ A separação foi realizada antes das etapas de pré-processamento que aprendem 
 A partir deste ponto, as análises exploratórias mais aprofundadas serão realizadas sobre o **conjunto de treino**. O conjunto de teste permanecerá reservado para a avaliação das etapas posteriores do projeto.
 
 
-# 2. Análise univariada:
+## 2. Análise univariada:
 
-## 2.1 Análise univariada
+### 2.1 Análise univariada
 
 Após a separação dos dados, realizamos a análise univariada utilizando o
 conjunto de treino.
@@ -251,7 +251,7 @@ visualização, respeitando o limite estabelecido na proposta:
 As demais variáveis categóricas continuam sendo consideradas no projeto e
 serão especialmente relevantes nas análises de associação com a variável-alvo.
 
-## 2.1 Estatísticas descritivas das variáveis numéricas
+### 2.1 Estatísticas descritivas das variáveis numéricas
 
 As principais estatísticas descritivas das variáveis numéricas no conjunto
 de treino são apresentadas abaixo.
@@ -271,7 +271,7 @@ valor máximo bastante distante de sua média e mediana.
 
 Esses padrões são investigados visualmente nas seções seguintes.
 
-## 2.2 Distribuição das variáveis numéricas
+### 2.2 Distribuição das variáveis numéricas
 
 Para complementar as estatísticas descritivas, foram utilizados histogramas
 e boxplots para analisar a forma das distribuições e identificar possíveis
@@ -279,7 +279,7 @@ valores extremos.
 
 ![Distribuições das variáveis numéricas](assets/images/distribuicoes_numericas.png)
 
-### Idade
+#### Idade
 
 A variável `age` apresenta ampla dispersão, variando de 0,08 a 82 anos,
 com média de 43,35 e mediana de 45 anos.
@@ -292,7 +292,7 @@ Embora existam idades muito baixas, elas não foram classificadas
 automaticamente como inconsistências, uma vez que o dataset contém pacientes
 de diferentes faixas etárias.
 
-### Nível médio de glicose
+#### Nível médio de glicose
 
 A variável `avg_glucose_level` apresenta clara assimetria à direita. A maior
 parte das observações está concentrada em valores mais baixos, enquanto existe
@@ -306,7 +306,7 @@ Entretanto, sua classificação estatística como valores extremos não signific
 necessariamente que sejam erros, motivo pelo qual essas observações foram
 investigadas posteriormente antes de qualquer decisão de tratamento.
 
-### IMC
+#### IMC
 
 A variável `bmi` apresenta maior concentração aproximadamente na região
 entre 20 e 35, com média de 28,92 e mediana de 28,00.
@@ -319,7 +319,7 @@ Além disso, `bmi` possui valores ausentes, que permanecem sem imputação nesta
 etapa da análise exploratória. A estratégia para tratá-los será definida na
 etapa de pré-processamento.
 
-## 2.3 Investigação dos potenciais outliers
+### 2.3 Investigação dos potenciais outliers
 
 Para complementar a inspeção visual, utilizamos o critério de 1,5 vezes o
 intervalo interquartil (IQR) para quantificar observações estatisticamente
@@ -347,15 +347,15 @@ variável-alvo será investigada na análise bivariada antes da definição da
 estratégia final de pré-processamento.
 
 
-## 2.4 Análise das variáveis categóricas
+### 2.4 Análise das variáveis categóricas
 
 Para a análise univariada das variáveis categóricas, foram selecionadas
 `smoking_status`, `work_type` e `gender`, respeitando o limite de três
 visualizações estabelecido na proposta.
 
-### Frequências
+#### Frequências
 
-#### Status de tabagismo
+##### Status de tabagismo
 
 | Categoria | Quantidade | Percentual |
 |---|---:|---:|
@@ -364,7 +364,7 @@ visualizações estabelecido na proposta.
 | `formerly smoked` | 714 | 17,47% |
 | `smokes` | 626 | 15,31% |
 
-#### Tipo de trabalho
+##### Tipo de trabalho
 
 | Categoria | Quantidade | Percentual |
 |---|---:|---:|
@@ -374,7 +374,7 @@ visualizações estabelecido na proposta.
 | `Govt_job` | 522 | 12,77% |
 | `Never_worked` | 13 | 0,32% |
 
-#### Gênero
+##### Gênero
 
 | Categoria | Quantidade | Percentual |
 |---|---:|---:|
@@ -382,11 +382,11 @@ visualizações estabelecido na proposta.
 | `Male` | 1.692 | 41,39% |
 | `Other` | 1 | 0,02% |
 
-### Visualização
+#### Visualização
 
 ![Distribuições das variáveis categóricas](assets/images/distribuicoes_categoricas.png)
 
-### Interpretação
+#### Interpretação
 
 A variável `smoking_status` apresenta `never smoked` como categoria mais
 frequente (36,72%). Entretanto, destaca-se a elevada frequência da categoria
@@ -415,7 +415,7 @@ inconsistência, embora sua frequência seja insuficiente para sustentar conclus
 estatísticas específicas sobre esse grupo.
 
 
-## 2.5 Visualização das variáveis categóricas
+### 2.5 Visualização das variáveis categóricas
 
 As frequências das três variáveis categóricas selecionadas também foram
 representadas graficamente.
@@ -428,7 +428,7 @@ de `Unknown` em `smoking_status`, a predominância de `Private` em
 `work_type` e a ocorrência extremamente rara da categoria `Other` em
 `gender`.
 
-# 3. Análise bivariada e multivariada
+## 3. Análise bivariada e multivariada
 
 Após analisar individualmente as principais variáveis do conjunto de treino,
 passamos a investigar as relações entre elas e, especialmente, suas associações
@@ -447,7 +447,7 @@ Foram analisadas:
 
 ---
 
-## 3.1 Correlação entre variáveis numéricas
+### 3.1 Correlação entre variáveis numéricas
 
 Inicialmente, calculamos o coeficiente de correlação de Pearson entre as três
 features numéricas utilizadas no projeto: `age`, `avg_glucose_level` e `bmi`.
@@ -460,7 +460,7 @@ features numéricas utilizadas no projeto: `age`, `avg_glucose_level` e `bmi`.
 
 ![Matriz de correlação entre variáveis numéricas](assets/images/matriz_correlacao.png)
 
-### Interpretação
+#### Interpretação
 
 Não foram observadas correlações lineares fortes entre as variáveis numéricas.
 
@@ -477,7 +477,7 @@ correlação de Pearson mede especificamente associações lineares.
 
 ---
 
-## 3.2 Relações entre variáveis numéricas
+### 3.2 Relações entre variáveis numéricas
 
 A partir da matriz de correlação, foram selecionadas duas relações para
 investigação por meio de gráficos de dispersão.
@@ -487,7 +487,7 @@ as features numéricas, e `age` × `avg_glucose_level`, incorporando também
 a variável-alvo `stroke` para permitir uma análise multivariada.
 
 
-### 3.2.1 Idade × IMC
+#### 3.2.1 Idade × IMC
 
 ![Relação entre idade e IMC](assets/images/idade_bmi.png)
 
@@ -502,7 +502,7 @@ ao longo de toda a faixa etária.
 Também são visíveis algumas observações com valores elevados de IMC,
 anteriormente identificadas durante a investigação dos potenciais outliers.
 
-### 3.2.2 Idade × nível médio de glicose × ocorrência de AVC
+#### 3.2.2 Idade × nível médio de glicose × ocorrência de AVC
 
 Para aprofundar a análise, relacionamos simultaneamente `age`,
 `avg_glucose_level` e `stroke`. Nesse gráfico, idade e glicose são
@@ -524,7 +524,7 @@ de pontos de cada classe não deve ser utilizada isoladamente para comparar os
 grupos. Por esse motivo, a relação observada entre idade e AVC foi investigada
 quantitativamente.
 
-#### Idade segundo a ocorrência de AVC
+##### Idade segundo a ocorrência de AVC
 
 | Ocorrência de AVC | Média | Mediana | Desvio padrão | Mínimo | Máximo |
 |---|---:|---:|---:|---:|---:|
@@ -559,7 +559,7 @@ relação causal.
 
 ---
 
-## 3.3 Relação entre variáveis categóricas e ocorrência de AVC
+### 3.3 Relação entre variáveis categóricas e ocorrência de AVC
 
 Para as variáveis categóricas, foi calculada a proporção de pacientes com
 AVC dentro de cada categoria.
@@ -573,7 +573,7 @@ As três variáveis selecionadas para visualização foram `hypertension`,
 
 ![Taxa de AVC por variáveis categóricas](assets/images/categoricas_stroke.png)
 
-### 3.3.1 Hipertensão
+#### 3.3.1 Hipertensão
 
 | Hipertensão | Pacientes | Casos de AVC | Taxa de AVC |
 |---|---:|---:|---:|
@@ -586,7 +586,7 @@ Entre pacientes com hipertensão, essa proporção aumentou para **13,60%**.
 Portanto, neste conjunto de treino, a presença de hipertensão apresenta
 uma associação relevante com a ocorrência de AVC.
 
-### 3.3.2 Doença cardíaca
+#### 3.3.2 Doença cardíaca
 
 | Doença cardíaca | Pacientes | Casos de AVC | Taxa de AVC |
 |---|---:|---:|---:|
@@ -600,7 +600,7 @@ pacientes com doença cardíaca a taxa observada foi de **16,29%**.
 Assim como no caso da hipertensão, o resultado sugere que essa feature
 pode conter informação relevante para a futura tarefa de classificação.
 
-### 3.3.3 Status de tabagismo
+#### 3.3.3 Status de tabagismo
 
 | Status de tabagismo | Pacientes | Casos de AVC | Taxa de AVC |
 |---|---:|---:|---:|
@@ -624,7 +624,7 @@ como equivalente à de uma categoria clínica de tabagismo.
 
 ---
 
-### Análise complementar das demais variáveis categóricas
+#### Análise complementar das demais variáveis categóricas
 
 Embora apenas três variáveis tenham sido selecionadas para visualização,
 também foram calculadas as taxas de AVC para as demais features categóricas.
@@ -660,7 +660,7 @@ observada entre duas variáveis pode ser influenciada por uma terceira variável
 Por esse motivo, os padrões encontrados nesta etapa serão interpretados em
 conjunto e posteriormente avaliados pelos modelos de classificação.
 
-## 3.4 Relação entre variáveis numéricas e ocorrência de AVC
+### 3.4 Relação entre variáveis numéricas e ocorrência de AVC
 
 Para investigar como as distribuições das variáveis numéricas diferem entre
 pacientes com e sem AVC, foram construídos boxplots de `age`,
@@ -677,7 +677,7 @@ apresentadas abaixo.
 | `avg_glucose_level` | 105,03 | 91,65 | 43,85 | 131,39 | 104,86 | 62,13 |
 | `bmi` | 28,85 | 27,95 | 7,98 | 30,59 | 29,90 | 6,40 |
 
-### Idade
+#### Idade
 
 A diferença mais expressiva é observada em `age`. Pacientes sem AVC
 apresentaram idade média de **42,11 anos** e mediana de **44 anos**,
@@ -688,7 +688,7 @@ O deslocamento da distribuição é consistente com a análise anterior por
 faixas etárias e reforça a existência de uma forte associação entre idade
 e ocorrência de AVC neste conjunto de treino.
 
-### Nível médio de glicose
+#### Nível médio de glicose
 
 Também são observadas diferenças em `avg_glucose_level`. Pacientes sem AVC
 apresentaram média de **105,03** e mediana de **91,65**, enquanto pacientes
@@ -718,7 +718,7 @@ podem conter informação relevante para a tarefa de classificação.
 Por esse motivo, optamos por **preservar os valores extremos de
 `avg_glucose_level`** no pré-processamento.
 
-### IMC
+#### IMC
 
 A variável `bmi` também apresenta valores centrais ligeiramente superiores
 entre pacientes com AVC. A média passa de **28,85** para **30,59**, enquanto
@@ -735,7 +735,7 @@ Não foram encontradas evidências de que esses valores extremos correspondam
 a erros de registro. Dessa forma, eles também serão preservados durante o
 pré-processamento.
 
-### Síntese
+#### Síntese
 
 Entre as três variáveis numéricas, `age` apresentou a diferença mais
 pronunciada entre pacientes com e sem AVC. `avg_glucose_level` também
@@ -751,7 +751,7 @@ Todas essas análises representam associações observadas no conjunto de treino
 e não permitem estabelecer relações causais. Além disso, as comparações devem
 ser interpretadas considerando o forte desbalanceamento da variável-alvo.
 
-# 4. Pré-processamento para modelagem
+## 4. Pré-processamento para modelagem
 
 A partir dos resultados obtidos durante a análise exploratória, foram definidas
 as estratégias de pré-processamento que serão utilizadas nas etapas posteriores
@@ -770,12 +770,12 @@ ou novas observações.
 
 ---
 
-## 4.1 Organização das features
+### 4.1 Organização das features
 
 As features foram separadas de acordo com sua natureza e com o tipo de
 transformação necessária.
 
-### Variáveis numéricas
+#### Variáveis numéricas
 
 - `age`
 - `avg_glucose_level`
@@ -784,7 +784,7 @@ transformação necessária.
 Essas variáveis serão submetidas à imputação de valores ausentes, quando
 necessário, e posteriormente à padronização.
 
-### Variáveis categóricas nominais
+#### Variáveis categóricas nominais
 
 - `gender`
 - `ever_married`
@@ -796,7 +796,7 @@ Apesar de algumas dessas variáveis possuírem apenas duas categorias, elas não
 representam grandezas com uma ordem quantitativa natural. Por esse motivo,
 serão tratadas utilizando One-Hot Encoding.
 
-### Variáveis binárias já representadas numericamente
+#### Variáveis binárias já representadas numericamente
 
 - `hypertension`
 - `heart_disease`
@@ -812,13 +812,13 @@ entre treino e teste.
 
 ---
 
-## 4.2 Tratamento dos valores ausentes
+### 4.2 Tratamento dos valores ausentes
 
 A EDA identificou dois casos distintos relacionados à ausência de informação:
 valores explicitamente ausentes em `bmi` e a categoria `Unknown` em
 `smoking_status`.
 
-### Valores ausentes em `bmi`
+#### Valores ausentes em `bmi`
 
 A variável `bmi` contém valores ausentes representados por `NaN`. Optamos por
 realizar a imputação utilizando a **mediana calculada sobre o conjunto de
@@ -839,7 +839,7 @@ A imputação é realizada dentro do pipeline por meio do
     de treino e o valor aprendido é posteriormente utilizado para transformar
     o conjunto de teste.
 
-### `Unknown` em `smoking_status`
+#### `Unknown` em `smoking_status`
 
 A categoria `Unknown` requer um tratamento diferente. Segundo a documentação
 do dataset, ela indica que a informação sobre tabagismo não está disponível
@@ -860,7 +860,7 @@ representada explicitamente após o One-Hot Encoding.
 
 ---
 
-## 4.3 Tratamento de outliers
+### 4.3 Tratamento de outliers
 
 Os potenciais outliers das variáveis numéricas foram investigados utilizando
 boxplots e o critério de 1,5 vezes o intervalo interquartil (IQR).
@@ -895,7 +895,7 @@ permitir que os modelos posteriores utilizem essas observações.
 
 ---
 
-## 4.4 Encoding das variáveis categóricas
+### 4.4 Encoding das variáveis categóricas
 
 As variáveis categóricas serão transformadas utilizando
 **One-Hot Encoding**, por meio do `OneHotEncoder` do Scikit-learn.
@@ -927,7 +927,7 @@ possuem uma representação binária adequada (`0` ou `1`).
 
 ---
 
-## 4.5 Padronização das variáveis numéricas
+### 4.5 Padronização das variáveis numéricas
 
 As três variáveis numéricas (`age`, `avg_glucose_level` e `bmi`) são
 padronizadas utilizando `StandardScaler`.
@@ -951,7 +951,7 @@ exclusivamente a partir do conjunto de treino.
 
 ---
 
-### 4.6 Redução de Dimensionalidade (PCA) 
+#### 4.6 Redução de Dimensionalidade (PCA) 
 ![PCA Variáveis Numéricas](assets/images/pca.png)
 
 Foi aplicado PCA nas variáveis numéricas para visualizar a estrutura dos dados. O gráfico de variância explicada mostra que a informação é distribuída entre os componentes, sendo necessários cerca de 9 a 10 dos 11 componentes para explicar 90% da variância, o que indica baixa redundância entre as variáveis.
@@ -959,7 +959,7 @@ Foi aplicado PCA nas variáveis numéricas para visualizar a estrutura dos dados
 Na projeção dos dois primeiros componentes (PC1 x PC2), os pacientes com stroke (vermelho) aparecem misturados aos sem stroke (azul), sem formar um grupo separado. Isso mostra que, nessas duas dimensões, não há uma separação clara entre as classes, além de evidenciar o desbalanceamento entre elas.
 
 ---
-## 4.7 Pipeline de pré-processamento
+### 4.7 Pipeline de pré-processamento
 
 Para tornar todas as transformações reproduzíveis e reduzir o risco de
 inconsistências entre treino e teste, o pré-processamento foi organizado em
@@ -1013,4 +1013,4 @@ Após a transformação, foi verificado que não restaram valores NaN nas
 features pré-processadas.
 
 !!! note "Pipeline e reprodutibilidade"
-    Além de evitar vazamento de informações, a utilização de Pipeline e ColumnTransformer garante que exatamente as mesmas transformações possam ser aplicadas posteriormente durante a etapa de modelagem e sobre novas observações.
+    Além de evitar vazamento de informações, a utilização de Pipeline e ColumnTransformer garante que exatamente as mesmas transformações possam ser aplicadas posteriormente durante a etapa de modelagem e sobre novas observações

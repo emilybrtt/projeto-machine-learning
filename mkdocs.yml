@@ -1,5 +1,31 @@
 site_name: My Docs
 
+theme:
+  name: material
+  language: pt-BR
+  font: false
+  palette:
+    scheme: default
+    primary: black
+    accent: teal
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Relatório: index.md
+
+plugins:
+  - search:
+      lang: pt
+
+extra_css:
+  - assets/stylesheets/minimal.css
+
 markdown_extensions:
   - admonition
   - pymdownx.details
