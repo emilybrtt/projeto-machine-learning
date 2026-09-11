@@ -1,190 +1,1992 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
         
-        
-        <link rel="shortcut icon" href="img/favicon.ico">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
         <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-    <body class="homepage">
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#projeto-de-machine-learning" class="nav-link">Projeto de Machine Learning</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#informacoes-gerais" class="nav-link">Informações gerais</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#objetivo" class="nav-link">Objetivo</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#1-carregamento-e-inspecao-inicial-dos-dados" class="nav-link">1. Carregamento e inspeção inicial dos dados:</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#11-sobre-o-dataset" class="nav-link">1.1 Sobre o dataset</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#12-sobre-as-features-do-dataset" class="nav-link">1.2 Sobre as features do dataset</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#13-tipos-das-variaveis" class="nav-link">1.3 Tipos das variáveis</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#14-valores-ausentes-e-inconsistencias" class="nav-link">1.4 Valores ausentes e inconsistências</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#15-verificacao-de-inconsistencias" class="nav-link">1.5 Verificação de inconsistências</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#16-distribuicao-da-variavel-alvo" class="nav-link">1.6 Distribuição da variável-alvo</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#16-distribuicao-da-variavel-alvo_1" class="nav-link">1.6 Distribuição da variável-alvo</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#17-separacao-entre-treino-e-teste" class="nav-link">1.7 Separação entre treino e teste</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#2-analise-univariada" class="nav-link">2. Análise univariada:</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#21-analise-univariada" class="nav-link">2.1 Análise univariada</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#21-estatisticas-descritivas-das-variaveis-numericas" class="nav-link">2.1 Estatísticas descritivas das variáveis numéricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#22-distribuicao-das-variaveis-numericas" class="nav-link">2.2 Distribuição das variáveis numéricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#23-investigacao-dos-potenciais-outliers" class="nav-link">2.3 Investigação dos potenciais outliers</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#24-analise-das-variaveis-categoricas" class="nav-link">2.4 Análise das variáveis categóricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#25-visualizacao-das-variaveis-categoricas" class="nav-link">2.5 Visualização das variáveis categóricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#3-analise-bivariada-e-multivariada" class="nav-link">3. Análise bivariada e multivariada</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#31-correlacao-entre-variaveis-numericas" class="nav-link">3.1 Correlação entre variáveis numéricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#32-relacoes-entre-variaveis-numericas" class="nav-link">3.2 Relações entre variáveis numéricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc" class="nav-link">3.3 Relação entre variáveis categóricas e ocorrência de AVC</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc" class="nav-link">3.4 Relação entre variáveis numéricas e ocorrência de AVC</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#4-pre-processamento-para-modelagem" class="nav-link">4. Pré-processamento para modelagem</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#41-organizacao-das-features" class="nav-link">4.1 Organização das features</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#42-tratamento-dos-valores-ausentes" class="nav-link">4.2 Tratamento dos valores ausentes</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#43-tratamento-de-outliers" class="nav-link">4.3 Tratamento de outliers</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#44-encoding-das-variaveis-categoricas" class="nav-link">4.4 Encoding das variáveis categóricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#45-padronizacao-das-variaveis-numericas" class="nav-link">4.5 Padronização das variáveis numéricas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#47-pipeline-de-pre-processamento" class="nav-link">4.7 Pipeline de pré-processamento</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/minimal.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#projeto-de-machine-learning" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Relatório
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatório
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatório
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informacoes-gerais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informações gerais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-carregamento-e-inspecao-inicial-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Carregamento e inspeção inicial dos dados:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Carregamento e inspeção inicial dos dados:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-sobre-o-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Sobre o dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sobre-as-features-do-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Sobre as features do dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-tipos-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Tipos das variáveis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Tipos das variáveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-valores-ausentes-e-inconsistencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Valores ausentes e inconsistências
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Valores ausentes e inconsistências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valores-ausentes-explicitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valores ausentes explícitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausencia-de-informacao-em-smoking_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ausência de informação em smoking_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-verificacao-de-inconsistencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Verificação de inconsistências
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Verificação de inconsistências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registros-duplicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros duplicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorias-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorias das variáveis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-numericas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-distribuicao-da-variavel-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Distribuição da variável-alvo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-distribuicao-da-variavel-alvo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Distribuição da variável-alvo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 Distribuição da variável-alvo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-separacao-entre-treino-e-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Separação entre treino e teste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-analise-univariada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Análise univariada:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Análise univariada:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-analise-univariada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Análise univariada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-estatisticas-descritivas-das-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Estatísticas descritivas das variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-distribuicao-das-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Distribuição das variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Distribuição das variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nivel-medio-de-glicose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nível médio de glicose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-investigacao-dos-potenciais-outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Investigação dos potenciais outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-analise-das-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Análise das variáveis categóricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Análise das variáveis categóricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequências
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-de-tabagismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status de tabagismo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-trabalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipo de trabalho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gênero
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualização
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-visualizacao-das-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Visualização das variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-analise-bivariada-e-multivariada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Análise bivariada e multivariada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Análise bivariada e multivariada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-correlacao-entre-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Correlação entre variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Correlação entre variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-relacoes-entre-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Relações entre variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Relações entre variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-idade-imc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Idade × IMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-idade-nivel-medio-de-glicose-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 Idade × nível médio de glicose × ocorrência de AVC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.2 Idade × nível médio de glicose × ocorrência de AVC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idade-segundo-a-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idade segundo a ocorrência de AVC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Relação entre variáveis categóricas e ocorrência de AVC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Relação entre variáveis categóricas e ocorrência de AVC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-hipertensao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 Hipertensão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-doenca-cardiaca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Doença cardíaca
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-status-de-tabagismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.3 Status de tabagismo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-complementar-das-demais-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise complementar das demais variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Relação entre variáveis numéricas e ocorrência de AVC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Relação entre variáveis numéricas e ocorrência de AVC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idade_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nivel-medio-de-glicose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nível médio de glicose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Síntese
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pre-processamento-para-modelagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pré-processamento para modelagem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pré-processamento para modelagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-organizacao-das-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Organização das features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Organização das features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-numericas_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-categoricas-nominais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis categóricas nominais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-binarias-ja-representadas-numericamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis binárias já representadas numericamente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tratamento-dos-valores-ausentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Tratamento dos valores ausentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Tratamento dos valores ausentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valores-ausentes-em-bmi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valores ausentes em bmi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknown-em-smoking_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unknown em smoking_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tratamento-de-outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Tratamento de outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-encoding-das-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Encoding das variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-padronizacao-das-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Padronização das variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Padronização das variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#46-reducao-de-dimensionalidade-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Redução de Dimensionalidade (PCA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-pipeline-de-pre-processamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Pipeline de pré-processamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informacoes-gerais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informações gerais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-carregamento-e-inspecao-inicial-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Carregamento e inspeção inicial dos dados:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Carregamento e inspeção inicial dos dados:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-sobre-o-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Sobre o dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sobre-as-features-do-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Sobre as features do dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-tipos-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Tipos das variáveis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Tipos das variáveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-valores-ausentes-e-inconsistencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Valores ausentes e inconsistências
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Valores ausentes e inconsistências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valores-ausentes-explicitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valores ausentes explícitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausencia-de-informacao-em-smoking_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ausência de informação em smoking_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-verificacao-de-inconsistencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Verificação de inconsistências
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Verificação de inconsistências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registros-duplicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros duplicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorias-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorias das variáveis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-numericas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-distribuicao-da-variavel-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Distribuição da variável-alvo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-distribuicao-da-variavel-alvo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Distribuição da variável-alvo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 Distribuição da variável-alvo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-separacao-entre-treino-e-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Separação entre treino e teste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-analise-univariada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Análise univariada:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Análise univariada:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-analise-univariada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Análise univariada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-estatisticas-descritivas-das-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Estatísticas descritivas das variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-distribuicao-das-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Distribuição das variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Distribuição das variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nivel-medio-de-glicose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nível médio de glicose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-investigacao-dos-potenciais-outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Investigação dos potenciais outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-analise-das-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Análise das variáveis categóricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Análise das variáveis categóricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequências
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-de-tabagismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status de tabagismo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-trabalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipo de trabalho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gênero
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualização
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-visualizacao-das-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Visualização das variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-analise-bivariada-e-multivariada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Análise bivariada e multivariada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Análise bivariada e multivariada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-correlacao-entre-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Correlação entre variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Correlação entre variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-relacoes-entre-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Relações entre variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Relações entre variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-idade-imc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Idade × IMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-idade-nivel-medio-de-glicose-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 Idade × nível médio de glicose × ocorrência de AVC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.2 Idade × nível médio de glicose × ocorrência de AVC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idade-segundo-a-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idade segundo a ocorrência de AVC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Relação entre variáveis categóricas e ocorrência de AVC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Relação entre variáveis categóricas e ocorrência de AVC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-hipertensao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 Hipertensão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-doenca-cardiaca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Doença cardíaca
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-status-de-tabagismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.3 Status de tabagismo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-complementar-das-demais-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise complementar das demais variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Relação entre variáveis numéricas e ocorrência de AVC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Relação entre variáveis numéricas e ocorrência de AVC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idade_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nivel-medio-de-glicose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nível médio de glicose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Síntese
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pre-processamento-para-modelagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pré-processamento para modelagem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pré-processamento para modelagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-organizacao-das-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Organização das features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Organização das features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-numericas_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis numéricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-categoricas-nominais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis categóricas nominais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-binarias-ja-representadas-numericamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variáveis binárias já representadas numericamente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tratamento-dos-valores-ausentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Tratamento dos valores ausentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Tratamento dos valores ausentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valores-ausentes-em-bmi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valores ausentes em bmi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknown-em-smoking_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unknown em smoking_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tratamento-de-outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Tratamento de outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-encoding-das-variaveis-categoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Encoding das variáveis categóricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-padronizacao-das-variaveis-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Padronização das variáveis numéricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Padronização das variáveis numéricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#46-reducao-de-dimensionalidade-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Redução de Dimensionalidade (PCA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-pipeline-de-pre-processamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Pipeline de pré-processamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
 
 <h1 id="projeto-de-machine-learning">Projeto de Machine Learning</h1>
 <h2 id="informacoes-gerais">Informações gerais</h2>
@@ -208,8 +2010,8 @@
 <p><a href="https://colab.research.google.com/drive/1MHs2PKBQe6oGy44FMrf2f06dGMeOZdlX?usp=sharing">Notebook no Google Colab</a></p>
 <p><a href="https://github.com/emilybrtt/projeto-machine-learning">Repositório no GitHub</a></p>
 <hr />
-<h1 id="1-carregamento-e-inspecao-inicial-dos-dados">1. Carregamento e inspeção inicial dos dados:</h1>
-<h2 id="11-sobre-o-dataset">1.1 Sobre o dataset</h2>
+<h2 id="1-carregamento-e-inspecao-inicial-dos-dados">1. Carregamento e inspeção inicial dos dados:</h2>
+<h3 id="11-sobre-o-dataset">1.1 Sobre o dataset</h3>
 <p>O dataset utilizado neste projeto foi obtido no Kaggle. Ele contém informações sobre pacientes e é usado para prever se um paciente é mais sucetível a ter um AVC (Acidente Vascular Cerebral) com base em características como gênero, idade, doenças cardíacas pré-existentes, etc.</p>
 <ul>
 <li><strong>Fonte:</strong> <a href="https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset">Kaggle</a></li>
@@ -218,7 +2020,7 @@
 <li><strong>Variável-alvo:</strong> <code>stroke</code></li>
 <li><strong>Tipo de problema:</strong> Classificação</li>
 </ul>
-<h2 id="12-sobre-as-features-do-dataset">1.2 Sobre as features do dataset</h2>
+<h3 id="12-sobre-as-features-do-dataset">1.2 Sobre as features do dataset</h3>
 <table>
 <thead>
 <tr>
@@ -290,8 +2092,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="13-tipos-das-variaveis">1.3 Tipos das variáveis</h2>
-<h3 id="variaveis-numericas">Variáveis numéricas</h3>
+<h3 id="13-tipos-das-variaveis">1.3 Tipos das variáveis</h3>
+<h4 id="variaveis-numericas">Variáveis numéricas</h4>
 <ul>
 <li><code>age</code></li>
 <li><code>avg_glucose_level</code></li>
@@ -302,7 +2104,7 @@
 <p class="admonition-title">Sobre a variável <code>id</code></p>
 <p>Embora <code>id</code> seja armazenada numericamente no dataset, ela não representa uma grandeza quantitativa, mas apenas um identificador único de cada paciente. Por esse motivo, ela não será considerada uma feature numérica nas análises estatísticas nem utilizada posteriormente como variável preditora.</p>
 </div>
-<h3 id="variaveis-categoricas">Variáveis categóricas</h3>
+<h4 id="variaveis-categoricas">Variáveis categóricas</h4>
 <ul>
 <li><code>gender</code></li>
 <li><code>hypertension</code></li>
@@ -317,11 +2119,11 @@
 <p class="admonition-title">Sobre a variável <code>stroke</code></p>
 <p>A variável <code>stroke</code> também é categórica binária, porém é tratada separadamente por ser a variável-alvo do problema.</p>
 </div>
-<h3 id="observacoes">Observações</h3>
+<h4 id="observacoes">Observações</h4>
 <p>De início, já percebemos que existem bem mais variáveis categóricas e que elas exigirão diferentes manipulações, que traremos mais à frente.</p>
-<h2 id="14-valores-ausentes-e-inconsistencias">1.4 Valores ausentes e inconsistências</h2>
+<h3 id="14-valores-ausentes-e-inconsistencias">1.4 Valores ausentes e inconsistências</h3>
 <p>A inspeção inicial revelou dois tipos diferentes de ausência de informação no dataset: valores ausentes explícitos e valores ausentes representados por uma categoria textual.</p>
-<h3 id="valores-ausentes-explicitos">Valores ausentes explícitos</h3>
+<h4 id="valores-ausentes-explicitos">Valores ausentes explícitos</h4>
 <p>A análise utilizando os valores nulos reconhecidos pelo Pandas identificou ausência apenas na variável <code>bmi</code>.</p>
 <table>
 <thead>
@@ -341,7 +2143,7 @@
 </table>
 <p>Portanto, aproximadamente 3,93% dos pacientes não possuem informação registrada para o Índice de Massa Corporal.</p>
 <p>A estratégia utilizada para tratar esses valores será definida mais a frente, no pré-processamento.</p>
-<h3 id="ausencia-de-informacao-em-smoking_status">Ausência de informação em <code>smoking_status</code></h3>
+<h4 id="ausencia-de-informacao-em-smoking_status">Ausência de informação em <code>smoking_status</code></h4>
 <p>Além dos valores <code>NaN</code>, foi identificada uma situação particular na variável <code>smoking_status</code>:</p>
 <p>Segundo a <a href="https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset/data">documentação</a> do dataset, a categoria <code>Unknown</code> significa que a informação sobre o status de tabagismo não está disponível para aquele paciente.</p>
 <p>Foram encontrados:</p>
@@ -364,18 +2166,18 @@
 <p>Assim, apesar de <code>Unknown</code> não ser reconhecido como um valor nulo, ele representa ausência de informação.</p>
 <p>~30% dos pacientes tem <code>smoking_status</code> desconhecido. Substituir esses registros pela categoria mais frequente, por exemplo, seria atribuir um comportamento de tabagismo a uma parcela relativamente grande dos pacientes. Assim, nessa etapa optamos por preservar <code>Unknown</code>, em vez de realizar uma imputação.</p>
 <hr />
-<h2 id="15-verificacao-de-inconsistencias">1.5 Verificação de inconsistências</h2>
-<h3 id="registros-duplicados">Registros duplicados</h3>
+<h3 id="15-verificacao-de-inconsistencias">1.5 Verificação de inconsistências</h3>
+<h4 id="registros-duplicados">Registros duplicados</h4>
 <p>Não foram identificadas linhas completamente duplicadas no dataset. Também foi verificada a coluna <code>id</code>, utilizada como identificador dos pacientes, para detectar possíveis identificadores repetidos.</p>
-<h3 id="categorias-das-variaveis">Categorias das variáveis</h3>
+<h4 id="categorias-das-variaveis">Categorias das variáveis</h4>
 <p>Os valores únicos das variáveis categóricas foram inspecionados individualmente para identificar problemas de capitalização, erros de escrita ou categorias inesperadas.</p>
 <p>As categorias encontradas são consistentes com a documentação do dataset.</p>
 <p>Um caso que merece atenção é a categoria <code>Other</code> da variável <code>gender</code>, que apresenta frequência muito baixa. Apesar disso, ela não foi considerada uma inconsistência, pois é prevista na descrição do dataset.</p>
-<h3 id="variaveis-numericas_1">Variáveis numéricas</h3>
+<h4 id="variaveis-numericas_1">Variáveis numéricas</h4>
 <p>As variáveis <code>age</code>, <code>avg_glucose_level</code> e <code>bmi</code> também foram inspecionadas por meio de estatísticas descritivas para identificar valores potencialmente impossíveis ou suspeitos.</p>
 <p>Neste momento, valores extremos não foram automaticamente classificados como erros nem removidos. A existência e o impacto de possíveis <em>outliers</em> serão investigados em maior profundidade durante a análise univariada.</p>
-<h2 id="16-distribuicao-da-variavel-alvo">1.6 Distribuição da variável-alvo</h2>
-<h2 id="16-distribuicao-da-variavel-alvo_1">1.6 Distribuição da variável-alvo</h2>
+<h3 id="16-distribuicao-da-variavel-alvo">1.6 Distribuição da variável-alvo</h3>
+<h3 id="16-distribuicao-da-variavel-alvo_1">1.6 Distribuição da variável-alvo</h3>
 <p>A variável-alvo deste projeto é <code>stroke</code>, uma variável binária que indica
 se o paciente teve (<code>1</code>) ou não teve (<code>0</code>) um AVC.</p>
 <p>A análise de sua distribuição revelou uma diferença expressiva entre as
@@ -402,7 +2204,7 @@ duas classes.</p>
 </tbody>
 </table>
 <p><img alt="Distribuição da variável-alvo" src="assets/images/distribuicao_target.png" /></p>
-<h3 id="interpretacao">Interpretação</h3>
+<h4 id="interpretacao">Interpretação</h4>
 <p>A variável-alvo apresenta forte desbalanceamento de classes. Aproximadamente
 95% dos pacientes pertencem à classe sem ocorrência de AVC, enquanto menos
 de 5% pertencem à com ocorrência.</p>
@@ -416,7 +2218,7 @@ do classificador. Um modelo que privilegie excessivamente a classe majoritária
 poderia apresentar alta acurácia mesmo com baixa capacidade de identificar
 pacientes pertencentes à classe minoritária.</p>
 <hr />
-<h2 id="17-separacao-entre-treino-e-teste">1.7 Separação entre treino e teste</h2>
+<h3 id="17-separacao-entre-treino-e-teste">1.7 Separação entre treino e teste</h3>
 <p>Após a inspeção inicial dos dados, o dataset foi separado em conjuntos de
 treino e teste.</p>
 <p>Foram utilizadas as seguintes proporções:</p>
@@ -459,8 +2261,8 @@ treino e teste.</p>
 </table>
 <p>A separação foi realizada antes das etapas de pré-processamento que aprendem parâmetros a partir dos dados, como imputação e padronização. Essas transformações serão ajustadas exclusivamente sobre o conjunto de treino e posteriormente aplicadas ao conjunto de teste, reduzindo o risco de <em>data leakage</em>.</p>
 <p>A partir deste ponto, as análises exploratórias mais aprofundadas serão realizadas sobre o <strong>conjunto de treino</strong>. O conjunto de teste permanecerá reservado para a avaliação das etapas posteriores do projeto.</p>
-<h1 id="2-analise-univariada">2. Análise univariada:</h1>
-<h2 id="21-analise-univariada">2.1 Análise univariada</h2>
+<h2 id="2-analise-univariada">2. Análise univariada:</h2>
+<h3 id="21-analise-univariada">2.1 Análise univariada</h3>
 <p>Após a separação dos dados, realizamos a análise univariada utilizando o
 conjunto de treino.</p>
 <p>O objetivo desta etapa é compreender individualmente a distribuição de cada
@@ -481,7 +2283,7 @@ visualização, respeitando o limite estabelecido na proposta:</p>
 </ul>
 <p>As demais variáveis categóricas continuam sendo consideradas no projeto e
 serão especialmente relevantes nas análises de associação com a variável-alvo.</p>
-<h2 id="21-estatisticas-descritivas-das-variaveis-numericas">2.1 Estatísticas descritivas das variáveis numéricas</h2>
+<h3 id="21-estatisticas-descritivas-das-variaveis-numericas">2.1 Estatísticas descritivas das variáveis numéricas</h3>
 <p>As principais estatísticas descritivas das variáveis numéricas no conjunto
 de treino são apresentadas abaixo.</p>
 <table>
@@ -528,12 +2330,12 @@ de treino são apresentadas abaixo.</p>
 mediana, indicando possível assimetria à direita. <code>bmi</code> também apresenta
 valor máximo bastante distante de sua média e mediana.</p>
 <p>Esses padrões são investigados visualmente nas seções seguintes.</p>
-<h2 id="22-distribuicao-das-variaveis-numericas">2.2 Distribuição das variáveis numéricas</h2>
+<h3 id="22-distribuicao-das-variaveis-numericas">2.2 Distribuição das variáveis numéricas</h3>
 <p>Para complementar as estatísticas descritivas, foram utilizados histogramas
 e boxplots para analisar a forma das distribuições e identificar possíveis
 valores extremos.</p>
 <p><img alt="Distribuições das variáveis numéricas" src="assets/images/distribuicoes_numericas.png" /></p>
-<h3 id="idade">Idade</h3>
+<h4 id="idade">Idade</h4>
 <p>A variável <code>age</code> apresenta ampla dispersão, variando de 0,08 a 82 anos,
 com média de 43,35 e mediana de 45 anos.</p>
 <p>A proximidade entre média e mediana não indica assimetria acentuada, e o
@@ -542,7 +2344,7 @@ intervalo interquartil.</p>
 <p>Embora existam idades muito baixas, elas não foram classificadas
 automaticamente como inconsistências, uma vez que o dataset contém pacientes
 de diferentes faixas etárias.</p>
-<h3 id="nivel-medio-de-glicose">Nível médio de glicose</h3>
+<h4 id="nivel-medio-de-glicose">Nível médio de glicose</h4>
 <p>A variável <code>avg_glucose_level</code> apresenta clara assimetria à direita. A maior
 parte das observações está concentrada em valores mais baixos, enquanto existe
 uma cauda que se estende até valores superiores a 250.</p>
@@ -552,7 +2354,7 @@ e a mediana (91,94).</p>
 Entretanto, sua classificação estatística como valores extremos não significa
 necessariamente que sejam erros, motivo pelo qual essas observações foram
 investigadas posteriormente antes de qualquer decisão de tratamento.</p>
-<h3 id="imc">IMC</h3>
+<h4 id="imc">IMC</h4>
 <p>A variável <code>bmi</code> apresenta maior concentração aproximadamente na região
 entre 20 e 35, com média de 28,92 e mediana de 28,00.</p>
 <p>Apesar da proximidade entre essas medidas, observa-se uma cauda à direita e
@@ -561,7 +2363,7 @@ O maior IMC observado no conjunto de treino é 97,60.</p>
 <p>Além disso, <code>bmi</code> possui valores ausentes, que permanecem sem imputação nesta
 etapa da análise exploratória. A estratégia para tratá-los será definida na
 etapa de pré-processamento.</p>
-<h2 id="23-investigacao-dos-potenciais-outliers">2.3 Investigação dos potenciais outliers</h2>
+<h3 id="23-investigacao-dos-potenciais-outliers">2.3 Investigação dos potenciais outliers</h3>
 <p>Para complementar a inspeção visual, utilizamos o critério de 1,5 vezes o
 intervalo interquartil (IQR) para quantificar observações estatisticamente
 extremas.</p>
@@ -611,12 +2413,12 @@ partir do critério do IQR. Como valores extremos podem representar
 observações legítimas e potencialmente informativas, sua relação com a
 variável-alvo será investigada na análise bivariada antes da definição da
 estratégia final de pré-processamento.</p>
-<h2 id="24-analise-das-variaveis-categoricas">2.4 Análise das variáveis categóricas</h2>
+<h3 id="24-analise-das-variaveis-categoricas">2.4 Análise das variáveis categóricas</h3>
 <p>Para a análise univariada das variáveis categóricas, foram selecionadas
 <code>smoking_status</code>, <code>work_type</code> e <code>gender</code>, respeitando o limite de três
 visualizações estabelecido na proposta.</p>
-<h3 id="frequencias">Frequências</h3>
-<h4 id="status-de-tabagismo">Status de tabagismo</h4>
+<h4 id="frequencias">Frequências</h4>
+<h5 id="status-de-tabagismo">Status de tabagismo</h5>
 <table>
 <thead>
 <tr>
@@ -648,7 +2450,7 @@ visualizações estabelecido na proposta.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="tipo-de-trabalho">Tipo de trabalho</h4>
+<h5 id="tipo-de-trabalho">Tipo de trabalho</h5>
 <table>
 <thead>
 <tr>
@@ -685,7 +2487,7 @@ visualizações estabelecido na proposta.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="genero">Gênero</h4>
+<h5 id="genero">Gênero</h5>
 <table>
 <thead>
 <tr>
@@ -712,9 +2514,9 @@ visualizações estabelecido na proposta.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="visualizacao">Visualização</h3>
+<h4 id="visualizacao">Visualização</h4>
 <p><img alt="Distribuições das variáveis categóricas" src="assets/images/distribuicoes_categoricas.png" /></p>
-<h3 id="interpretacao_1">Interpretação</h3>
+<h4 id="interpretacao_1">Interpretação</h4>
 <p>A variável <code>smoking_status</code> apresenta <code>never smoked</code> como categoria mais
 frequente (36,72%). Entretanto, destaca-se a elevada frequência da categoria
 <code>Unknown</code>, correspondente a 30,50% dos pacientes do conjunto de treino.
@@ -737,7 +2539,7 @@ apenas uma observação do conjunto de treino (0,02%). Como essa categoria está
 prevista na documentação original do dataset, ela não foi considerada uma
 inconsistência, embora sua frequência seja insuficiente para sustentar conclusões
 estatísticas específicas sobre esse grupo.</p>
-<h2 id="25-visualizacao-das-variaveis-categoricas">2.5 Visualização das variáveis categóricas</h2>
+<h3 id="25-visualizacao-das-variaveis-categoricas">2.5 Visualização das variáveis categóricas</h3>
 <p>As frequências das três variáveis categóricas selecionadas também foram
 representadas graficamente.</p>
 <p><img alt="Distribuições das variáveis categóricas" src="assets/images/distribuicoes_categoricas.png" /></p>
@@ -746,7 +2548,7 @@ identificados nas tabelas de frequência, especialmente a elevada presença
 de <code>Unknown</code> em <code>smoking_status</code>, a predominância de <code>Private</code> em
 <code>work_type</code> e a ocorrência extremamente rara da categoria <code>Other</code> em
 <code>gender</code>.</p>
-<h1 id="3-analise-bivariada-e-multivariada">3. Análise bivariada e multivariada</h1>
+<h2 id="3-analise-bivariada-e-multivariada">3. Análise bivariada e multivariada</h2>
 <p>Após analisar individualmente as principais variáveis do conjunto de treino,
 passamos a investigar as relações entre elas e, especialmente, suas associações
 com a variável-alvo <code>stroke</code>.</p>
@@ -761,7 +2563,7 @@ tomadas posteriormente durante o pré-processamento e a modelagem.</p>
 <li>relações entre variáveis numéricas e <code>stroke</code>.</li>
 </ul>
 <hr />
-<h2 id="31-correlacao-entre-variaveis-numericas">3.1 Correlação entre variáveis numéricas</h2>
+<h3 id="31-correlacao-entre-variaveis-numericas">3.1 Correlação entre variáveis numéricas</h3>
 <p>Inicialmente, calculamos o coeficiente de correlação de Pearson entre as três
 features numéricas utilizadas no projeto: <code>age</code>, <code>avg_glucose_level</code> e <code>bmi</code>.</p>
 <table>
@@ -787,7 +2589,7 @@ features numéricas utilizadas no projeto: <code>age</code>, <code>avg_glucose_l
 </tbody>
 </table>
 <p><img alt="Matriz de correlação entre variáveis numéricas" src="assets/images/matriz_correlacao.png" /></p>
-<h3 id="interpretacao_2">Interpretação</h3>
+<h4 id="interpretacao_2">Interpretação</h4>
 <p>Não foram observadas correlações lineares fortes entre as variáveis numéricas.</p>
 <p>A maior correlação foi encontrada entre <code>age</code> e <code>bmi</code> (<strong>r = 0,34</strong>),
 indicando uma associação linear positiva de baixa a moderada intensidade.
@@ -799,13 +2601,13 @@ features. Entretanto, um coeficiente de correlação baixo não implica
 necessariamente ausência de relação entre duas variáveis, uma vez que a
 correlação de Pearson mede especificamente associações lineares.</p>
 <hr />
-<h2 id="32-relacoes-entre-variaveis-numericas">3.2 Relações entre variáveis numéricas</h2>
+<h3 id="32-relacoes-entre-variaveis-numericas">3.2 Relações entre variáveis numéricas</h3>
 <p>A partir da matriz de correlação, foram selecionadas duas relações para
 investigação por meio de gráficos de dispersão.</p>
 <p>Optamos por analisar <code>age</code> × <code>bmi</code>, que apresentou a maior correlação entre
 as features numéricas, e <code>age</code> × <code>avg_glucose_level</code>, incorporando também
 a variável-alvo <code>stroke</code> para permitir uma análise multivariada.</p>
-<h3 id="321-idade-imc">3.2.1 Idade × IMC</h3>
+<h4 id="321-idade-imc">3.2.1 Idade × IMC</h4>
 <p><img alt="Relação entre idade e IMC" src="assets/images/idade_bmi.png" /></p>
 <p>A relação entre <code>age</code> e <code>bmi</code> apresentou a maior correlação linear entre as
 variáveis numéricas analisadas (<strong>r = 0,34</strong>).</p>
@@ -815,7 +2617,7 @@ considerável dispersão, e o padrão observado não parece estritamente linear
 ao longo de toda a faixa etária.</p>
 <p>Também são visíveis algumas observações com valores elevados de IMC,
 anteriormente identificadas durante a investigação dos potenciais outliers.</p>
-<h3 id="322-idade-nivel-medio-de-glicose-ocorrencia-de-avc">3.2.2 Idade × nível médio de glicose × ocorrência de AVC</h3>
+<h4 id="322-idade-nivel-medio-de-glicose-ocorrencia-de-avc">3.2.2 Idade × nível médio de glicose × ocorrência de AVC</h4>
 <p>Para aprofundar a análise, relacionamos simultaneamente <code>age</code>,
 <code>avg_glucose_level</code> e <code>stroke</code>. Nesse gráfico, idade e glicose são
 representadas pelos eixos, enquanto a ocorrência de AVC é diferenciada
@@ -831,7 +2633,7 @@ entre níveis mais baixos quanto entre níveis elevados de glicose.</p>
 de pontos de cada classe não deve ser utilizada isoladamente para comparar os
 grupos. Por esse motivo, a relação observada entre idade e AVC foi investigada
 quantitativamente.</p>
-<h4 id="idade-segundo-a-ocorrencia-de-avc">Idade segundo a ocorrência de AVC</h4>
+<h5 id="idade-segundo-a-ocorrencia-de-avc">Idade segundo a ocorrência de AVC</h5>
 <table>
 <thead>
 <tr>
@@ -913,7 +2715,7 @@ uma nova feature destinada à modelagem.</p>
 <p>É importante destacar que essa análise identifica associação, e não uma
 relação causal.</p>
 <hr />
-<h2 id="33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc">3.3 Relação entre variáveis categóricas e ocorrência de AVC</h2>
+<h3 id="33-relacao-entre-variaveis-categoricas-e-ocorrencia-de-avc">3.3 Relação entre variáveis categóricas e ocorrência de AVC</h3>
 <p>Para as variáveis categóricas, foi calculada a proporção de pacientes com
 AVC dentro de cada categoria.</p>
 <p>A utilização de proporções, em vez apenas do número absoluto de casos, é
@@ -922,7 +2724,7 @@ algumas features categóricas apresentam distribuições desbalanceadas.</p>
 <p>As três variáveis selecionadas para visualização foram <code>hypertension</code>,
 <code>heart_disease</code> e <code>smoking_status</code>.</p>
 <p><img alt="Taxa de AVC por variáveis categóricas" src="assets/images/categoricas_stroke.png" /></p>
-<h3 id="331-hipertensao">3.3.1 Hipertensão</h3>
+<h4 id="331-hipertensao">3.3.1 Hipertensão</h4>
 <table>
 <thead>
 <tr>
@@ -951,7 +2753,7 @@ algumas features categóricas apresentam distribuições desbalanceadas.</p>
 Entre pacientes com hipertensão, essa proporção aumentou para <strong>13,60%</strong>.</p>
 <p>Portanto, neste conjunto de treino, a presença de hipertensão apresenta
 uma associação relevante com a ocorrência de AVC.</p>
-<h3 id="332-doenca-cardiaca">3.3.2 Doença cardíaca</h3>
+<h4 id="332-doenca-cardiaca">3.3.2 Doença cardíaca</h4>
 <table>
 <thead>
 <tr>
@@ -981,7 +2783,7 @@ doença cardíaca apresentaram taxa de AVC de <strong>4,22%</strong>, enquanto e
 pacientes com doença cardíaca a taxa observada foi de <strong>16,29%</strong>.</p>
 <p>Assim como no caso da hipertensão, o resultado sugere que essa feature
 pode conter informação relevante para a futura tarefa de classificação.</p>
-<h3 id="333-status-de-tabagismo">3.3.3 Status de tabagismo</h3>
+<h4 id="333-status-de-tabagismo">3.3.3 Status de tabagismo</h4>
 <table>
 <thead>
 <tr>
@@ -1029,7 +2831,7 @@ para as diferenças observadas nas taxas de AVC.</p>
 não um comportamento específico. Portanto, sua taxa não deve ser interpretada
 como equivalente à de uma categoria clínica de tabagismo.</p>
 <hr />
-<h3 id="analise-complementar-das-demais-variaveis-categoricas">Análise complementar das demais variáveis categóricas</h3>
+<h4 id="analise-complementar-das-demais-variaveis-categoricas">Análise complementar das demais variáveis categóricas</h4>
 <p>Embora apenas três variáveis tenham sido selecionadas para visualização,
 também foram calculadas as taxas de AVC para as demais features categóricas.</p>
 <table>
@@ -1094,7 +2896,7 @@ concentrar pacientes de maior idade.</p>
 observada entre duas variáveis pode ser influenciada por uma terceira variável.
 Por esse motivo, os padrões encontrados nesta etapa serão interpretados em
 conjunto e posteriormente avaliados pelos modelos de classificação.</p>
-<h2 id="34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc">3.4 Relação entre variáveis numéricas e ocorrência de AVC</h2>
+<h3 id="34-relacao-entre-variaveis-numericas-e-ocorrencia-de-avc">3.4 Relação entre variáveis numéricas e ocorrência de AVC</h3>
 <p>Para investigar como as distribuições das variáveis numéricas diferem entre
 pacientes com e sem AVC, foram construídos boxplots de <code>age</code>,
 <code>avg_glucose_level</code> e <code>bmi</code> em função da variável-alvo <code>stroke</code>.</p>
@@ -1143,7 +2945,7 @@ apresentadas abaixo.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="idade_1">Idade</h3>
+<h4 id="idade_1">Idade</h4>
 <p>A diferença mais expressiva é observada em <code>age</code>. Pacientes sem AVC
 apresentaram idade média de <strong>42,11 anos</strong> e mediana de <strong>44 anos</strong>,
 enquanto pacientes com AVC apresentaram média de <strong>67,66 anos</strong> e mediana
@@ -1151,7 +2953,7 @@ de <strong>70 anos</strong>.</p>
 <p>O deslocamento da distribuição é consistente com a análise anterior por
 faixas etárias e reforça a existência de uma forte associação entre idade
 e ocorrência de AVC neste conjunto de treino.</p>
-<h3 id="nivel-medio-de-glicose_1">Nível médio de glicose</h3>
+<h4 id="nivel-medio-de-glicose_1">Nível médio de glicose</h4>
 <p>Também são observadas diferenças em <code>avg_glucose_level</code>. Pacientes sem AVC
 apresentaram média de <strong>105,03</strong> e mediana de <strong>91,65</strong>, enquanto pacientes
 com AVC apresentaram média de <strong>131,39</strong> e mediana de <strong>104,86</strong>.</p>
@@ -1193,7 +2995,7 @@ ser tratadas automaticamente como erros ou ruído. Pelo contrário, elas
 podem conter informação relevante para a tarefa de classificação.</p>
 <p>Por esse motivo, optamos por <strong>preservar os valores extremos de
 <code>avg_glucose_level</code></strong> no pré-processamento.</p>
-<h3 id="imc_1">IMC</h3>
+<h4 id="imc_1">IMC</h4>
 <p>A variável <code>bmi</code> também apresenta valores centrais ligeiramente superiores
 entre pacientes com AVC. A média passa de <strong>28,85</strong> para <strong>30,59</strong>, enquanto
 a mediana passa de <strong>27,95</strong> para <strong>29,90</strong>.</p>
@@ -1205,7 +3007,7 @@ comparada a <strong>4,90%</strong> entre os demais.</p>
 <p>Não foram encontradas evidências de que esses valores extremos correspondam
 a erros de registro. Dessa forma, eles também serão preservados durante o
 pré-processamento.</p>
-<h3 id="sintese">Síntese</h3>
+<h4 id="sintese">Síntese</h4>
 <p>Entre as três variáveis numéricas, <code>age</code> apresentou a diferença mais
 pronunciada entre pacientes com e sem AVC. <code>avg_glucose_level</code> também
 apresentou diferenças relevantes entre as classes, enquanto <code>bmi</code> mostrou
@@ -1217,7 +3019,7 @@ uma proporção elevada de casos de AVC.</p>
 <p>Todas essas análises representam associações observadas no conjunto de treino
 e não permitem estabelecer relações causais. Além disso, as comparações devem
 ser interpretadas considerando o forte desbalanceamento da variável-alvo.</p>
-<h1 id="4-pre-processamento-para-modelagem">4. Pré-processamento para modelagem</h1>
+<h2 id="4-pre-processamento-para-modelagem">4. Pré-processamento para modelagem</h2>
 <p>A partir dos resultados obtidos durante a análise exploratória, foram definidas
 as estratégias de pré-processamento que serão utilizadas nas etapas posteriores
 de modelagem.</p>
@@ -1231,10 +3033,10 @@ tratamentos a diferentes grupos de features e garante que o mesmo
 pré-processamento possa ser reproduzido posteriormente sobre dados de teste
 ou novas observações.</p>
 <hr />
-<h2 id="41-organizacao-das-features">4.1 Organização das features</h2>
+<h3 id="41-organizacao-das-features">4.1 Organização das features</h3>
 <p>As features foram separadas de acordo com sua natureza e com o tipo de
 transformação necessária.</p>
-<h3 id="variaveis-numericas_2">Variáveis numéricas</h3>
+<h4 id="variaveis-numericas_2">Variáveis numéricas</h4>
 <ul>
 <li><code>age</code></li>
 <li><code>avg_glucose_level</code></li>
@@ -1242,7 +3044,7 @@ transformação necessária.</p>
 </ul>
 <p>Essas variáveis serão submetidas à imputação de valores ausentes, quando
 necessário, e posteriormente à padronização.</p>
-<h3 id="variaveis-categoricas-nominais">Variáveis categóricas nominais</h3>
+<h4 id="variaveis-categoricas-nominais">Variáveis categóricas nominais</h4>
 <ul>
 <li><code>gender</code></li>
 <li><code>ever_married</code></li>
@@ -1253,7 +3055,7 @@ necessário, e posteriormente à padronização.</p>
 <p>Apesar de algumas dessas variáveis possuírem apenas duas categorias, elas não
 representam grandezas com uma ordem quantitativa natural. Por esse motivo,
 serão tratadas utilizando One-Hot Encoding.</p>
-<h3 id="variaveis-binarias-ja-representadas-numericamente">Variáveis binárias já representadas numericamente</h3>
+<h4 id="variaveis-binarias-ja-representadas-numericamente">Variáveis binárias já representadas numericamente</h4>
 <ul>
 <li><code>hypertension</code></li>
 <li><code>heart_disease</code></li>
@@ -1266,11 +3068,11 @@ pré-processamento.</p>
 identificador do paciente e foi removida das features antes da separação
 entre treino e teste.</p>
 <hr />
-<h2 id="42-tratamento-dos-valores-ausentes">4.2 Tratamento dos valores ausentes</h2>
+<h3 id="42-tratamento-dos-valores-ausentes">4.2 Tratamento dos valores ausentes</h3>
 <p>A EDA identificou dois casos distintos relacionados à ausência de informação:
 valores explicitamente ausentes em <code>bmi</code> e a categoria <code>Unknown</code> em
 <code>smoking_status</code>.</p>
-<h3 id="valores-ausentes-em-bmi">Valores ausentes em <code>bmi</code></h3>
+<h4 id="valores-ausentes-em-bmi">Valores ausentes em <code>bmi</code></h4>
 <p>A variável <code>bmi</code> contém valores ausentes representados por <code>NaN</code>. Optamos por
 realizar a imputação utilizando a <strong>mediana calculada sobre o conjunto de
 treino</strong>.</p>
@@ -1288,7 +3090,7 @@ completo. O <code>SimpleImputer</code> é ajustado exclusivamente sobre o conjun
 de treino e o valor aprendido é posteriormente utilizado para transformar
 o conjunto de teste.</p>
 </div>
-<h3 id="unknown-em-smoking_status"><code>Unknown</code> em <code>smoking_status</code></h3>
+<h4 id="unknown-em-smoking_status"><code>Unknown</code> em <code>smoking_status</code></h4>
 <p>A categoria <code>Unknown</code> requer um tratamento diferente. Segundo a documentação
 do dataset, ela indica que a informação sobre tabagismo não está disponível
 para aquele paciente.</p>
@@ -1302,7 +3104,7 @@ para os quais essa informação não foi observada.</p>
 <p>A preservação de <code>Unknown</code> permite que essa ausência de informação seja
 representada explicitamente após o One-Hot Encoding.</p>
 <hr />
-<h2 id="43-tratamento-de-outliers">4.3 Tratamento de outliers</h2>
+<h3 id="43-tratamento-de-outliers">4.3 Tratamento de outliers</h3>
 <p>Os potenciais outliers das variáveis numéricas foram investigados utilizando
 boxplots e o critério de 1,5 vezes o intervalo interquartil (IQR).</p>
 <table>
@@ -1353,7 +3155,7 @@ de que esses valores correspondam a erros de registro.</p>
 <p>Assim, optamos por preservar os valores extremos das variáveis numéricas e
 permitir que os modelos posteriores utilizem essas observações.</p>
 <hr />
-<h2 id="44-encoding-das-variaveis-categoricas">4.4 Encoding das variáveis categóricas</h2>
+<h3 id="44-encoding-das-variaveis-categoricas">4.4 Encoding das variáveis categóricas</h3>
 <p>As variáveis categóricas serão transformadas utilizando
 <strong>One-Hot Encoding</strong>, por meio do <code>OneHotEncoder</code> do Scikit-learn.</p>
 <p>O método cria uma variável binária para cada categoria observada, evitando
@@ -1378,7 +3180,7 @@ sem gerar erro.</p>
 <p>As features <code>hypertension</code> e <code>heart_disease</code> não passam pelo encoder, pois já
 possuem uma representação binária adequada (<code>0</code> ou <code>1</code>).</p>
 <hr />
-<h2 id="45-padronizacao-das-variaveis-numericas">4.5 Padronização das variáveis numéricas</h2>
+<h3 id="45-padronizacao-das-variaveis-numericas">4.5 Padronização das variáveis numéricas</h3>
 <p>As três variáveis numéricas (<code>age</code>, <code>avg_glucose_level</code> e <code>bmi</code>) são
 padronizadas utilizando <code>StandardScaler</code>.</p>
 <p>A padronização transforma cada feature considerando sua média e seu desvio
@@ -1395,12 +3197,12 @@ influência desproporcional sobre os componentes principais.</p>
 <p>Assim como na imputação, os parâmetros do <code>StandardScaler</code> são aprendidos
 exclusivamente a partir do conjunto de treino.</p>
 <hr />
-<h3 id="46-reducao-de-dimensionalidade-pca">4.6 Redução de Dimensionalidade (PCA)</h3>
+<h4 id="46-reducao-de-dimensionalidade-pca">4.6 Redução de Dimensionalidade (PCA)</h4>
 <p><img alt="PCA Variáveis Numéricas" src="assets/images/pca.png" /></p>
 <p>Foi aplicado PCA nas variáveis numéricas para visualizar a estrutura dos dados. O gráfico de variância explicada mostra que a informação é distribuída entre os componentes, sendo necessários cerca de 9 a 10 dos 11 componentes para explicar 90% da variância, o que indica baixa redundância entre as variáveis.</p>
 <p>Na projeção dos dois primeiros componentes (PC1 x PC2), os pacientes com stroke (vermelho) aparecem misturados aos sem stroke (azul), sem formar um grupo separado. Isso mostra que, nessas duas dimensões, não há uma separação clara entre as classes, além de evidenciar o desbalanceamento entre elas.</p>
 <hr />
-<h2 id="47-pipeline-de-pre-processamento">4.7 Pipeline de pré-processamento</h2>
+<h3 id="47-pipeline-de-pre-processamento">4.7 Pipeline de pré-processamento</h3>
 <p>Para tornar todas as transformações reproduzíveis e reduzir o risco de
 inconsistências entre treino e teste, o pré-processamento foi organizado em
 pipelines.</p>
@@ -1447,87 +3249,69 @@ features pré-processadas.</p>
 <div class="admonition note">
 <p class="admonition-title">Pipeline e reprodutibilidade</p>
 <p>Além de evitar vazamento de informações, a utilização de Pipeline e ColumnTransformer garante que exatamente as mesmas transformações possam ser aplicadas posteriormente durante a etapa de modelagem e sobre novas observações.</p>
-</div></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = ".",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
 </div>
 
-    </body>
-</html>
 
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2026-09-11 14:23:14.352472+00:00
--->
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="assets/javascripts/section-menu.js"></script>
+      
+    
+  </body>
+</html>

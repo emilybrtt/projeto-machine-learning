@@ -1,0 +1,234 @@
+:root {
+  --md-primary-fg-color: #111827;
+  --md-primary-fg-color--light: #374151;
+  --md-primary-fg-color--dark: #030712;
+  --md-accent-fg-color: #0f766e;
+  --ml-bg: #ffffff;
+  --ml-surface: #f8fafc;
+  --ml-text: #111827;
+  --ml-muted: #667085;
+  --ml-border: #e5e7eb;
+}
+
+body {
+  background: var(--ml-bg);
+}
+
+.md-header {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--ml-border);
+  box-shadow: none;
+  color: var(--ml-text);
+  backdrop-filter: saturate(1.3) blur(14px);
+}
+
+.md-header__button,
+.md-header__topic,
+.md-search__input {
+  color: var(--ml-text);
+}
+
+.md-search__form {
+  background: var(--ml-surface);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.md-search__form:hover,
+.md-search__form:focus-within {
+  border-color: var(--ml-border);
+  box-shadow: none;
+}
+
+.md-main__inner {
+  margin-top: 1.1rem;
+}
+
+.md-content {
+  max-width: 900px;
+}
+
+.md-content__inner {
+  padding-bottom: 3rem;
+}
+
+.md-typeset {
+  color: #1f2937;
+  font-size: 0.78rem;
+  line-height: 1.72;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: #0f172a;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.md-typeset h1 {
+  margin-bottom: 1.2rem;
+  font-size: 2.2rem;
+}
+
+.md-typeset h2 {
+  margin-top: 2rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--ml-border);
+  font-size: 1.35rem;
+}
+
+.md-typeset h3 {
+  margin-top: 1.45rem;
+  color: #334155;
+  font-size: 1rem;
+}
+
+.md-typeset a {
+  color: #0f766e;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.md-typeset hr {
+  margin: 2rem 0;
+  border-bottom: 1px solid var(--ml-border);
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--ml-surface);
+  color: #334155;
+  font-weight: 650;
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border-color: var(--ml-border);
+}
+
+.md-typeset img {
+  display: block;
+  max-width: min(100%, 860px);
+  margin: 1.1rem auto;
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--ml-border);
+  border-left: 3px solid #0f766e;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background: var(--ml-surface);
+}
+
+.md-sidebar__scrollwrap {
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.md-nav__title,
+.md-nav__link {
+  color: #475569;
+}
+
+.md-nav__link--active,
+.md-nav__link:is(:focus, :hover) {
+  color: #0f766e;
+}
+
+.section-jump {
+  position: sticky;
+  top: 3.2rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1.4rem;
+  padding: 0.65rem 0.75rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: saturate(1.3) blur(14px);
+}
+
+.section-jump__label {
+  flex: 0 0 auto;
+  color: var(--ml-muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-jump__control {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.section-jump__control::after {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid #475569;
+  border-bottom: 1.5px solid #475569;
+  content: "";
+  pointer-events: none;
+  transform: translateY(-65%) rotate(45deg);
+}
+
+.section-jump__select {
+  width: 100%;
+  min-height: 2.15rem;
+  padding: 0 2rem 0 0.75rem;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  color: var(--ml-text);
+  font: inherit;
+  line-height: 1.4;
+  appearance: none;
+}
+
+.section-jump__select:focus {
+  border-color: #0f766e;
+  outline: 2px solid rgba(15, 118, 110, 0.16);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-content {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 44.9844em) {
+  .md-typeset {
+    font-size: 0.75rem;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.75rem;
+  }
+
+  .section-jump {
+    top: 2.8rem;
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
