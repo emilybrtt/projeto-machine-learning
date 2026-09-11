@@ -175,7 +175,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#46-pipeline-de-pre-processamento" class="nav-link">4.6 Pipeline de pré-processamento</a>
+            <li class="nav-item" data-bs-level="2"><a href="#47-pipeline-de-pre-processamento" class="nav-link">4.7 Pipeline de pré-processamento</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -1400,7 +1400,12 @@ influência desproporcional sobre os componentes principais.</p>
 <p>Assim como na imputação, os parâmetros do <code>StandardScaler</code> são aprendidos
 exclusivamente a partir do conjunto de treino.</p>
 <hr />
-<h2 id="46-pipeline-de-pre-processamento">4.6 Pipeline de pré-processamento</h2>
+<h3 id="46-reducao-de-dimensionalidade-pca">4.6 Redução de Dimensionalidade (PCA)</h3>
+<p><img alt="PCA Variáveis Numéricas" src="assets/images/pca.png" /></p>
+<p>Foi aplicado PCA nas variáveis numéricas para visualizar a estrutura dos dados. O gráfico de variância explicada mostra que a informação é distribuída entre os componentes, sendo necessários cerca de 9 a 10 dos 11 componentes para explicar 90% da variância, o que indica baixa redundância entre as variáveis.</p>
+<p>Na projeção dos dois primeiros componentes (PC1 x PC2), os pacientes com stroke (vermelho) aparecem misturados aos sem stroke (azul), sem formar um grupo separado. Isso mostra que, nessas duas dimensões, não há uma separação clara entre as classes, além de evidenciar o desbalanceamento entre elas.</p>
+<hr />
+<h2 id="47-pipeline-de-pre-processamento">4.7 Pipeline de pré-processamento</h2>
 <p>Para tornar todas as transformações reproduzíveis e reduzir o risco de
 inconsistências entre treino e teste, o pré-processamento foi organizado em
 pipelines.</p>
@@ -1538,5 +1543,5 @@ features pré-processadas.</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-09-06 20:32:00.938386+00:00
+Build Date UTC : 2026-09-11 14:14:18.932608+00:00
 -->
