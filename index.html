@@ -1198,17 +1198,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-checklist-de-atendimento-a-rubrica" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Checklist de atendimento à rubrica
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#8-referencias" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2201,17 +2190,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-checklist-de-atendimento-a-rubrica" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Checklist de atendimento à rubrica
-      
-    </span>
-  </a>
   
 </li>
       
@@ -3367,7 +3345,7 @@ composição etária de cada categoria. Para verificar diretamente essa hipótes
 construímos boxplots de <code>age</code> em função de <code>work_type</code>, <code>ever_married</code> e
 <code>smoking_status</code>, e calculamos a idade mediana no cruzamento entre tipo de
 trabalho e estado civil.</p>
-<p><img alt="Idade por variáveis categóricas" src="assets/images/idade_por_categoricas.png" /></p>
+<p><img alt="Idade por variáveis categóricas" src="assets/images/idade_categoricas.png" /></p>
 <table>
 <thead>
 <tr>
@@ -3758,7 +3736,7 @@ originais na modelagem.</p>
 <code>ColumnTransformer</code>, incluindo as variáveis categóricas já submetidas ao One-Hot
 Encoding. Utilizamos o critério de reter o número mínimo de componentes
 necessário para explicar 95% da variância, o que resultou em 11 componentes.</p>
-<p><img alt="Variância explicada e projeção nos dois primeiros componentes" src="assets/images/pca_completo.png" /></p>
+<p><img alt="Variância explicada e projeção nos dois primeiros componentes" src="assets/images/pca.png" /></p>
 <p>O primeiro componente responde por cerca de 30,7% da variância, o segundo por
 15,2% e o terceiro por 12,4%. Os dois primeiros juntos explicam aproximadamente
 45,9%, e são necessários 9 componentes para ultrapassar 90%. Os 11 primeiros
@@ -3980,70 +3958,6 @@ etárias e lidam naturalmente com valores extremos.</p>
 <p><strong>Interpretabilidade.</strong> Dado o domínio de aplicação, a análise de importância das
 features nos modelos finais deve ser comparada com as associações identificadas
 nesta EDA. Uma divergência entre as duas seria um sinal de alerta a investigar.</p>
-<hr />
-<h2 id="7-checklist-de-atendimento-a-rubrica">7. Checklist de atendimento à rubrica</h2>
-<table>
-<thead>
-<tr>
-<th>Requisito</th>
-<th>Evidência no relatório</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Identificação, título e data</td>
-<td>Informações gerais e título do projeto</td>
-</tr>
-<tr>
-<td>Descrição das features, dimensões e tipos</td>
-<td>Seções 1.1 a 1.3</td>
-</tr>
-<tr>
-<td>Valores ausentes, inconsistências e desbalanceamento</td>
-<td>Seções 1.4 a 1.6</td>
-</tr>
-<tr>
-<td>Separação estratificada entre treino e teste</td>
-<td>Seção 1.7</td>
-</tr>
-<tr>
-<td>Estatísticas e visualizações univariadas</td>
-<td>Seção 2</td>
-</tr>
-<tr>
-<td>Correlações e scatter plots</td>
-<td>Seções 3.1 e 3.2</td>
-</tr>
-<tr>
-<td>Categóricas em relação ao target</td>
-<td>Seção 3.3</td>
-</tr>
-<tr>
-<td>Numéricas em relação ao target e às categóricas</td>
-<td>Seções 3.4 e 3.5</td>
-</tr>
-<tr>
-<td>Missing values, outliers, encoding e padronização</td>
-<td>Seções 4.2 a 4.5</td>
-</tr>
-<tr>
-<td>PCA, loadings e separabilidade</td>
-<td>Seção 4.6</td>
-</tr>
-<tr>
-<td><code>Pipeline</code> e <code>ColumnTransformer</code></td>
-<td>Seção 4.7</td>
-</tr>
-<tr>
-<td>Vieses, limitações e plano para a modelagem</td>
-<td>Seções 5 e 6</td>
-</tr>
-<tr>
-<td>Referências bibliográficas</td>
-<td>Seção 8</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="8-referencias">8. Referências</h2>
 <p><strong>Dataset</strong></p>
