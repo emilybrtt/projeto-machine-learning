@@ -802,7 +802,7 @@ construímos boxplots de `age` em função de `work_type`, `ever_married` e
 `smoking_status`, e calculamos a idade mediana no cruzamento entre tipo de
 trabalho e estado civil.
 
-![Idade por variáveis categóricas](assets/images/idade_por_categoricas.png)
+![Idade por variáveis categóricas](assets/images/idade_categoricas.png)
 
 | Tipo de trabalho | Nunca casou | Já foi casado | Diferença |
 | --- | ---: | ---: | ---: |
@@ -1164,7 +1164,7 @@ Como análise complementar, aplicamos PCA sobre a saída completa do
 Encoding. Utilizamos o critério de reter o número mínimo de componentes
 necessário para explicar 95% da variância, o que resultou em 11 componentes.
 
-![Variância explicada e projeção nos dois primeiros componentes](assets/images/pca_completo.png)
+![Variância explicada e projeção nos dois primeiros componentes](assets/images/pca.png)
 
 O primeiro componente responde por cerca de 30,7% da variância, o segundo por
 15,2% e o terceiro por 12,4%. Os dois primeiros juntos explicam aproximadamente
@@ -1393,26 +1393,6 @@ etárias e lidam naturalmente com valores extremos.
 **Interpretabilidade.** Dado o domínio de aplicação, a análise de importância das
 features nos modelos finais deve ser comparada com as associações identificadas
 nesta EDA. Uma divergência entre as duas seria um sinal de alerta a investigar.
-
----
-
-## 7. Checklist de atendimento à rubrica
-
-| Requisito | Evidência no relatório |
-|---|---|
-| Identificação, título e data | Informações gerais e título do projeto |
-| Descrição das features, dimensões e tipos | Seções 1.1 a 1.3 |
-| Valores ausentes, inconsistências e desbalanceamento | Seções 1.4 a 1.6 |
-| Separação estratificada entre treino e teste | Seção 1.7 |
-| Estatísticas e visualizações univariadas | Seção 2 |
-| Correlações e scatter plots | Seções 3.1 e 3.2 |
-| Categóricas em relação ao target | Seção 3.3 |
-| Numéricas em relação ao target e às categóricas | Seções 3.4 e 3.5 |
-| Missing values, outliers, encoding e padronização | Seções 4.2 a 4.5 |
-| PCA, loadings e separabilidade | Seção 4.6 |
-| `Pipeline` e `ColumnTransformer` | Seção 4.7 |
-| Vieses, limitações e plano para a modelagem | Seções 5 e 6 |
-| Referências bibliográficas | Seção 8 |
 
 ---
 
