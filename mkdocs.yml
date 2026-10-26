@@ -18,6 +18,7 @@ theme:
 
 nav:
   - Relatório: index.md
+  - Modelagem (APS2): modelagem.md
 
 plugins:
   - search:
