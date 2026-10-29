@@ -15,6 +15,7 @@
 
 **Tipo de problema:** Classificação
 
+
 ---
 
 ## Objetivo
@@ -27,8 +28,6 @@ como missing values e vieses, preparando para a modelagem nas fases subsequentes
 As manipulações e testes foram realizados em um notebook do Google Colab,
 referenciado abaixo. Este site reúne as análises, as figuras produzidas e a
 justificativa de cada decisão tomada ao longo do processo.
-
-[Notebook no Google Colab](https://colab.research.google.com/drive/1MHs2PKBQe6oGy44FMrf2f06dGMeOZdlX?usp=sharing)
 
 [Repositório no GitHub](https://github.com/emilybrtt/projeto-machine-learning)
 

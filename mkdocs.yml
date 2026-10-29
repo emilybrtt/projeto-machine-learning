@@ -17,8 +17,8 @@ theme:
     - search.highlight
 
 nav:
-  - Relatório: index.md
-  - Modelagem (APS2): modelagem.md
+  - EDA (Parte 1): index.md
+  - Classificação (Parte 2): modelagem.md
 
 plugins:
   - search:

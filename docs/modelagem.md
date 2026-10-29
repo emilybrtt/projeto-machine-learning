@@ -19,25 +19,23 @@
 
 ## Objetivo
 
-Esta é a segunda etapa (APS2) do projeto de Machine Learning, dando
-continuidade direta à [análise exploratória (APS1)](index.md). Ali foi
+Esta é a Etapa 2 do projeto de Machine Learning, dando
+continuidade direta à [análise exploratória (Etapa 1)](index.md). Ali foi
 construído o pipeline de pré-processamento (imputação, encoding,
 padronização) sobre o Stroke Prediction Dataset; aqui ele é reaproveitado
 na modelagem: seleção de modelos, ajuste de
 hiperparâmetros, avaliação no conjunto de teste e interpretação.
 
-[Notebook completo (aps2_modelagem.ipynb)](https://github.com/emilybrtt/projeto-machine-learning/blob/main/aps2_modelagem.ipynb)
-
 [Repositório no GitHub](https://github.com/emilybrtt/projeto-machine-learning)
 
 ---
 
-## Setup: o pipeline da APS1
+## Setup: o pipeline da Etapa 1
 
 Repetimos aqui o carregamento, a divisão treino/teste e o pré-processador
-construídos na APS1, para que o notebook seja autocontido. A divisão usa
+construídos na Etapa 1, para que o notebook seja autocontido. A divisão usa
 `stratify=y` e o mesmo `random_state=42`, logo o conjunto de teste é
-exatamente o mesmo da APS1 -- ele nunca é tocado antes da Seção 2. A única
+exatamente o mesmo da Etapa 1 -- ele nunca é tocado antes da Seção 2. A única
 diferença no pré-processador é `verbose_feature_names_out=False`, que só
 encurta os nomes das features (`age` em vez de `numericas__age`) nos gráficos
 de interpretação.
@@ -46,7 +44,7 @@ de interpretação.
 
 Escolhemos a **PR-AUC** (*average precision*) como métrica principal.
 
-A justificativa vem direto do que a APS1 mostrou: apenas **4,87%** dos
+A justificativa vem direto do que a Etapa 1 mostrou: apenas **4,87%** dos
 pacientes tiveram AVC. Nesse cenário:
 
 - **Accuracy é inútil.** Um modelo que responde "sem AVC" para todo mundo
@@ -81,14 +79,14 @@ facilmente ficar sem casos suficientes.
 | Modelo | Papel | Por que este |
 |---|---|---|
 | `DummyClassifier` | Piso de referência | Prediz respeitando a proporção das classes, sem olhar para as features. Qualquer modelo útil precisa superar isso. |
-| `LogisticRegression` | Linear com regularização | Modelo de referência proposto na APS1. A regularização (L1/L2) controla o overfitting e, no caso do L1, zera coeficientes irrelevantes. |
+| `LogisticRegression` | Linear com regularização | Modelo de referência proposto na Etapa 1. A regularização (L1/L2) controla o overfitting e, no caso do L1, zera coeficientes irrelevantes. |
 | `RandomForestClassifier` | Ensemble de árvores | Captura interações e relações não lineares que a regressão logística não alcança, sem precisar que a gente as declare. |
 
-Os três entram no **mesmo pipeline**, com o pré-processador da APS1 na
+Os três entram no **mesmo pipeline**, com o pré-processador da Etapa 1 na
 frente -- isso garante que a imputação e a padronização sejam aprendidas
 apenas no fold de treino de cada partição da validação cruzada, sem
 vazamento. Tanto a regressão logística quanto a floresta usam
-`class_weight="balanced"`, resposta ao desbalanceamento já adotada na APS1:
+`class_weight="balanced"`, resposta ao desbalanceamento já adotada na Etapa 1:
 o peso de cada classe fica inversamente proporcional à sua frequência,
 então errar um caso de AVC custa cerca de 20 vezes mais do que errar um
 caso negativo.
@@ -137,7 +135,7 @@ da regressão logística -- confirmando que a floresta padrão estava decorando.
 
 ### 1.3 Mudança proposta no pipeline: sinalizar o `bmi` ausente
 
-Na APS1, os 201 valores ausentes de `bmi` (3,93% da base) foram imputados
+Na Etapa 1, os 201 valores ausentes de `bmi` (3,93% da base) foram imputados
 pela mediana. A imputação preenche o buraco, mas **apaga a informação de
 que havia um buraco ali**. Investigando, apenas no conjunto de treino, se
 essa ausência diz algo:
@@ -166,7 +164,7 @@ comparação fosse honesta.
 
 | Pipeline | PR-AUC | Desvio padrão | Variação |
 |---|---:|---:|---:|
-| Pipeline da APS1 | 0,2079 | 0,0431 | -- |
+| Pipeline da Etapa 1 | 0,2079 | 0,0431 | -- |
 | Pipeline + indicador | 0,2526 | 0,0512 | +0,0446 |
 
 **Impacto:** a PR-AUC sobe de **0,2079** para **0,2526**, um ganho de
@@ -267,12 +265,12 @@ são comparáveis entre si. Estão em escala de log-odds: nas numéricas, o
 *odds ratio* `exp(coeficiente)` é o efeito de um desvio padrão a mais; nas
 binárias, da passagem de 0 para 1.
 
-![Coeficientes da regressão logística](assets/images/aps2/coeficientes_logistica.png)
+![Coeficientes da regressão logística](assets/images/Etapa 2/coeficientes_logistica.png)
 
 1. **`age` (coeficiente +1,88, odds ratio 6,5).** Domina o modelo com
    folga -- mais que o dobro do segundo colocado. Cada desvio padrão de
    idade (22,6 anos) multiplica por 6,5 as chances de AVC. Bate com a
-   literatura médica[4] e com os boxplots já mostrados na APS1.
+   literatura médica[4] e com os boxplots já mostrados na Etapa 1.
 2. **`work_type_children` (coeficiente +0,86).** Não deve ser lido como
    causal: crianças praticamente não têm AVC na base, e o coeficiente
    positivo é um artefato da colinearidade entre `work_type` e `age` --
@@ -297,7 +295,7 @@ sobre todas as árvores.
    total -- os dois modelos, com mecanismos completamente diferentes,
    concordam que idade é o preditor dominante.
 2. **`avg_glucose_level` (0,111).** Faz sentido clínico (diabetes é fator
-   de risco para AVC); a APS1 mostrou que essa variável é bimodal, com
+   de risco para AVC); a Etapa 1 mostrou que essa variável é bimodal, com
    cauda longa de valores altos.
 3. **`bmi` (0,093).**
 
