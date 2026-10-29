@@ -21,7 +21,7 @@
     
     
       
-        <title>Modelagem (APS2) - Predição de AVC — Projeto de Machine Learning</title>
+        <title>Classificação (Parte 2) - Predição de AVC — Projeto de Machine Learning</title>
       
     
     
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Modelagem (APS2)
+              Classificação (Parte 2)
             
           </span>
         </div>
@@ -207,7 +207,7 @@
   <span class="md-ellipsis">
     
   
-    Relatório
+    EDA (Parte 1)
   
 
     
@@ -243,7 +243,7 @@
   <span class="md-ellipsis">
     
   
-    Modelagem (APS2)
+    Classificação (Parte 2)
   
 
     
@@ -261,7 +261,7 @@
   <span class="md-ellipsis">
     
   
-    Modelagem (APS2)
+    Classificação (Parte 2)
   
 
     
@@ -309,10 +309,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-o-pipeline-da-aps1" class="md-nav__link">
+  <a href="#setup-o-pipeline-da-etapa-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup: o pipeline da APS1
+        Setup: o pipeline da Etapa 1
       
     </span>
   </a>
@@ -587,10 +587,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-o-pipeline-da-aps1" class="md-nav__link">
+  <a href="#setup-o-pipeline-da-etapa-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup: o pipeline da APS1
+        Setup: o pipeline da Etapa 1
       
     </span>
   </a>
@@ -838,26 +838,25 @@
 <p><strong>Tipo de problema:</strong> Classificação binária</p>
 <hr />
 <h2 id="objetivo">Objetivo</h2>
-<p>Esta é a segunda etapa (APS2) do projeto de Machine Learning, dando
-continuidade direta à <a href="../">análise exploratória (APS1)</a>. Ali foi
+<p>Esta é a Etapa 2 do projeto de Machine Learning, dando
+continuidade direta à <a href="../">análise exploratória (Etapa 1)</a>. Ali foi
 construído o pipeline de pré-processamento (imputação, encoding,
 padronização) sobre o Stroke Prediction Dataset; aqui ele é reaproveitado
 na modelagem: seleção de modelos, ajuste de
 hiperparâmetros, avaliação no conjunto de teste e interpretação.</p>
-<p><a href="https://github.com/emilybrtt/projeto-machine-learning/blob/main/aps2_modelagem.ipynb">Notebook completo (aps2_modelagem.ipynb)</a></p>
 <p><a href="https://github.com/emilybrtt/projeto-machine-learning">Repositório no GitHub</a></p>
 <hr />
-<h2 id="setup-o-pipeline-da-aps1">Setup: o pipeline da APS1</h2>
+<h2 id="setup-o-pipeline-da-etapa-1">Setup: o pipeline da Etapa 1</h2>
 <p>Repetimos aqui o carregamento, a divisão treino/teste e o pré-processador
-construídos na APS1, para que o notebook seja autocontido. A divisão usa
+construídos na Etapa 1, para que o notebook seja autocontido. A divisão usa
 <code>stratify=y</code> e o mesmo <code>random_state=42</code>, logo o conjunto de teste é
-exatamente o mesmo da APS1 -- ele nunca é tocado antes da Seção 2. A única
+exatamente o mesmo da Etapa 1 -- ele nunca é tocado antes da Seção 2. A única
 diferença no pré-processador é <code>verbose_feature_names_out=False</code>, que só
 encurta os nomes das features (<code>age</code> em vez de <code>numericas__age</code>) nos gráficos
 de interpretação.</p>
 <h2 id="escolha-da-metrica-de-desempenho">Escolha da métrica de desempenho</h2>
 <p>Escolhemos a <strong>PR-AUC</strong> (<em>average precision</em>) como métrica principal.</p>
-<p>A justificativa vem direto do que a APS1 mostrou: apenas <strong>4,87%</strong> dos
+<p>A justificativa vem direto do que a Etapa 1 mostrou: apenas <strong>4,87%</strong> dos
 pacientes tiveram AVC. Nesse cenário:</p>
 <ul>
 <li><strong>Accuracy é inútil.</strong> Um modelo que responde "sem AVC" para todo mundo
@@ -903,7 +902,7 @@ todas as etapas anteriores foi feita pela PR-AUC.</p>
 <tr>
 <td><code>LogisticRegression</code></td>
 <td>Linear com regularização</td>
-<td>Modelo de referência proposto na APS1. A regularização (L1/L2) controla o overfitting e, no caso do L1, zera coeficientes irrelevantes.</td>
+<td>Modelo de referência proposto na Etapa 1. A regularização (L1/L2) controla o overfitting e, no caso do L1, zera coeficientes irrelevantes.</td>
 </tr>
 <tr>
 <td><code>RandomForestClassifier</code></td>
@@ -912,11 +911,11 @@ todas as etapas anteriores foi feita pela PR-AUC.</p>
 </tr>
 </tbody>
 </table>
-<p>Os três entram no <strong>mesmo pipeline</strong>, com o pré-processador da APS1 na
+<p>Os três entram no <strong>mesmo pipeline</strong>, com o pré-processador da Etapa 1 na
 frente -- isso garante que a imputação e a padronização sejam aprendidas
 apenas no fold de treino de cada partição da validação cruzada, sem
 vazamento. Tanto a regressão logística quanto a floresta usam
-<code>class_weight="balanced"</code>, resposta ao desbalanceamento já adotada na APS1:
+<code>class_weight="balanced"</code>, resposta ao desbalanceamento já adotada na Etapa 1:
 o peso de cada classe fica inversamente proporcional à sua frequência,
 então errar um caso de AVC custa cerca de 20 vezes mais do que errar um
 caso negativo.</p>
@@ -997,7 +996,7 @@ clara quando podada (<code>max_depth=10</code>, <code>min_samples_leaf=20</code>
 da regressão logística -- confirmando que a floresta padrão estava decorando.</p>
 <p><strong>O melhor modelo até aqui é a Random Forest ajustada.</strong></p>
 <h3 id="13-mudanca-proposta-no-pipeline-sinalizar-o-bmi-ausente">1.3 Mudança proposta no pipeline: sinalizar o <code>bmi</code> ausente</h3>
-<p>Na APS1, os 201 valores ausentes de <code>bmi</code> (3,93% da base) foram imputados
+<p>Na Etapa 1, os 201 valores ausentes de <code>bmi</code> (3,93% da base) foram imputados
 pela mediana. A imputação preenche o buraco, mas <strong>apaga a informação de
 que havia um buraco ali</strong>. Investigando, apenas no conjunto de treino, se
 essa ausência diz algo:</p>
@@ -1054,7 +1053,7 @@ comparação fosse honesta.</p>
 </thead>
 <tbody>
 <tr>
-<td>Pipeline da APS1</td>
+<td>Pipeline da Etapa 1</td>
 <td style="text-align: right;">0,2079</td>
 <td style="text-align: right;">0,0431</td>
 <td style="text-align: right;">--</td>
@@ -1224,12 +1223,12 @@ numéricas foram padronizadas e as categóricas estão em 0/1, os coeficientes
 são comparáveis entre si. Estão em escala de log-odds: nas numéricas, o
 <em>odds ratio</em> <code>exp(coeficiente)</code> é o efeito de um desvio padrão a mais; nas
 binárias, da passagem de 0 para 1.</p>
-<p><img alt="Coeficientes da regressão logística" src="../assets/images/aps2/coeficientes_logistica.png" /></p>
+<p><img alt="Coeficientes da regressão logística" src="assets/images/Etapa 2/coeficientes_logistica.png" /></p>
 <ol>
 <li><strong><code>age</code> (coeficiente +1,88, odds ratio 6,5).</strong> Domina o modelo com
    folga -- mais que o dobro do segundo colocado. Cada desvio padrão de
    idade (22,6 anos) multiplica por 6,5 as chances de AVC. Bate com a
-   literatura médica[4] e com os boxplots já mostrados na APS1.</li>
+   literatura médica[4] e com os boxplots já mostrados na Etapa 1.</li>
 <li><strong><code>work_type_children</code> (coeficiente +0,86).</strong> Não deve ser lido como
    causal: crianças praticamente não têm AVC na base, e o coeficiente
    positivo é um artefato da colinearidade entre <code>work_type</code> e <code>age</code> --
@@ -1252,7 +1251,7 @@ sobre todas as árvores.</p>
    total -- os dois modelos, com mecanismos completamente diferentes,
    concordam que idade é o preditor dominante.</li>
 <li><strong><code>avg_glucose_level</code> (0,111).</strong> Faz sentido clínico (diabetes é fator
-   de risco para AVC); a APS1 mostrou que essa variável é bimodal, com
+   de risco para AVC); a Etapa 1 mostrou que essa variável é bimodal, com
    cauda longa de valores altos.</li>
 <li><strong><code>bmi</code> (0,093).</strong></li>
 </ol>
