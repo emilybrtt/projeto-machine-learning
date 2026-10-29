@@ -175,9 +175,10 @@ trabalho, maior que o ajuste de hiperparâmetros dos dois modelos somado.
 Vale registrar esse ganho em relação ao ruído: o desvio padrão entre folds
 (0,043 sem o indicador e 0,051 com ele) é da mesma ordem do ganho, então o
 resultado é promissor mas não é uma vitória esmagadora; seria preciso
-repetir a validação com outras sementes para afirmar algo mais forte. Os hiperparâmetros ótimos também mudaram
-(`max_depth` caiu de 10 para 5): com um preditor mais forte disponível, a
-floresta precisa de menos profundidade.
+repetir a validação com outras sementes para afirmar algo mais forte. Os hiperparâmetros ótimos também mudaram,
+e a regularização trocou de forma: `max_depth` caiu de 10 para 5, mas
+`min_samples_leaf` caiu de 20 para 1 -- árvores mais rasas, com folhas que
+podem conter um único paciente.
 
 **Melhor modelo final: Random Forest + indicador de ausência.**
 
@@ -198,8 +199,9 @@ floresta precisa de menos profundidade.
 
 Duas conclusões: **(1)** a lacuna entre treino e validação é enorme e nunca
 fecha -- mesmo com todos os 3.270 exemplos ela continua em 0,243, sinal de
-variância alta que persiste apesar da poda, porque com apenas 199 casos
-positivos no treino cada árvore consegue isolar casos individuais; **(2)** a curva de
+variância alta: o `max_depth=5` limita a profundidade, mas com
+`min_samples_leaf=1` e apenas 199 casos positivos no treino cada árvore
+ainda consegue isolar casos individuais; **(2)** a curva de
 validação ainda está subindo no último ponto, sem sinal de saturação -- ou
 seja, mais dados ajudariam. O gargalo deste trabalho não é a escolha do
 algoritmo nem o ajuste de hiperparâmetros, é a quantidade de casos de AVC
@@ -237,14 +239,18 @@ Três observações sobre os resultados:
    do `class_weight="balanced"` -- a troca certa aqui, já que um falso
    positivo custa um exame a mais e um falso negativo custa um AVC não
    prevenido.
-2. **A distância entre ROC-AUC (0,849) e PR-AUC (0,232) é a razão de termos
+2. **A PR-AUC no teste (0,232) fica abaixo da validação cruzada (0,253).**
+   É o esperado: o `best_score_` é o máximo entre as 18 configurações da
+   grade, avaliadas nos mesmos folds, e por isso é otimista. A diferença
+   também está dentro do desvio padrão entre folds (0,051).
+3. **A distância entre ROC-AUC (0,849) e PR-AUC (0,232) é a razão de termos
    escolhido a PR-AUC.** Na curva ROC, o limiar de 0,5 vira um ponto com
    recall de 0,82 e taxa de falsos positivos de 0,27 (265 de 972 negativos),
    que parece razoável. Na precision, os mesmos 265 falsos positivos são
    comparados com apenas 41 acertos, e ela cai para 0,134: de cada 7 ou 8
    pacientes sinalizados, só um teve AVC. Reportar apenas o ROC-AUC daria a
    impressão de um modelo muito melhor do que ele é.
-3. **O limiar de 0,5 não é obrigatório.** Deslocá-lo move o modelo ao longo
+4. **O limiar de 0,5 não é obrigatório.** Deslocá-lo move o modelo ao longo
    da curva precision-recall sem retreinar nada. A escolha do ponto deveria
    vir do custo relativo entre exame desnecessário e AVC não prevenido --
    uma decisão clínica, não estatística[7].
@@ -291,7 +297,7 @@ sobre todas as árvores.
    total -- os dois modelos, com mecanismos completamente diferentes,
    concordam que idade é o preditor dominante.
 2. **`avg_glucose_level` (0,111).** Faz sentido clínico (diabetes é fator
-   de risco para AVC), mas a APS1 mostrou que essa variável é bimodal, com
+   de risco para AVC); a APS1 mostrou que essa variável é bimodal, com
    cauda longa de valores altos.
 3. **`bmi` (0,093).**
 
@@ -310,7 +316,9 @@ sobre todas as árvores.
 Os valores SHAP vêm da teoria dos jogos cooperativos: distribuem a
 diferença entre a predição e o valor médio entre as features[2]. Em vez de
 somar a redução de impureza de cada corte, medem quanto cada feature desloca
-a predição, o que evita o viés de medição da seção anterior, e permitem
+a predição, sem favorecer as que oferecem mais pontos de corte. Isso
+remove o viés da *medida* de importância, não o da floresta: se as árvores
+usaram mais as variáveis contínuas, o SHAP reflete isso. Também permitem
 explicar uma predição individual, não só a média.
 
 O valor base sai perto de 0,50, e não da prevalência de 4,87%, por causa do
@@ -348,12 +356,12 @@ atribui à hipertensão, já que as duas andam juntas.
 #### Explicação de 3 predições individuais
 
 Escolhemos o caso de maior probabilidade predita em três grupos: verdadeiros
-positivos, falsos negativos e falsos positivos. Nos force plots, os valores
+positivos, falsos negativos e falsos positivos. Nos gráficos waterfall, os valores
 das features estão na escala padronizada que o modelo enxerga; o indicador
 de ausência também passa pelo `StandardScaler`, por isso aparece como 4,8
 quando o IMC falta e -0,21 quando está presente.
 
-![SHAP force plot -- verdadeiro positivo](assets/images/aps2/shap_forca_verdadeiro_positivo.png)
+![SHAP waterfall -- verdadeiro positivo](assets/images/aps2/shap_forca_verdadeiro_positivo.png)
 
 **Verdadeiro positivo -- homem, 78 anos, doença cardíaca, glicose 219,8,
 `bmi` ausente. Probabilidade predita: 0,861.** A segunda maior contribuição
@@ -362,7 +370,7 @@ sido registrado (`missingindicator_bmi`: +0,0848), pesando quatro vezes
 mais que a glicose de 219,8 mg/dL, e a doença cardíaca nem aparece no
 top 3.
 
-![SHAP force plot -- falso negativo](assets/images/aps2/shap_forca_falso_negativo.png)
+![SHAP waterfall -- falso negativo](assets/images/aps2/shap_forca_falso_negativo.png)
 
 **Falso negativo -- homem, 59 anos, sem hipertensão, sem doença cardíaca,
 glicose 96,2, IMC 44,1. Probabilidade predita: 0,454 (escapou por 0,046).**
@@ -373,7 +381,7 @@ tenha *reduzido* o risco predito -- o modelo não aprendeu uma relação
 confiável para `bmi`, provavelmente por haver poucos exemplos de AVC na
 cauda alta da distribuição.
 
-![SHAP force plot -- falso positivo](assets/images/aps2/shap_forca_falso_positivo.png)
+![SHAP waterfall -- falso positivo](assets/images/aps2/shap_forca_falso_positivo.png)
 
 **Falso positivo -- homem, 81 anos, hipertensão, doença cardíaca, glicose
 220,6, IMC 30,0. Probabilidade predita: 0,866.** O modelo identificou um
@@ -495,9 +503,7 @@ custo-sensível discutido na literatura de ciência de dados aplicada[7].
 
 - PEDREGOSA, F. et al. Scikit-learn: Machine Learning in Python. *Journal
   of Machine Learning Research*, v. 12, p. 2825-2830, 2011.
-- LUNDBERG, S. M.; LEE, S.-I. A Unified Approach to Interpreting Model
-  Predictions. In: *Advances in Neural Information Processing Systems
-  (NeurIPS)*, v. 30, 2017. (SHAP)
+- SHAP: ver LUNDBERG e LEE [2] abaixo.
 
 **Referências metodológicas e da discussão crítica**
 
