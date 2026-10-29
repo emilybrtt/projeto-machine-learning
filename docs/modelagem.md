@@ -7,9 +7,9 @@
 **Integrantes:**
 
 - Emily Britto -- emilybg@al.insper.edu.br
-- Gabriel Chaves -- gabrielca5@al.insper.edu.br
+- Gabriel Chaves Aguiar -- gabrielca5@al.insper.edu.br
 
-**Data da entrega:** 26/10/2026
+**Data da entrega:** 30/10/2026
 
 **Dataset escolhido:** Stroke Prediction Dataset
 

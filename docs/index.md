@@ -7,7 +7,7 @@
 **Integrantes:**
 
 - Emily Britto -- emilybg@al.insper.edu.br
-- Gabriel Aguiar -- gabrielca5@al.insper.edu.br
+- Gabriel Chaves Aguiar -- gabrielca5@al.insper.edu.br
 
 **Data da entrega:** 14/09/2026
 
