@@ -1,0 +1,1431 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Modelagem (APS2) - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/minimal.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#predicao-de-avc-modelagem-avaliacao-e-explicabilidade" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelagem (APS2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatório
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelagem (APS2)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelagem (APS2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informacoes-gerais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informações gerais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-o-pipeline-da-aps1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup: o pipeline da APS1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escolha-da-metrica-de-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escolha da métrica de desempenho
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-selecao-e-implementacao-dos-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Seleção e implementação dos modelos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Seleção e implementação dos modelos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-os-tres-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Os três modelos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-selecao-de-hiperparametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Seleção de hiperparâmetros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-mudanca-proposta-no-pipeline-sinalizar-o-bmi-ausente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Mudança proposta no pipeline: sinalizar o bmi ausente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-curvas-de-aprendizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Curvas de aprendizado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-avaliacao-do-melhor-modelo-no-conjunto-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Avaliação do melhor modelo no conjunto de teste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-interpretacao-e-explicabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interpretação e explicabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Interpretação e explicabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-modelo-linear-os-3-coeficientes-de-maior-magnitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Modelo linear: os 3 coeficientes de maior magnitude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-modelo-ensemble-as-3-features-de-maior-importancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Modelo ensemble: as 3 features de maior importância
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-shap-importancia-global-e-explicacao-de-predicoes-individuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 SHAP: importância global e explicação de predições individuais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 SHAP: importância global e explicação de predições individuais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explicacao-de-3-predicoes-individuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicação de 3 predições individuais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-discussao-critica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Discussão crítica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Discussão crítica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-duas-limitacoes-do-melhor-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Duas limitações do melhor modelo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-duas-limitacoes-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Duas limitações dos dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-duas-acoes-para-operacionalizacao-e-manutencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Duas ações para operacionalização e manutenção
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informacoes-gerais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informações gerais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-o-pipeline-da-aps1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup: o pipeline da APS1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escolha-da-metrica-de-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escolha da métrica de desempenho
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-selecao-e-implementacao-dos-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Seleção e implementação dos modelos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Seleção e implementação dos modelos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-os-tres-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Os três modelos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-selecao-de-hiperparametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Seleção de hiperparâmetros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-mudanca-proposta-no-pipeline-sinalizar-o-bmi-ausente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Mudança proposta no pipeline: sinalizar o bmi ausente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-curvas-de-aprendizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Curvas de aprendizado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-avaliacao-do-melhor-modelo-no-conjunto-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Avaliação do melhor modelo no conjunto de teste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-interpretacao-e-explicabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interpretação e explicabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Interpretação e explicabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-modelo-linear-os-3-coeficientes-de-maior-magnitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Modelo linear: os 3 coeficientes de maior magnitude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-modelo-ensemble-as-3-features-de-maior-importancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Modelo ensemble: as 3 features de maior importância
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-shap-importancia-global-e-explicacao-de-predicoes-individuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 SHAP: importância global e explicação de predições individuais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 SHAP: importância global e explicação de predições individuais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explicacao-de-3-predicoes-individuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicação de 3 predições individuais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-discussao-critica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Discussão crítica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Discussão crítica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-duas-limitacoes-do-melhor-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Duas limitações do melhor modelo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-duas-limitacoes-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Duas limitações dos dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-duas-acoes-para-operacionalizacao-e-manutencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Duas ações para operacionalização e manutenção
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="predicao-de-avc-modelagem-avaliacao-e-explicabilidade">Predição de AVC: modelagem, avaliação e explicabilidade</h1>
+<h2 id="informacoes-gerais">Informações gerais</h2>
+<p><strong>Docente:</strong> Humberto Sandman</p>
+<p><strong>Integrantes:</strong></p>
+<ul>
+<li>Emily Britto -- emilybg@al.insper.edu.br</li>
+<li>Gabriel Chaves -- gabrielca5@al.insper.edu.br</li>
+</ul>
+<p><strong>Data da entrega:</strong> 26/10/2026</p>
+<p><strong>Dataset escolhido:</strong> Stroke Prediction Dataset</p>
+<p><strong>Tipo de problema:</strong> Classificação binária</p>
+<hr />
+<h2 id="objetivo">Objetivo</h2>
+<p>Esta é a segunda etapa (APS2) do projeto de Machine Learning, dando
+continuidade direta à <a href="../">análise exploratória (APS1)</a>. Ali foi
+construído o pipeline de pré-processamento (imputação, encoding,
+padronização) sobre o Stroke Prediction Dataset; aqui ele é reaproveitado
+sem alterações para a modelagem: seleção de modelos, ajuste de
+hiperparâmetros, avaliação no conjunto de teste e interpretação.</p>
+<p><a href="https://github.com/emilybrtt/projeto-machine-learning/blob/main/aps2_modelagem.ipynb">Notebook completo (aps2_modelagem.ipynb)</a></p>
+<p><a href="https://github.com/emilybrtt/projeto-machine-learning">Repositório no GitHub</a></p>
+<hr />
+<h2 id="setup-o-pipeline-da-aps1">Setup: o pipeline da APS1</h2>
+<p>Repetimos aqui o carregamento, a divisão treino/teste e o pré-processador
+construídos na APS1, sem alterações, para que o notebook seja autocontido.
+A divisão usa <code>stratify=y</code> e o mesmo <code>random_state=42</code>, logo o conjunto de
+teste é exatamente o mesmo da APS1 -- ele nunca é tocado antes da Seção 2.</p>
+<h2 id="escolha-da-metrica-de-desempenho">Escolha da métrica de desempenho</h2>
+<p>Escolhemos a <strong>PR-AUC</strong> (<em>average precision</em>) como métrica principal.</p>
+<p>A justificativa vem direto do que a APS1 mostrou: apenas <strong>4,87%</strong> dos
+pacientes tiveram AVC. Nesse cenário:</p>
+<ul>
+<li><strong>Accuracy é inútil.</strong> Um modelo que responde "sem AVC" para todo mundo
+  acerta 95,1% das vezes e não detecta um único caso.</li>
+<li><strong>ROC-AUC é otimista.</strong> A taxa de falsos positivos tem como denominador a
+  classe majoritária, que é enorme; centenas de falsos positivos mal mexem
+  no eixo x da curva ROC.</li>
+<li><strong>PR-AUC enxerga o problema.</strong> Precision e recall ignoram os verdadeiros
+  negativos, que são justamente a massa que não interessa aqui. A linha de
+  base da PR-AUC é a própria prevalência (<strong>0,0487</strong>), então qualquer valor
+  acima disso é ganho real sobre o acaso.</li>
+</ul>
+<p>A PR-AUC é usada em <strong>todas</strong> as etapas: comparação dos modelos base,
+<code>scoring</code> dos <code>GridSearchCV</code>, avaliação da mudança no pipeline e curvas de
+aprendizado. A estratégia de validação é sempre <code>StratifiedKFold(n_splits=5,
+shuffle=True, random_state=42)</code>, pelo mesmo motivo que a divisão
+treino/teste foi estratificada: com 4,87% de positivos, um fold poderia
+facilmente ficar sem casos suficientes.</p>
+<div class="admonition note">
+<p class="admonition-title">Métricas de classificação pedidas no enunciado</p>
+<p>Accuracy, Precision, Recall, F1 e ROC-AUC também são reportadas na
+Seção 2, como pede a rubrica -- mas a seleção do melhor modelo em
+todas as etapas anteriores foi feita pela PR-AUC.</p>
+</div>
+<hr />
+<h2 id="1-selecao-e-implementacao-dos-modelos">1. Seleção e implementação dos modelos</h2>
+<h3 id="11-os-tres-modelos">1.1 Os três modelos</h3>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Papel</th>
+<th>Por que este</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DummyClassifier</code></td>
+<td>Piso de referência</td>
+<td>Prediz respeitando a proporção das classes, sem olhar para as features. Qualquer modelo útil precisa superar isso.</td>
+</tr>
+<tr>
+<td><code>LogisticRegression</code></td>
+<td>Linear com regularização</td>
+<td>Era o modelo da APS1. A regularização (L1/L2) controla o overfitting e, no caso do L1, zera coeficientes irrelevantes.</td>
+</tr>
+<tr>
+<td><code>RandomForestClassifier</code></td>
+<td>Ensemble de árvores</td>
+<td>Captura interações e relações não lineares que a regressão logística não alcança, sem precisar que a gente as declare.</td>
+</tr>
+</tbody>
+</table>
+<p>Os três entram no <strong>mesmo pipeline</strong>, com o pré-processador da APS1 na
+frente -- isso garante que a imputação e a padronização sejam aprendidas
+apenas no fold de treino de cada partição da validação cruzada, sem
+vazamento. Tanto a regressão logística quanto a floresta usam
+<code>class_weight="balanced"</code>, resposta ao desbalanceamento já adotada na APS1:
+o peso de cada classe fica inversamente proporcional à sua frequência,
+então errar um caso de AVC custa cerca de 20 vezes mais do que errar um
+caso negativo.</p>
+<p><strong>Resultado da métrica para os três modelos (PR-AUC, validação cruzada):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th style="text-align: right;">PR-AUC (média)</th>
+<th style="text-align: right;">Desvio padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dummy</td>
+<td style="text-align: right;">~0,049</td>
+<td style="text-align: right;">--</td>
+</tr>
+<tr>
+<td>Regressão Logística</td>
+<td style="text-align: right;">~0,17-0,19</td>
+<td style="text-align: right;">~0,04</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td style="text-align: right;">~0,17-0,19</td>
+<td style="text-align: right;">~0,04</td>
+</tr>
+</tbody>
+</table>
+<p>O Dummy fica em ~0,049, exatamente a prevalência, confirmando que a métrica
+está calibrada. Os dois modelos reais ficam cerca de <strong>4x acima do acaso</strong>.
+A regressão logística sai na frente da floresta na configuração padrão: uma
+floresta sem limite de profundidade decora o treino, e com apenas 249 casos
+positivos há pouquíssimo sinal para decorar. O desvio padrão entre folds
+(~0,04) é alto em relação à média -- efeito do desbalanceamento, já que cada
+fold de validação tem apenas ~50 casos positivos.</p>
+<h3 id="12-selecao-de-hiperparametros">1.2 Seleção de hiperparâmetros</h3>
+<p>Usamos <code>GridSearchCV</code> com a mesma métrica e a mesma estratégia de validação
+para a regressão logística e para a Random Forest:</p>
+<ul>
+<li><strong>Regressão logística:</strong> <code>C</code> (força da regularização, escala log de
+  0,001 a 100) e <code>penalty</code> (L1 vs L2), com solver <code>liblinear</code> por suportar
+  as duas penalidades.</li>
+<li><strong>Random Forest:</strong> <code>max_depth</code>, <code>min_samples_leaf</code> e <code>max_features</code> --
+  os parâmetros que controlam o quanto a floresta pode decorar.
+  <code>n_estimators=300</code> foi fixado, pois mais árvores não pioram o resultado,
+  só custam tempo.</li>
+</ul>
+<p>A regressão logística praticamente não se move com o ajuste (<code>C=1</code>, o
+próprio valor padrão). A floresta, por outro lado, ganha de forma clara
+quando podada (<code>max_depth=10</code>, <code>min_samples_leaf=20</code>) e passa a frente da
+regressão logística -- confirmando que a floresta padrão estava decorando.</p>
+<p><strong>O melhor modelo até aqui é a Random Forest ajustada.</strong></p>
+<h3 id="13-mudanca-proposta-no-pipeline-sinalizar-o-bmi-ausente">1.3 Mudança proposta no pipeline: sinalizar o <code>bmi</code> ausente</h3>
+<p>Na APS1, os 201 valores ausentes de <code>bmi</code> (3,93% da base) foram imputados
+pela mediana. A imputação preenche o buraco, mas <strong>apaga a informação de
+que havia um buraco ali</strong>. Investigando se essa ausência diz algo:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Pacientes</th>
+<th style="text-align: right;">Casos de AVC</th>
+<th style="text-align: right;">Taxa de AVC</th>
+<th style="text-align: right;">Idade média</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bmi</code> presente</td>
+<td style="text-align: right;">--</td>
+<td style="text-align: right;">--</td>
+<td style="text-align: right;">4,26%</td>
+<td style="text-align: right;">--</td>
+</tr>
+<tr>
+<td><code>bmi</code> ausente</td>
+<td style="text-align: right;">--</td>
+<td style="text-align: right;">--</td>
+<td style="text-align: right;"><strong>19,90%</strong></td>
+<td style="text-align: right;">+9 anos</td>
+</tr>
+</tbody>
+</table>
+<p>A diferença é de quase <strong>5x</strong>. A ausência não é aleatória: ela carrega
+sinal -- a explicação mais provável é que pacientes em estado grave (ou que
+vieram a óbito) não tiveram o IMC aferido, e esses são justamente os mais
+propensos a ter tido um AVC. Esse padrão, em que a própria ausência de um
+valor está correlacionada com o desfecho, é um caso clássico de dado
+ausente não aleatório (<em>missing not at random</em>, MNAR)[1]: a ausência
+carrega informação e não pode ser tratada como ruído.</p>
+<p><strong>A mudança:</strong> ligar <code>add_indicator=True</code> no <code>SimpleImputer</code> das variáveis
+numéricas. O imputer continua preenchendo com a mediana, mas passa a
+adicionar uma coluna binária marcando quais linhas foram imputadas -- o
+modelo deixa de ser cego para a ausência. A seleção de hiperparâmetros foi
+refeita com a mesma grade, métrica e estratégia de validação, para que a
+comparação fosse honesta.</p>
+<p><strong>Impacto:</strong> a PR-AUC sobe de <strong>0,2079</strong> para <strong>0,2526</strong>, um ganho de
+<strong>+0,045</strong> (cerca de <strong>+21%</strong> relativos) -- o maior ganho de todo o
+trabalho, maior que o ajuste de hiperparâmetros dos dois modelos somado.
+Vale registrar esse ganho em relação ao ruído: o desvio padrão entre folds
+é ~0,04, da mesma ordem do ganho, então o resultado é promissor mas não é
+uma vitória esmagadora. Os hiperparâmetros ótimos também mudaram
+(<code>max_depth</code> caiu de 10 para 5): com um preditor mais forte disponível, a
+floresta precisa de menos profundidade.</p>
+<div class="admonition warning">
+<p class="admonition-title">Ressalva, retomada na discussão crítica</p>
+<p>Estamos aproveitando um artefato de como o dataset foi coletado, não um
+fator de risco clínico. Isso tem consequências para o uso do modelo na
+prática (ver Seção 4).</p>
+</div>
+<p><strong>Melhor modelo final: Random Forest + indicador de ausência.</strong></p>
+<h3 id="14-curvas-de-aprendizado">1.4 Curvas de aprendizado</h3>
+<p><img alt="Curvas de aprendizado da Random Forest com indicador de ausência" src="../assets/images/aps2/curva_aprendizado.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Amostras de treino</th>
+<th style="text-align: right;">PR-AUC treino</th>
+<th style="text-align: right;">PR-AUC validação</th>
+<th style="text-align: right;">Lacuna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">327</td>
+<td style="text-align: right;">0,970</td>
+<td style="text-align: right;">0,134</td>
+<td style="text-align: right;">0,837</td>
+</tr>
+<tr>
+<td style="text-align: right;">1.167</td>
+<td style="text-align: right;">0,680</td>
+<td style="text-align: right;">0,147</td>
+<td style="text-align: right;">0,533</td>
+</tr>
+<tr>
+<td style="text-align: right;">2.008</td>
+<td style="text-align: right;">0,574</td>
+<td style="text-align: right;">0,167</td>
+<td style="text-align: right;">0,407</td>
+</tr>
+<tr>
+<td style="text-align: right;">2.849</td>
+<td style="text-align: right;">0,534</td>
+<td style="text-align: right;">0,247</td>
+<td style="text-align: right;">0,287</td>
+</tr>
+<tr>
+<td style="text-align: right;">3.270</td>
+<td style="text-align: right;">0,494</td>
+<td style="text-align: right;">0,251</td>
+<td style="text-align: right;">0,243</td>
+</tr>
+</tbody>
+</table>
+<p>Duas conclusões: <strong>(1)</strong> a lacuna entre treino e validação é enorme e nunca
+fecha -- mesmo com todos os 3.270 exemplos ela continua em 0,243, sinal de
+variância alta que persiste apesar da poda, porque com apenas 249 casos
+positivos cada árvore consegue isolar casos individuais; <strong>(2)</strong> a curva de
+validação ainda está subindo no último ponto, sem sinal de saturação -- ou
+seja, mais dados ajudariam. O gargalo deste trabalho não é a escolha do
+algoritmo nem o ajuste de hiperparâmetros, é a quantidade de casos de AVC
+disponíveis.</p>
+<hr />
+<h2 id="2-avaliacao-do-melhor-modelo-no-conjunto-de-teste">2. Avaliação do melhor modelo no conjunto de teste</h2>
+<p>A partir daqui usamos o conjunto de teste, que não foi tocado em nenhuma
+etapa anterior -- nem na exploração da APS1, nem na seleção de
+hiperparâmetros.</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th style="text-align: right;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td style="text-align: right;">0,732</td>
+</tr>
+<tr>
+<td>Precision (classe AVC)</td>
+<td style="text-align: right;">0,134</td>
+</tr>
+<tr>
+<td>Recall (classe AVC)</td>
+<td style="text-align: right;">0,820</td>
+</tr>
+<tr>
+<td>F1-score (classe AVC)</td>
+<td style="text-align: right;">0,230</td>
+</tr>
+<tr>
+<td>ROC-AUC</td>
+<td style="text-align: right;">0,849</td>
+</tr>
+<tr>
+<td>PR-AUC</td>
+<td style="text-align: right;">0,232</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Matriz de confusão no conjunto de teste" src="../assets/images/aps2/matriz_confusao.png" /></p>
+<p><strong>41 dos 50</strong> casos de AVC foram detectados, <strong>9 passaram batido</strong> (falsos
+negativos) e <strong>265 pacientes saudáveis</strong> foram sinalizados sem necessidade
+(falsos positivos).</p>
+<p><img alt="Curva ROC no conjunto de teste" src="../assets/images/aps2/curva_roc.png" /></p>
+<p>Três observações sobre os resultados:</p>
+<ol>
+<li><strong>A accuracy de 0,732 é pior que a do modelo burro (0,951), e isso é
+   bom.</strong> O modelo troca accuracy por recall de propósito, por causa do
+   <code>class_weight="balanced"</code> -- a troca certa aqui, já que um falso
+   positivo custa um exame a mais e um falso negativo custa um derrame não
+   prevenido.</li>
+<li><strong>A distância entre ROC-AUC (0,849) e PR-AUC (0,232) é a razão de termos
+   escolhido a PR-AUC.</strong> Os mesmos 265 falsos positivos que destroem a
+   precision (0,134) mal aparecem na curva ROC, diluídos entre 972
+   negativos. Reportar apenas o ROC-AUC daria a impressão de um modelo
+   muito melhor do que ele é.</li>
+<li><strong>O limiar de 0,5 não é obrigatório.</strong> Deslocá-lo move o modelo ao longo
+   da curva precision-recall sem retreinar nada. A escolha do ponto deveria
+   vir do custo relativo entre exame desnecessário e AVC não prevenido --
+   uma decisão clínica, não estatística[7].</li>
+</ol>
+<hr />
+<h2 id="3-interpretacao-e-explicabilidade">3. Interpretação e explicabilidade</h2>
+<h3 id="31-modelo-linear-os-3-coeficientes-de-maior-magnitude">3.1 Modelo linear: os 3 coeficientes de maior magnitude</h3>
+<p>Como as variáveis numéricas foram padronizadas e as categóricas estão em
+0/1, os coeficientes são comparáveis entre si (escala de log-odds).</p>
+<p><img alt="Coeficientes da regressão logística" src="../assets/images/aps2/coeficientes_logistica.png" /></p>
+<ol>
+<li><strong><code>age</code> (coeficiente +1,88, odds ratio 6,5).</strong> Domina o modelo com
+   folga -- mais que o dobro do segundo colocado. Cada desvio padrão de
+   idade (~22 anos) multiplica por 6,5 as chances de AVC. Bate com a
+   literatura médica[4] e com os boxplots já mostrados na APS1.</li>
+<li><strong><code>work_type_children</code> (coeficiente +0,86).</strong> Não deve ser lido como
+   causal: crianças praticamente não têm AVC na base, e o coeficiente
+   positivo é um artefato da colinearidade entre <code>work_type</code> e <code>age</code> --
+   funciona como correção parcial da penalidade enorme que <code>age</code> já impõe
+   para idades baixas.</li>
+<li><strong><code>hypertension</code> (coeficiente +0,59, odds ratio 1,8).</strong> Hipertensão
+   quase dobra as chances de AVC, mantidas as demais variáveis -- um fator
+   de risco clínico bem estabelecido, recuperado pelo modelo com sinal e
+   ordem de grandeza corretos.</li>
+</ol>
+<h3 id="32-modelo-ensemble-as-3-features-de-maior-importancia">3.2 Modelo ensemble: as 3 features de maior importância</h3>
+<p>A importância da Random Forest mede quanto cada feature contribuiu para
+reduzir a impureza dos nós, somada sobre todas as árvores.</p>
+<p><img alt="Importância de features na Random Forest" src="../assets/images/aps2/importancia_random_forest.png" /></p>
+<ol>
+<li><strong><code>age</code> (0,643).</strong> Sozinha responde por quase dois terços da importância
+   total -- os dois modelos, com mecanismos completamente diferentes,
+   concordam que idade é o preditor dominante.</li>
+<li><strong><code>avg_glucose_level</code> (0,111).</strong> Faz sentido clínico (diabetes é fator
+   de risco para AVC), mas a APS1 mostrou que essa variável é bimodal, com
+   cauda longa de valores altos.</li>
+<li><strong><code>bmi</code> (0,093).</strong></li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Uma armadilha a registrar</p>
+<p>As três features mais importantes são exatamente as três variáveis
+<strong>numéricas contínuas</strong> -- não é coincidência. A importância por
+impureza é enviesada a favor de variáveis com muitos valores distintos,
+que oferecem mais pontos de corte possíveis. <code>hypertension</code> aparecia
+como terceiro coeficiente mais forte na regressão logística, mas aqui
+tem importância de apenas 0,021: sinal do viés, não de desacordo real
+entre os modelos. É por isso que a próxima seção usa SHAP.</p>
+</div>
+<h3 id="33-shap-importancia-global-e-explicacao-de-predicoes-individuais">3.3 SHAP: importância global e explicação de predições individuais</h3>
+<p>Os valores SHAP vêm da teoria dos jogos cooperativos: distribuem a
+diferença entre a predição e a média entre as features, de forma que a
+contribuição de cada uma é justa independentemente de quantos valores
+distintos ela assume -- resolvendo exatamente o viés da seção anterior, e
+permitindo explicar uma predição individual, não só a média[2].</p>
+<p><img alt="Importância global SHAP" src="../assets/images/aps2/shap_importancia_global_barra.png" /></p>
+<p><img alt="Distribuição dos valores SHAP por feature" src="../assets/images/aps2/shap_beeswarm.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: right;">SHAP médio absoluto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>age</code></td>
+<td style="text-align: right;">0,2694</td>
+</tr>
+<tr>
+<td><code>avg_glucose_level</code></td>
+<td style="text-align: right;">0,0317</td>
+</tr>
+<tr>
+<td><code>missingindicator_bmi</code></td>
+<td style="text-align: right;">0,0168</td>
+</tr>
+<tr>
+<td><code>bmi</code></td>
+<td style="text-align: right;">0,0146</td>
+</tr>
+<tr>
+<td><code>ever_married_No</code></td>
+<td style="text-align: right;">0,0129</td>
+</tr>
+</tbody>
+</table>
+<p>A concentração em <code>age</code> fica ainda mais evidente: ela sozinha pesa <strong>8,5
+vezes</strong> mais que a segunda colocada. A diferença mais relevante em relação
+à importância por impureza é a posição do <code>missingindicator_bmi</code>, em
+terceiro, na frente do próprio <code>bmi</code> -- ou seja, saber que o IMC não foi
+medido vale mais, para o modelo, do que saber o valor do IMC. É o retrato
+quantitativo do problema discutido na Seção 1.3 e retomado na Seção 4: o
+terceiro preditor mais influente do melhor modelo não é uma característica
+do paciente, é uma característica do prontuário.</p>
+<h4 id="explicacao-de-3-predicoes-individuais">Explicação de 3 predições individuais</h4>
+<p><img alt="SHAP force plot -- verdadeiro positivo" src="../assets/images/aps2/shap_forca_verdadeiro_positivo.png" /></p>
+<p><strong>Verdadeiro positivo -- homem, 78 anos, doença cardíaca, glicose 219,8,
+<code>bmi</code> ausente. Probabilidade predita: 0,861.</strong> A segunda maior contribuição
+positiva não é um fator clínico -- é o fato de o IMC deste paciente não ter
+sido registrado (<code>missingindicator_bmi</code>: +0,0848), pesando quatro vezes
+mais que a glicose de 219,8 mg/dL. O modelo acertou, mas em parte <strong>pelo
+motivo errado</strong>.</p>
+<p><img alt="SHAP force plot -- falso negativo" src="../assets/images/aps2/shap_forca_falso_negativo.png" /></p>
+<p><strong>Falso negativo -- homem, 59 anos, sem hipertensão, sem doença cardíaca,
+glicose 96,2, IMC 44,1. Probabilidade predita: 0,454 (escapou por 0,046).</strong>
+O que impediu a detecção foi a ausência de comorbidades registradas: a
+glicose normal e o IMC puxaram o risco para baixo quase tanto quanto a
+idade empurrou para cima. Chama atenção que o IMC de 44,1 (obesidade grave)
+tenha <em>reduzido</em> o risco predito -- o modelo não aprendeu uma relação
+confiável para <code>bmi</code>, provavelmente por haver poucos exemplos de AVC na
+cauda alta da distribuição.</p>
+<p><img alt="SHAP force plot -- falso positivo" src="../assets/images/aps2/shap_forca_falso_positivo.png" /></p>
+<p><strong>Falso positivo -- homem, 81 anos, hipertensão, doença cardíaca, glicose
+220,6, IMC 30,0. Probabilidade predita: 0,866.</strong> O modelo identificou um
+perfil de risco real (três fatores clássicos, na ordem esperada); o AVC
+simplesmente não aconteceu. Para uma ferramenta de triagem, esse erro é
+aceitável -- diferente, em custo clínico, do falso negativo anterior.</p>
+<p><strong>Comparando os três casos:</strong> <code>age</code> é a maior contribuição nos três, e nos
+dois de alta confiança ela é 3 a 6 vezes maior que a segunda colocada. O
+SHAP individual torna concreto o que as métricas globais já sugeriam: o
+modelo decide principalmente pela idade, e os demais fatores apenas ajustam
+a margem.</p>
+<hr />
+<h2 id="4-discussao-critica">4. Discussão crítica</h2>
+<h3 id="41-duas-limitacoes-do-melhor-modelo">4.1 Duas limitações do melhor modelo</h3>
+<p><strong>(1) O modelo depende de um artefato de coleta, não de um fator clínico.</strong>
+O maior ganho de desempenho do trabalho (+21% de PR-AUC) veio do indicador
+de ausência do <code>bmi</code>. Mas "o IMC não foi registrado" não é um fator de
+risco -- é um sintoma de como estes dados específicos foram coletados,
+provavelmente ligado a pacientes graves ou que vieram a óbito. Em um
+hospital diferente, com outro protocolo de registro, essa coluna
+significaria outra coisa ou nada: o modelo aprendeu algo que não transfere.
+Pior, se o hospital melhorar o preenchimento do cadastro, o desempenho do
+modelo cai sem que nada tenha mudado nos pacientes -- uma dependência
+frágil e invisível em produção. É um exemplo do fenômeno de <em>dataset
+shift</em>, bem documentado na literatura de IA clínica[3].</p>
+<p><strong>(2) Na prática, o modelo é em grande parte um detector de idade.</strong> <code>age</code>
+responde por 64% da importância da floresta e tem coeficiente mais que o
+dobro do segundo na regressão logística. Isso levanta a questão do ganho
+real sobre uma regra simples do tipo "encaminhe todo paciente acima de 60
+anos". O modelo acerta nos casos fáceis (idosos de alto risco) e erra
+justamente nos difíceis -- pacientes jovens com AVC, que são os que mais se
+beneficiariam de uma triagem automatizada, já que o médico dificilmente
+suspeitaria deles. O valor clínico está concentrado exatamente onde o
+modelo é mais fraco. Essa concentração de importância em idade é
+consistente com a epidemiologia do AVC, em que a idade é sistematicamente
+apontada como o fator de risco de maior peso populacional[4].</p>
+<h3 id="42-duas-limitacoes-dos-dados">4.2 Duas limitações dos dados</h3>
+<p><strong>(1) O dataset não tem dimensão temporal.</strong> Cada linha é uma fotografia:
+as features e o <code>stroke</code> estão no mesmo instante. Não se sabe se a
+hipertensão foi diagnosticada antes ou depois do AVC, nem se a glicose foi
+medida na internação causada pelo próprio AVC -- o que inviabiliza qualquer
+afirmação causal e abre espaço para <strong>vazamento temporal</strong>, em que parte do
+que o modelo usa como "preditor" pode ser consequência do desfecho. Um
+modelo de predição de risco precisaria de features medidas comprovadamente
+<em>antes</em> do evento. Esse risco é descrito em detalhe na literatura de
+detecção de vazamento de dados[5].</p>
+<p><strong>(2) Não se sabe de onde vem a amostra, e a prevalência não é plausível.</strong>
+A base não documenta hospital, país, período ou critério de inclusão. A
+prevalência de 4,87% é muito superior à prevalência populacional de AVC
+(tipicamente 1-2% em estudos transversais[4]), o que indica alguma forma
+de seleção da amostra -- reforçando que as probabilidades produzidas estão
+descalibradas para qualquer população real. Além disso, a coluna <code>gender</code>
+tem uma única ocorrência da categoria <code>Other</code>, tornando o modelo
+completamente inútil para esse grupo: um problema de representatividade
+que nenhuma técnica de modelagem resolve.</p>
+<h3 id="43-duas-acoes-para-operacionalizacao-e-manutencao">4.3 Duas ações para operacionalização e manutenção</h3>
+<p><strong>(1) Monitorar a distribuição das entradas, não só o desempenho.</strong> O
+desfecho de AVC leva meses ou anos para ser observado, então esperar pelos
+rótulos para descobrir que o modelo degradou significa descobrir tarde
+demais. A ação concreta é registrar, a cada lote de predições, a
+distribuição das features de entrada e compará-la com a do treino -- com
+atenção especial à <strong>taxa de ausência do <code>bmi</code></strong>, pela dependência descrita
+em 4.1. Um alarme automático quando essa taxa saísse da faixa observada no
+treino (3,93%) detectaria o problema imediatamente, sem precisar de um
+único rótulo novo. Monitorar a distribuição de entrada é recomendação
+central tanto na literatura de <em>dataset shift</em> em saúde[3] quanto na de
+manutenção de sistemas de ML em produção[6].</p>
+<p><strong>(2) Separar a escolha do limiar do treinamento do modelo, e revisá-la
+periodicamente.</strong> Hoje usa-se o limiar padrão de 0,5, sem justificativa
+clínica. O limiar deveria ser um parâmetro de configuração definido pela
+equipe médica a partir da capacidade de atendimento disponível: quantos
+encaminhamentos por mês o serviço comporta define onde cortar na curva
+precision-recall. Mantido fora do modelo, esse valor pode ser recalibrado
+quando a capacidade mudar, sem retreinar nada -- combinado com revisão
+periódica (semestral) com dados novos rotulados, isso mantém o sistema útil
+sem exigir reimplantação completa a cada ajuste. Essa separação entre o
+modelo (que estima probabilidades) e o limiar de decisão (que reflete
+custos e capacidade operacional) segue o princípio de análise
+custo-sensível discutido na literatura de ciência de dados aplicada[7].</p>
+<hr />
+<h2 id="5-referencias">5. Referências</h2>
+<p><strong>Dataset</strong></p>
+<ul>
+<li>fedesoriano. <em>Stroke Prediction Dataset</em>. Kaggle, 2021. Disponível em:
+  <a href="https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset">https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset</a>.
+  Acesso em: outubro de 2026.</li>
+</ul>
+<p><strong>Bibliotecas e documentação técnica</strong></p>
+<ul>
+<li>PEDREGOSA, F. et al. Scikit-learn: Machine Learning in Python. <em>Journal
+  of Machine Learning Research</em>, v. 12, p. 2825-2830, 2011.</li>
+<li>LUNDBERG, S. M.; LEE, S.-I. A Unified Approach to Interpreting Model
+  Predictions. In: <em>Advances in Neural Information Processing Systems
+  (NeurIPS)</em>, v. 30, 2017. (SHAP)</li>
+</ul>
+<p><strong>Referências metodológicas e da discussão crítica</strong></p>
+<p>Os números entre colchetes ao longo das Seções 1.3, 2, 3.3 e 4 remetem a
+esta lista, na ordem em que aparecem no texto:</p>
+<ol>
+<li>RUBIN, D. B. Inference and Missing Data. <em>Biometrika</em>, v. 63, n. 3,
+   p. 581-592, 1976.</li>
+<li>LUNDBERG, S. M.; LEE, S.-I. A Unified Approach to Interpreting Model
+   Predictions. In: <em>Advances in Neural Information Processing Systems
+   (NeurIPS)</em>, v. 30, 2017.</li>
+<li>FINLAYSON, S. G. et al. The Clinician and Dataset Shift in Artificial
+   Intelligence. <em>New England Journal of Medicine</em>, v. 385, n. 3, p.
+   283-286, 2021.</li>
+<li>GBD 2019 STROKE COLLABORATORS. Global, Regional, and National Burden
+   of Stroke and Its Risk Factors, 1990-2019: A Systematic Analysis for
+   the Global Burden of Disease Study 2019. <em>The Lancet Neurology</em>, v. 20,
+   n. 10, p. 795-820, 2021.</li>
+<li>KAUFMAN, S.; ROSSET, S.; PERLICH, C. Leakage in Data Mining:
+   Formulation, Detection, and Avoidance. <em>ACM Transactions on Knowledge
+   Discovery from Data</em>, v. 6, n. 4, p. 1-21, 2012.</li>
+<li>SCULLEY, D. et al. Hidden Technical Debt in Machine Learning Systems.
+   In: <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, v.
+   28, 2015.</li>
+<li>PROVOST, F.; FAWCETT, T. <em>Data Science for Business</em>. Sebastopol:
+   O'Reilly Media, 2013.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
