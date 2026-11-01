@@ -827,13 +827,13 @@
 
 <h1 id="predicao-de-avc-modelagem-avaliacao-e-explicabilidade">Predição de AVC: modelagem, avaliação e explicabilidade</h1>
 <h2 id="informacoes-gerais">Informações gerais</h2>
-<p><strong>Docente:</strong> Humberto Sandman</p>
+<p><strong>Docente:</strong> Humberto Sandmann</p>
 <p><strong>Integrantes:</strong></p>
 <ul>
 <li>Emily Britto -- emilybg@al.insper.edu.br</li>
 <li>Gabriel Chaves Aguiar -- gabrielca5@al.insper.edu.br</li>
 </ul>
-<p><strong>Data da entrega:</strong> 30/10/2026</p>
+<p><strong>Data da entrega:</strong> 26/10/2026</p>
 <p><strong>Dataset escolhido:</strong> Stroke Prediction Dataset</p>
 <p><strong>Tipo de problema:</strong> Classificação binária</p>
 <hr />
@@ -915,8 +915,8 @@ todas as etapas anteriores foi feita pela PR-AUC.</p>
 frente -- isso garante que a imputação e a padronização sejam aprendidas
 apenas no fold de treino de cada partição da validação cruzada, sem
 vazamento. Tanto a regressão logística quanto a floresta usam
-<code>class_weight="balanced"</code>, resposta ao desbalanceamento já adotada na Etapa 1:
-o peso de cada classe fica inversamente proporcional à sua frequência,
+<code>class_weight="balanced"</code>, uma das alternativas para o desbalanceamento
+levantadas na Etapa 1 e agora adotada: o peso de cada classe fica inversamente proporcional à sua frequência,
 então errar um caso de AVC custa cerca de 20 vezes mais do que errar um
 caso negativo.</p>
 <p><strong>Resultado da métrica para os três modelos (PR-AUC, validação cruzada):</strong></p>
@@ -1192,7 +1192,7 @@ decisão sobre o indicador de ausência.</p>
 (falsos negativos) e <strong>265 pacientes sem AVC</strong> foram sinalizados sem
 necessidade (falsos positivos).</p>
 <p><img alt="Curva ROC no conjunto de teste" src="../assets/images/aps2/curva_roc.png" /></p>
-<p>Três observações sobre os resultados:</p>
+<p>Quatro observações sobre os resultados:</p>
 <ol>
 <li><strong>A accuracy de 0,732 é pior que a do modelo trivial (0,951), e isso é
    intencional.</strong> O modelo troca accuracy por recall de propósito, por causa
@@ -1223,7 +1223,7 @@ numéricas foram padronizadas e as categóricas estão em 0/1, os coeficientes
 são comparáveis entre si. Estão em escala de log-odds: nas numéricas, o
 <em>odds ratio</em> <code>exp(coeficiente)</code> é o efeito de um desvio padrão a mais; nas
 binárias, da passagem de 0 para 1.</p>
-<p><img alt="Coeficientes da regressão logística" src="assets/images/Etapa 2/coeficientes_logistica.png" /></p>
+<p><img alt="Coeficientes da regressão logística" src="../assets/images/aps2/coeficientes_logistica.png" /></p>
 <ol>
 <li><strong><code>age</code> (coeficiente +1,88, odds ratio 6,5).</strong> Domina o modelo com
    folga -- mais que o dobro do segundo colocado. Cada desvio padrão de
