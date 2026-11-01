@@ -2,14 +2,14 @@
 
 ## Informações gerais
 
-**Docente:** Humberto Sandman
+**Docente:** Humberto Sandmann
 
 **Integrantes:**
 
 - Emily Britto -- emilybg@al.insper.edu.br
 - Gabriel Chaves Aguiar -- gabrielca5@al.insper.edu.br
 
-**Data da entrega:** 30/10/2026
+**Data da entrega:** 26/10/2026
 
 **Dataset escolhido:** Stroke Prediction Dataset
 
@@ -86,8 +86,8 @@ Os três entram no **mesmo pipeline**, com o pré-processador da Etapa 1 na
 frente -- isso garante que a imputação e a padronização sejam aprendidas
 apenas no fold de treino de cada partição da validação cruzada, sem
 vazamento. Tanto a regressão logística quanto a floresta usam
-`class_weight="balanced"`, resposta ao desbalanceamento já adotada na Etapa 1:
-o peso de cada classe fica inversamente proporcional à sua frequência,
+`class_weight="balanced"`, uma das alternativas para o desbalanceamento
+levantadas na Etapa 1 e agora adotada: o peso de cada classe fica inversamente proporcional à sua frequência,
 então errar um caso de AVC custa cerca de 20 vezes mais do que errar um
 caso negativo.
 
@@ -230,7 +230,7 @@ necessidade (falsos positivos).
 
 ![Curva ROC no conjunto de teste](assets/images/aps2/curva_roc.png)
 
-Três observações sobre os resultados:
+Quatro observações sobre os resultados:
 
 1. **A accuracy de 0,732 é pior que a do modelo trivial (0,951), e isso é
    intencional.** O modelo troca accuracy por recall de propósito, por causa
@@ -265,7 +265,7 @@ são comparáveis entre si. Estão em escala de log-odds: nas numéricas, o
 *odds ratio* `exp(coeficiente)` é o efeito de um desvio padrão a mais; nas
 binárias, da passagem de 0 para 1.
 
-![Coeficientes da regressão logística](assets/images/Etapa 2/coeficientes_logistica.png)
+![Coeficientes da regressão logística](assets/images/aps2/coeficientes_logistica.png)
 
 1. **`age` (coeficiente +1,88, odds ratio 6,5).** Domina o modelo com
    folga -- mais que o dobro do segundo colocado. Cada desvio padrão de

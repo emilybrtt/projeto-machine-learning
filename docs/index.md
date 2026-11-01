@@ -2,7 +2,7 @@
 
 ## Informações gerais
 
-**Docente:** Humberto Sandman
+**Docente:** Humberto Sandmann
 
 **Integrantes:**
 
@@ -1395,7 +1395,7 @@ nesta EDA. Uma divergência entre as duas seria um sinal de alerta a investigar.
 
 ---
 
-## 8. Referências
+## 7. Referências
 
 **Dataset**
 
